@@ -13,6 +13,20 @@
     "ctaGambia": "See the Gambia Project",
     "ctaAbout": "About MIRIT"
   },
+"gambiaProject": {
+  "heroTitle": "The Gambia Project",
+  "heroSubtitle": "Building futures through education, one community at a time.",
+  "missionTitle": "Our Mission",
+  "missionText": "In partnership with local educators, MIRIT is expanding access to quality schooling and vocational training for young people across The Gambia, creating pathways from classroom to career.",
+  "statStudents": "Students Reached",
+  "statSchools": "Partner Schools",
+  "statTeachers": "Teachers Trained",
+  "storyTitle": "A Story of Change",
+  "storyText": "What started as a single classroom initiative has grown into a network of community-driven learning centers, each shaped by the needs of the people it serves.",
+  "ctaTitle": "Get Involved",
+  "ctaText": "Whether through partnership, volunteering, or support, there are many ways to be part of this work.",
+  "ctaButton": "Contact Us"
+},
   "footer": {
     "rights": "All rights reserved."
   }
