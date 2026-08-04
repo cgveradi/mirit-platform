@@ -1,6 +1,7 @@
 import Image from "next/image";
-import { Link } from "@/i18n/navigation";
+import GambiaApplicationForm from "@/components/GambiaApplicationForm";
 import { useTranslations } from "next-intl";
+
 
 export default function GambiaProjectPage() {
   const t = useTranslations("gambiaProject");
@@ -72,12 +73,8 @@ export default function GambiaProjectPage() {
       <section className="border-t border-muted/20 py-24 px-8 text-center">
         <h2 className="text-3xl font-bold mb-4">{t("ctaTitle")}</h2>
         <p className="text-lg text-muted max-w-xl mx-auto mb-8">{t("ctaText")}</p>
-        <Link
-          href="/contact"
-          className="bg-accent text-background px-8 py-3 rounded-full font-medium hover:opacity-80 transition-opacity inline-block"
-        >
           {t("ctaButton")}
-        </Link>
+                  <GambiaApplicationForm />
       </section>
     </main>
   );
