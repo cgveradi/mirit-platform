@@ -17,11 +17,6 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
-export const metadata: Metadata = {
-  title: "MIRIT",
-  description: "Education, Culture and Innovation",
-};
-
 export function generateStaticParams() {
   return routing.locales.map((locale) => ({ locale }));
 }
@@ -40,17 +35,14 @@ export default async function LocaleLayout({
   }
 
   return (
-    <html
-      lang={locale}
-      className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
+    <div
+      className={`${geistSans.variable} ${geistMono.variable} h-full min-h-full flex flex-col antialiased`}
     >
-      <body className="min-h-full flex flex-col">
-        <NextIntlClientProvider>
-          <Navbar />
-          {children}
-          <Footer />
-        </NextIntlClientProvider>
-      </body>
-    </html>
+      <NextIntlClientProvider>
+        <Navbar />
+        {children}
+        <Footer />
+      </NextIntlClientProvider>
+    </div>
   );
 }

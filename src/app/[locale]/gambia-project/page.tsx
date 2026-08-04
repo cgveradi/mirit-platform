@@ -73,7 +73,6 @@ export default function GambiaProjectPage() {
       <section className="border-t border-muted/20 py-24 px-8 text-center">
         <h2 className="text-3xl font-bold mb-4">{t("ctaTitle")}</h2>
         <p className="text-lg text-muted max-w-xl mx-auto mb-8">{t("ctaText")}</p>
-          {t("ctaButton")}
                   <GambiaApplicationForm />
       </section>
     </main>
