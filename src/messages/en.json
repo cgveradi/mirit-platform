@@ -33,6 +33,33 @@
     "galleryTitle": "The Project in Pictures"
   },
 
+  "about": {
+    "eyebrow": "About MIRIT",
+    "title": "A place for ideas to meet, move and become useful.",
+    "intro": "MIRIT connects knowledge, cultures and technology to create meaningful experiences and practical possibilities across borders.",
+    "storyEyebrow": "Our perspective",
+    "storyTitle": "Curiosity becomes more powerful when it is shared.",
+    "storyTextOne": "MIRIT is an evolving platform for exchange. We bring people, perspectives and disciplines into conversation — because lasting ideas rarely arrive from a single place.",
+    "storyTextTwo": "Our work is grounded in listening, research and meaningful collaboration. We look for the practical next step: a programme, a connection, a tool or a shared experience that can create real momentum.",
+    "principlesEyebrow": "What guides us",
+    "principlesIntro": "Three directions that shape how MIRIT thinks, works and grows.",
+    "knowledge": {
+      "title": "Knowledge, shared",
+      "text": "We make research approachable, exchangeable and connected to the questions people are asking now."
+    },
+    "culture": {
+      "title": "Culture, in dialogue",
+      "text": "We see cultural exchange as a living practice: built with care, context and respect for every voice involved."
+    },
+    "innovation": {
+      "title": "Innovation, with purpose",
+      "text": "We use technology when it helps people connect, learn or act — never simply for the sake of novelty."
+    },
+    "closingEyebrow": "Work with MIRIT",
+    "closingTitle": "Good things begin when perspectives come together.",
+    "closingCta": "Start a conversation"
+  },
+
   "footer": {
     "rights": "All rights reserved."
   }
