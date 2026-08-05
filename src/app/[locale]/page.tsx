@@ -53,7 +53,7 @@ export default function Home() {
             <p>{t("pathOneText")}</p>
             <b aria-hidden="true">↗</b>
           </Link>
-          <Link href="/services" className="path-card path-card-cool">
+          <Link href="/what-we-do" className="path-card path-card-cool">
             <span>02</span>
             <h2>{t("pathTwoTitle")}</h2>
             <p>{t("pathTwoText")}</p>

@@ -2,8 +2,10 @@
 
 import { useState } from 'react';
 import { supabase } from '@/lib/supabase';
+import { useTranslations } from 'next-intl';
 
 export default function ContactForm() {
+  const t = useTranslations('contact.form');
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [message, setMessage] = useState('');
@@ -30,41 +32,50 @@ export default function ContactForm() {
   }
 
   return (
-    <form onSubmit={handleSubmit} className="flex flex-col gap-4 max-w-lg">
-      <input
-        type="text"
-        placeholder="Name"
-        value={name}
-        onChange={(e) => setName(e.target.value)}
-        required
-        className="border border-black px-4 py-3"
-      />
-      <input
-        type="email"
-        placeholder="Email"
-        value={email}
-        onChange={(e) => setEmail(e.target.value)}
-        required
-        className="border border-black px-4 py-3"
-      />
-      <textarea
-        placeholder="Message"
-        value={message}
-        onChange={(e) => setMessage(e.target.value)}
-        required
-        rows={5}
-        className="border border-black px-4 py-3"
-      />
+    <form onSubmit={handleSubmit} className="contact-form">
+      <label>
+        <span>{t('name')}</span>
+        <input
+          type="text"
+          placeholder={t('namePlaceholder')}
+          value={name}
+          onChange={(e) => setName(e.target.value)}
+          required
+          className="contact-field"
+        />
+      </label>
+      <label>
+        <span>{t('email')}</span>
+        <input
+          type="email"
+          placeholder={t('emailPlaceholder')}
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
+          required
+          className="contact-field"
+        />
+      </label>
+      <label>
+        <span>{t('message')}</span>
+        <textarea
+          placeholder={t('messagePlaceholder')}
+          value={message}
+          onChange={(e) => setMessage(e.target.value)}
+          required
+          rows={5}
+          className="contact-field contact-message"
+        />
+      </label>
       <button
         type="submit"
         disabled={status === 'submitting'}
-        className="bg-black text-white px-6 py-3 disabled:opacity-50"
+        className="contact-submit"
       >
-        {status === 'submitting' ? 'Sending...' : 'Send Message'}
+        {status === 'submitting' ? t('sending') : t('submit')} <span aria-hidden="true">↗</span>
       </button>
 
-      {status === 'success' && <p className="text-green-600">Message sent — thank you!</p>}
-      {status === 'error' && <p className="text-red-600">Something went wrong. Please try again.</p>}
+      {status === 'success' && <p className="contact-status contact-status-success">{t('success')}</p>}
+      {status === 'error' && <p className="contact-status contact-status-error">{t('error')}</p>}
     </form>
   );
 }

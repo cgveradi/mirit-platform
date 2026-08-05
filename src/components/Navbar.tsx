@@ -17,7 +17,7 @@ export default function Navbar() {
 
       <div className="nav-links">
         <Link
-          href="/services"
+          href="/what-we-do"
           className="hover:text-foreground transition-colors"
         >
           {t("whatWeDo")}

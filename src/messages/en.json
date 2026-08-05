@@ -60,6 +60,27 @@
     "closingCta": "Start a conversation"
   },
 
+  "contact": {
+    "eyebrow": "Contact MIRIT",
+    "title": "Start with a conversation.",
+    "intro": "Have an idea, a question or a possible collaboration? We would love to hear where it could lead.",
+    "replyNote": "Every exchange begins somewhere.",
+    "formEyebrow": "Tell us more",
+    "formIntro": "A few words are enough. We will get back to you as soon as we can.",
+    "form": {
+      "name": "Your name",
+      "namePlaceholder": "How should we call you?",
+      "email": "Email address",
+      "emailPlaceholder": "you@example.com",
+      "message": "Your message",
+      "messagePlaceholder": "What would you like to explore together?",
+      "submit": "Send message",
+      "sending": "Sending",
+      "success": "Message sent — thank you.",
+      "error": "Something went wrong. Please try again."
+    }
+  },
+
   "footer": {
     "rights": "All rights reserved."
   }
