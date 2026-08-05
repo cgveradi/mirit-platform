@@ -1,17 +1,16 @@
 {
-  "nav": {
-    "home": "Home",
-    "services": "Services",
-    "gambiaProject": "Gambia Project",
-    "articles": "Articles",
-    "about": "About",
-    "contact": "Contact"
-  },
+"nav": {
+  "whatWeDo": "What We Do",
+  "gambiaProject": "Gambia Project",
+  "research": "Research",
+  "about": "About",
+  "contact": "Contact"
+},
   "home": {
-    "title": "Education, Culture and Innovation",
-    "subtitle": "MIRIT builds programs and platforms that connect learning, research, and community across borders.",
-    "ctaGambia": "See the Gambia Project",
-    "ctaAbout": "About MIRIT"
+    "title": "Research, Culture & Innovation",
+    "subtitle": "MIRIT connects knowledge, cultures and technology to create meaningful experiences, research and practical digital solutions across borders.",
+    "ctaGambia": "Explore the Gambia Project",
+    "ctaAbout": "Discover MIRIT"
   },
 "gambiaProject": {
   "heroTitle": "The Gambia Project",

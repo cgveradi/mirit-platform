@@ -7,13 +7,49 @@ export default function Navbar() {
 
   return (
     <nav className="flex items-center justify-between px-8 py-6 bg-background text-foreground">
-      <Link href="/" className="font-bold text-lg tracking-tight">MIRIT</Link>
+      <Link
+        href="/"
+        className="font-bold text-lg tracking-tight"
+      >
+        MIRIT
+      </Link>
+
       <div className="flex gap-6 text-sm text-muted items-center">
-        <Link href="/services" className="hover:text-foreground transition-colors">{t("services")}</Link>
-        <Link href="/gambia-project" className="hover:text-foreground transition-colors">{t("gambiaProject")}</Link>
-        <Link href="/articles" className="hover:text-foreground transition-colors">{t("articles")}</Link>
-        <Link href="/about" className="hover:text-foreground transition-colors">{t("about")}</Link>
-        <Link href="/contact" className="hover:text-foreground transition-colors">{t("contact")}</Link>
+        <Link
+          href="/services"
+          className="hover:text-foreground transition-colors"
+        >
+          {t("whatWeDo")}
+        </Link>
+
+        <Link
+          href="/gambia-project"
+          className="hover:text-foreground transition-colors"
+        >
+          {t("gambiaProject")}
+        </Link>
+
+        <Link
+          href="/articles"
+          className="hover:text-foreground transition-colors"
+        >
+          {t("research")}
+        </Link>
+
+        <Link
+          href="/about"
+          className="hover:text-foreground transition-colors"
+        >
+          {t("about")}
+        </Link>
+
+        <Link
+          href="/contact"
+          className="hover:text-foreground transition-colors"
+        >
+          {t("contact")}
+        </Link>
+
         <LanguageSwitcher />
       </div>
     </nav>
