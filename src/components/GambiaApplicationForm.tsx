@@ -43,14 +43,14 @@ export default function GambiaApplicationForm() {
   }
 
   return (
-    <form onSubmit={handleSubmit} className="flex flex-col gap-4 max-w-lg mx-auto text-left">
+    <form onSubmit={handleSubmit} className="gambia-application-form">
       <input
         type="text"
         placeholder="Full name"
         value={name}
         onChange={(e) => setName(e.target.value)}
         required
-        className="border border-muted/40 bg-transparent px-4 py-3"
+        className="gambia-field"
       />
       <input
         type="email"
@@ -58,21 +58,21 @@ export default function GambiaApplicationForm() {
         value={email}
         onChange={(e) => setEmail(e.target.value)}
         required
-        className="border border-muted/40 bg-transparent px-4 py-3"
+        className="gambia-field"
       />
-      <div className="flex flex-col gap-1">
-        <label className="text-sm text-muted">Date of birth</label>
+      <div className="gambia-field-group">
+        <label>Date of birth</label>
         <input
           type="date"
           value={dateOfBirth}
           onChange={(e) => setDateOfBirth(e.target.value)}
-          className="border border-muted/40 bg-transparent px-4 py-3"
+          className="gambia-field"
         />
       </div>
       <select
         value={gender}
         onChange={(e) => setGender(e.target.value)}
-        className="border border-muted/40 bg-transparent px-4 py-3"
+        className="gambia-field"
       >
         <option value="">Gender (optional)</option>
         <option value="female">Female</option>
@@ -83,7 +83,7 @@ export default function GambiaApplicationForm() {
         value={role}
         onChange={(e) => setRole(e.target.value as Role)}
         required
-        className="border border-muted/40 bg-transparent px-4 py-3"
+        className="gambia-field"
       >
         <option value="" disabled>
           I am applying as...
@@ -101,14 +101,14 @@ export default function GambiaApplicationForm() {
           value={fieldOfProfession}
           onChange={(e) => setFieldOfProfession(e.target.value)}
           required
-          className="border border-muted/40 bg-transparent px-4 py-3"
+          className="gambia-field"
         />
       )}
 
       <button
         type="submit"
         disabled={status === 'submitting'}
-        className="bg-accent text-background px-8 py-3 rounded-full font-medium hover:opacity-80 transition-opacity disabled:opacity-50"
+        className="gambia-submit"
       >
         {status === 'submitting' ? 'Submitting...' : 'Submit application'}
       </button>

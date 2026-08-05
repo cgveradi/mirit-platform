@@ -58,12 +58,6 @@ export default async function GambiaProjectPage() {
     },
   });
 
-  console.log("GAMBIA DEBUG:", {
-  locale,
-  slug,
-  project: data,
-});
-
   const project = data as GambiaProject | null;
 
   if (!project) {
@@ -72,8 +66,7 @@ export default async function GambiaProjectPage() {
 
   return (
     <main>
-      {/* HERO */}
-      <section className="relative min-h-[75vh] flex items-center justify-center text-center px-8 overflow-hidden">
+      <section className="project-hero">
         <Image
           src={urlFor(project.heroImage)
             .width(2000)
@@ -83,87 +76,87 @@ export default async function GambiaProjectPage() {
           fill
           priority
           sizes="100vw"
-          className="object-cover brightness-[0.45]"
+          className="project-hero-image"
         />
 
-        <div className="relative z-10 max-w-4xl">
+        <div className="project-hero-overlay" />
+        <div className="project-hero-content">
           {project.eyebrow && (
-            <p className="text-sm uppercase tracking-[0.25em] text-white/70 mb-6">
+            <p className="project-eyebrow project-reveal">
               {project.eyebrow}
             </p>
           )}
 
-          <h1 className="text-5xl md:text-7xl font-bold tracking-tight text-white">
+          <h1 className="project-hero-title project-reveal">
             {project.title}
           </h1>
 
           {project.heroSubtitle && (
-            <p className="mt-6 text-xl md:text-2xl text-white/80 max-w-2xl mx-auto">
+            <p className="project-hero-subtitle project-reveal">
               {project.heroSubtitle}
             </p>
           )}
         </div>
+        <p className="project-hero-index" aria-hidden="true">01 / MIRIT</p>
       </section>
 
-      {/* INTRODUCTION */}
-      <section className="max-w-4xl mx-auto px-8 py-24 text-center">
-        <p className="text-sm uppercase tracking-[0.2em] text-muted mb-4">
+      <section className="project-intro">
+        <p className="eyebrow">
           {t("introEyebrow")}
         </p>
 
         {project.introTitle && (
-          <h2 className="text-3xl md:text-4xl font-bold mb-8">
+          <h2>
             {project.introTitle}
           </h2>
         )}
 
         {project.introText && (
-          <p className="text-lg text-muted leading-relaxed whitespace-pre-line">
+          <p className="project-intro-copy">
             {project.introText}
           </p>
         )}
       </section>
 
-      {/* PROGRAM */}
       {project.programItems && project.programItems.length > 0 && (
-        <section className="border-t border-muted/20 px-8 py-24">
-          <div className="max-w-6xl mx-auto">
-            <div className="max-w-2xl mb-16">
-              <p className="text-sm uppercase tracking-[0.2em] text-muted mb-4">
+        <section className="project-program">
+          <div className="project-program-inner">
+            <div className="project-program-heading">
+              <p className="eyebrow">
                 {t("programEyebrow")}
               </p>
 
               {project.programTitle && (
-                <h2 className="text-3xl md:text-5xl font-bold">
+                <h2>
                   {project.programTitle}
                 </h2>
               )}
 
               {project.programText && (
-                <p className="mt-6 text-lg text-muted leading-relaxed">
+                <p>
                   {project.programText}
                 </p>
               )}
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-px bg-muted/20">
+            <div className="project-program-grid">
               {project.programItems.map((item, index) => (
                 <div
                   key={`${item.number ?? index}-${item.title}`}
-                  className="bg-background p-10"
+                  className="project-program-card"
                 >
                   {item.number && (
-                    <span className="text-sm text-muted">
+                    <span>
                       {item.number}
                     </span>
                   )}
 
-                  <h3 className="text-2xl font-semibold mt-4">
+                  <h3>
                     {item.title}
                   </h3>
 
                   {item.description && (
-                    <p className="mt-4 text-muted leading-relaxed">
+                    <p>
                       {item.description}
                     </p>
                   )}
@@ -174,24 +167,23 @@ export default async function GambiaProjectPage() {
         </section>
       )}
 
-      {/* GALLERY */}
       {project.gallery && project.gallery.length > 0 && (
-        <section className="max-w-6xl mx-auto px-8 py-24">
-          <div className="mb-12">
-            <p className="text-sm uppercase tracking-[0.2em] text-muted">
+        <section className="project-gallery">
+          <div className="project-gallery-heading">
+            <p className="eyebrow">
               {t("galleryEyebrow")}
             </p>
 
-            <h2 className="text-3xl md:text-4xl font-bold mt-4">
+            <h2>
               {t("galleryTitle")}
             </h2>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div className="project-gallery-grid">
             {project.gallery.map((image, index) => (
               <div
                 key={image.asset?._ref ?? index}
-                className="relative aspect-4/3 rounded-2xl overflow-hidden"
+                className="project-gallery-image"
               >
                 <Image
                   src={urlFor(image)
@@ -201,7 +193,7 @@ export default async function GambiaProjectPage() {
                   alt={`${project.title} ${index + 1}`}
                   fill
                   sizes="(max-width: 768px) 100vw, 50vw"
-                  className="object-cover"
+                  className="object-cover transition-transform duration-700 hover:scale-[1.03]"
                 />
               </div>
             ))}
@@ -209,21 +201,22 @@ export default async function GambiaProjectPage() {
         </section>
       )}
 
-      {/* CTA */}
-      <section className="border-t border-muted/20 py-24 px-8 text-center">
+      <section className="project-cta">
+        <div>
         {project.ctaTitle && (
-          <h2 className="text-3xl md:text-4xl font-bold mb-6">
+          <h2>
             {project.ctaTitle}
           </h2>
         )}
 
         {project.ctaText && (
-          <p className="text-lg text-muted max-w-2xl mx-auto mb-10">
+          <p>
             {project.ctaText}
           </p>
         )}
 
         <GambiaApplicationForm />
+        </div>
       </section>
     </main>
   );

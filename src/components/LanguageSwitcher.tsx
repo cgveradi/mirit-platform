@@ -13,7 +13,8 @@ export default function LanguageSwitcher() {
   return (
     <button
       onClick={() => router.replace(pathname, { locale: otherLocale })}
-      className="text-sm text-muted hover:text-foreground transition-colors"
+      className="language-toggle"
+      aria-label={`Switch language to ${otherLocale.toUpperCase()}`}
     >
       {otherLocale.toUpperCase()}
     </button>

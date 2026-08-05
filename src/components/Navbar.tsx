@@ -1,20 +1,21 @@
 import { Link } from "@/i18n/navigation";
 import { useTranslations } from "next-intl";
 import LanguageSwitcher from "@/components/LanguageSwitcher";
+import ThemeToggle from "@/components/ThemeToggle";
 
 export default function Navbar() {
   const t = useTranslations("nav");
 
   return (
-    <nav className="flex items-center justify-between px-8 py-6 bg-background text-foreground">
+    <nav className="site-nav">
       <Link
         href="/"
-        className="font-bold text-lg tracking-tight"
+        className="mirit-wordmark"
       >
         MIRIT
       </Link>
 
-      <div className="flex gap-6 text-sm text-muted items-center">
+      <div className="nav-links">
         <Link
           href="/services"
           className="hover:text-foreground transition-colors"
@@ -51,6 +52,7 @@ export default function Navbar() {
         </Link>
 
         <LanguageSwitcher />
+        <ThemeToggle />
       </div>
     </nav>
   );
