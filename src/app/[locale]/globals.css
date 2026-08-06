@@ -40,7 +40,7 @@ body {
 
 ::selection { background: var(--color-foreground); color: var(--color-background); }
 
-.site-nav { display: flex; align-items: center; justify-content: space-between; padding: 1.7rem 2.5rem; color: var(--color-foreground); }
+.site-nav { position: sticky; top: 0; z-index: 50; display: flex; align-items: center; justify-content: space-between; padding: 1.7rem 2.5rem; background: color-mix(in srgb, var(--color-background) 92%, transparent); color: var(--color-foreground); backdrop-filter: blur(12px); }
 .mirit-wordmark { font-size: clamp(1.2rem, 1.45vw, 1.55rem); font-weight: 650; letter-spacing: .25em; line-height: 1; transition: letter-spacing 300ms ease; }
 .mirit-wordmark:hover { letter-spacing: .31em; }
 .nav-links { display: flex; align-items: center; gap: 1.7rem; font-size: .95rem; font-weight: 500; color: var(--color-muted); }
