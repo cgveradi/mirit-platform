@@ -1,5 +1,6 @@
 import { Link } from "@/i18n/navigation";
 import { useTranslations } from "next-intl";
+import ScrollReveal from "@/components/ScrollReveal";
 
 export default function Home() {
   const t = useTranslations("home");
@@ -29,45 +30,35 @@ export default function Home() {
       </section>
 
       <section id="perspective" className="perspective-section">
-        <p className="eyebrow">{t("perspectiveEyebrow")}</p>
-        <div className="perspective-grid">
-          <h2>{t("perspectiveTitle")}</h2>
-          <div className="perspective-copy">
-            <p>{t("perspectiveText")}</p>
-            <Link href="/about" className="text-link">
-              {t("ctaAbout")} <span aria-hidden="true">↗</span>
-            </Link>
+        <ScrollReveal>
+          <p className="eyebrow">{t("perspectiveEyebrow")}</p>
+          <div className="perspective-grid">
+            <h2>{t("perspectiveTitle")}</h2>
+            <div className="perspective-copy">
+              <p>{t("perspectiveText")}</p>
+              <Link href="/about" className="text-link">
+                {t("ctaAbout")} <span aria-hidden="true">↗</span>
+              </Link>
+            </div>
           </div>
-        </div>
+        </ScrollReveal>
       </section>
 
       <section className="paths-section" aria-label={t("pathsEyebrow")}>
-        <div className="paths-heading">
-          <p className="eyebrow">{t("pathsEyebrow")}</p>
-          <p>{t("pathsIntro")}</p>
-        </div>
-        <div className="paths-grid">
-          <Link href="/gambia-project" className="path-card path-card-warm">
-            <span>01</span>
-            <h2>{t("pathOneTitle")}</h2>
-            <p>{t("pathOneText")}</p>
-            <b aria-hidden="true">↗</b>
-          </Link>
-          <Link href="/what-we-do" className="path-card path-card-cool">
-            <span>02</span>
-            <h2>{t("pathTwoTitle")}</h2>
-            <p>{t("pathTwoText")}</p>
-            <b aria-hidden="true">↗</b>
-          </Link>
-        </div>
+        <ScrollReveal>
+          <div className="paths-heading">
+            <p className="eyebrow">{t("pathsEyebrow")}</p>
+            <p>{t("pathsIntro")}</p>
+          </div>
+          <div className="paths-grid">
+            <Link href="/gambia-project" className="path-card path-card-warm"><span>01</span><h2>{t("pathOneTitle")}</h2><p>{t("pathOneText")}</p><b aria-hidden="true">↗</b></Link>
+            <Link href="/what-we-do" className="path-card path-card-cool"><span>02</span><h2>{t("pathTwoTitle")}</h2><p>{t("pathTwoText")}</p><b aria-hidden="true">↗</b></Link>
+          </div>
+        </ScrollReveal>
       </section>
 
       <section className="closing-section">
-        <p className="eyebrow">{t("closingEyebrow")}</p>
-        <h2>{t("closingTitle")}</h2>
-        <Link href="/gambia-project" className="button-link">
-          {t("ctaGambia")} <span aria-hidden="true">↗</span>
-        </Link>
+        <ScrollReveal><p className="eyebrow">{t("closingEyebrow")}</p><h2>{t("closingTitle")}</h2><Link href="/gambia-project" className="button-link">{t("ctaGambia")} <span aria-hidden="true">↗</span></Link></ScrollReveal>
       </section>
     </main>
   );

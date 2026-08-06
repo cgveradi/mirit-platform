@@ -3,6 +3,22 @@ import { useTranslations } from "next-intl";
 import LanguageSwitcher from "@/components/LanguageSwitcher";
 import ThemeToggle from "@/components/ThemeToggle";
 
+function AnimatedNavLabel({ label }: { label: string }) {
+  return (
+    <span className="nav-label" aria-hidden="true">
+      {Array.from(label).map((character, index) => (
+        <span
+          key={`${character}-${index}`}
+          className="nav-label-char"
+          style={{ animationDelay: `${index * 24}ms` }}
+        >
+          {character === " " ? "\u00A0" : character}
+        </span>
+      ))}
+    </span>
+  );
+}
+
 export default function Navbar() {
   const t = useTranslations("nav");
 
@@ -16,39 +32,36 @@ export default function Navbar() {
       </Link>
 
       <div className="nav-links">
-        <Link
-          href="/what-we-do"
-          className="hover:text-foreground transition-colors"
-        >
-          {t("whatWeDo")}
+        <Link href="/what-we-do" aria-label={t("whatWeDo")}>
+          <AnimatedNavLabel label={t("whatWeDo")} />
         </Link>
 
         <Link
           href="/gambia-project"
-          className="hover:text-foreground transition-colors"
+          aria-label={t("gambiaProject")}
         >
-          {t("gambiaProject")}
+          <AnimatedNavLabel label={t("gambiaProject")} />
         </Link>
 
         <Link
           href="/articles"
-          className="hover:text-foreground transition-colors"
+          aria-label={t("research")}
         >
-          {t("research")}
+          <AnimatedNavLabel label={t("research")} />
         </Link>
 
         <Link
           href="/about"
-          className="hover:text-foreground transition-colors"
+          aria-label={t("about")}
         >
-          {t("about")}
+          <AnimatedNavLabel label={t("about")} />
         </Link>
 
         <Link
           href="/contact"
-          className="hover:text-foreground transition-colors"
+          aria-label={t("contact")}
         >
-          {t("contact")}
+          <AnimatedNavLabel label={t("contact")} />
         </Link>
 
         <LanguageSwitcher />

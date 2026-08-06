@@ -2,6 +2,7 @@ import { PortableText } from '@portabletext/react';
 import { client } from '@/sanity/lib/client';
 import { articleBySlugQuery } from '@/sanity/lib/queries';
 import { notFound } from 'next/navigation';
+import ScrollReveal from '@/components/ScrollReveal';
 
 type Article = {
   title: string;
@@ -29,13 +30,11 @@ export default async function ArticlePage({
 
   return (
     <main className="max-w-2xl mx-auto px-8 py-24">
-      <p className="text-sm text-muted uppercase tracking-wide mb-4">
-        {article.category}
-      </p>
-      <h1 className="text-4xl font-bold mb-8">{article.title}</h1>
-      <div className="prose prose-invert max-w-none">
-        <PortableText value={article.body} />
-      </div>
+      <ScrollReveal>
+        <p className="text-sm text-muted uppercase tracking-wide mb-4">{article.category}</p>
+        <h1 className="text-4xl font-bold mb-8">{article.title}</h1>
+      </ScrollReveal>
+      <ScrollReveal delay={100}><div className="prose prose-invert max-w-none"><PortableText value={article.body} /></div></ScrollReveal>
     </main>
   );
 }

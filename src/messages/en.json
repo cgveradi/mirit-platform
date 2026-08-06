@@ -29,8 +29,83 @@
   "gambiaProject": {
     "introEyebrow": "The Project",
     "programEyebrow": "The Program",
+    "heroAlt": "Participants gathered around a table during a cultural learning workshop in The Gambia",
+    "introImageAlt": "A Gambian and a Russian participant sharing books and cultural ideas",
+    "detailsEyebrow": "At a glance",
+    "detailsTitle": "Plan your participation",
+    "detailsIntro": "The programme is in development. We will publish confirmed practical information here as soon as it is available.",
+    "detailsNote": "Register your interest below and we will contact you when official dates, venue details and application information are confirmed.",
+    "details": {
+      "dates": { "label": "Programme dates", "value": "To be announced" },
+      "location": { "label": "Location in The Gambia", "value": "Venue to be confirmed" },
+      "deadline": { "label": "Application deadline", "value": "To be announced" },
+      "fee": { "label": "Participation fee", "value": "To be confirmed" },
+      "capacity": { "label": "Available places", "value": "To be confirmed" },
+      "eligibility": { "label": "Eligibility", "value": "Final criteria to be announced" }
+    },
     "galleryEyebrow": "In Focus",
-    "galleryTitle": "The Project in Pictures"
+    "galleryTitle": "A vision for the exchange",
+    "conceptAlt": {
+      "language": "Concept image of adult participants collaborating during a language workshop",
+      "creative": "Concept image of Gambian and Russian adults sharing a creative workshop",
+      "dialogue": "Concept image of adults exchanging perspectives in a courtyard discussion",
+      "community": "Concept image of participants talking together after a community workshop"
+    },
+    "seo": {
+      "title": "The Gambia Project | MIRIT",
+      "description": "A two-week cultural and educational exchange connecting Russia and The Gambia through language, arts, dialogue and community learning."
+    },
+    "form": {
+      "name": "Full name",
+      "namePlaceholder": "Your full name",
+      "email": "Email address",
+      "emailPlaceholder": "you@example.com",
+      "dateOfBirth": "Date of birth (optional)",
+      "gender": "Gender (optional)",
+      "genderPlaceholder": "Prefer not to say",
+      "female": "Female",
+      "male": "Male",
+      "other": "Other",
+      "role": "How would you like to participate?",
+      "rolePlaceholder": "Select a participation path",
+      "roleHelp": "Choose the closest option. We can update it with you when the programme details are confirmed.",
+      "roles": { "student": "Student", "assistant": "Programme assistant", "professional": "Professional or partner", "event": "Event registration" },
+      "message": "A few words (optional)",
+      "messagePlaceholder": "What would you like to learn, contribute or explore?",
+      "fieldOfProfession": "Field of profession",
+      "consent": "I consent to MIRIT using the information I provide to assess my registration of interest and contact me about The Gambia Project.",
+      "consentShort": "MIRIT may use these details to respond and keep me informed about The Gambia Project.",
+      "privacyNote": "Your information will be used only for project registration and communication. It will not be sold or used for unrelated marketing. You may ask MIRIT to correct or delete it at any time.",
+      "submit": "Register interest",
+      "submitting": "Submitting…",
+      "success": "Your interest has been registered — thank you. We will share confirmed details when they are available.",
+      "error": "Something went wrong. Please try again."
+    }
+  },
+
+  "whatWeDo": {
+    "eyebrow": "What MIRIT does",
+    "title": "Ideas become useful when they move.",
+    "intro": "We connect research, culture and technology to shape thoughtful programmes, experiences and digital tools across borders.",
+    "servicesEyebrow": "Our work",
+    "servicesTitle": "Four ways we create momentum",
+    "services": {
+      "research": { "title": "Research & insight", "text": "We turn complex questions into clear understanding, useful perspectives and practical directions." },
+      "culture": { "title": "Cultural exchange", "text": "We create spaces where people, languages and traditions meet through reciprocal learning and shared experience." },
+      "digital": { "title": "Digital solutions", "text": "We design purposeful websites, platforms and tools that help knowledge travel and communities connect." },
+      "programmes": { "title": "Education & programmes", "text": "We develop learning formats, workshops and initiatives that move from curiosity to participation." }
+    },
+    "capabilitiesEyebrow": "Capabilities",
+    "capabilitiesTitle": "Built around the question, not a fixed formula.",
+    "capabilities": {
+      "strategy": { "title": "Strategy", "items": ["Research and discovery", "Programme framing", "Content direction", "Partnership planning"] },
+      "experience": { "title": "Experience", "items": ["Cultural programmes", "Workshops and learning", "Editorial storytelling", "Community engagement"] },
+      "technology": { "title": "Technology", "items": ["Websites and platforms", "Digital products", "Content systems", "Practical automation"] }
+    },
+    "closingEyebrow": "Work with MIRIT",
+    "closingTitle": "Bring us the question. We will find the meaningful next step.",
+    "closingCta": "Start a conversation",
+    "seo": { "title": "What We Do | MIRIT", "description": "Explore MIRIT's work across research, cultural exchange, education and purposeful digital solutions." }
   },
 
   "about": {

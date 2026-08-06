@@ -1,5 +1,6 @@
 import { Link } from "@/i18n/navigation";
 import { useTranslations } from "next-intl";
+import ScrollReveal from "@/components/ScrollReveal";
 
 export default function AboutPage() {
   const t = useTranslations("about");
@@ -18,39 +19,24 @@ export default function AboutPage() {
       </section>
 
       <section className="about-story">
-        <p className="eyebrow">{t("storyEyebrow")}</p>
-        <div className="about-story-grid">
-          <h2>{t("storyTitle")}</h2>
-          <div>
-            <p>{t("storyTextOne")}</p>
-            <p>{t("storyTextTwo")}</p>
+        <ScrollReveal>
+          <p className="eyebrow">{t("storyEyebrow")}</p>
+          <div className="about-story-grid">
+            <h2>{t("storyTitle")}</h2>
+            <div><p>{t("storyTextOne")}</p><p>{t("storyTextTwo")}</p></div>
           </div>
-        </div>
+        </ScrollReveal>
       </section>
 
       <section className="about-principles">
-        <div className="about-principles-heading">
-          <p className="eyebrow">{t("principlesEyebrow")}</p>
-          <p>{t("principlesIntro")}</p>
-        </div>
-        <div className="about-principles-list">
-          {principles.map((principle, index) => (
-            <article key={principle} className="about-principle">
-              <span>0{index + 1}</span>
-              <h2>{t(`${principle}.title`)}</h2>
-              <p>{t(`${principle}.text`)}</p>
-              <span aria-hidden="true">↗</span>
-            </article>
-          ))}
-        </div>
+        <ScrollReveal>
+          <div className="about-principles-heading"><p className="eyebrow">{t("principlesEyebrow")}</p><p>{t("principlesIntro")}</p></div>
+          <div className="about-principles-list">{principles.map((principle, index) => <article key={principle} className="about-principle"><span>0{index + 1}</span><h2>{t(`${principle}.title`)}</h2><p>{t(`${principle}.text`)}</p><span aria-hidden="true">↗</span></article>)}</div>
+        </ScrollReveal>
       </section>
 
       <section className="about-closing">
-        <p className="eyebrow">{t("closingEyebrow")}</p>
-        <h2>{t("closingTitle")}</h2>
-        <Link href="/contact" className="button-link">
-          {t("closingCta")} <span aria-hidden="true">↗</span>
-        </Link>
+        <ScrollReveal><p className="eyebrow">{t("closingEyebrow")}</p><h2>{t("closingTitle")}</h2><Link href="/contact" className="button-link">{t("closingCta")} <span aria-hidden="true">↗</span></Link></ScrollReveal>
       </section>
     </main>
   );

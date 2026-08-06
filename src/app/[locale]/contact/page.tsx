@@ -1,5 +1,6 @@
 import ContactForm from "@/components/ContactForm";
 import { useTranslations } from "next-intl";
+import ScrollReveal from "@/components/ScrollReveal";
 
 export default function ContactPage() {
   const t = useTranslations("contact");
@@ -18,11 +19,11 @@ export default function ContactPage() {
       </section>
 
       <section className="contact-form-section">
-        <div className="contact-form-heading">
+        <ScrollReveal className="contact-form-heading">
           <p className="eyebrow">{t("formEyebrow")}</p>
           <p>{t("formIntro")}</p>
-        </div>
-        <ContactForm />
+        </ScrollReveal>
+        <ScrollReveal delay={100}><ContactForm /></ScrollReveal>
       </section>
     </main>
   );

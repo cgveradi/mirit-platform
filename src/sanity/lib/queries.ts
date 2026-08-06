@@ -36,7 +36,8 @@ export const articleBySlugQuery = defineQuery(`
 export const projectBySlugQuery = defineQuery(`
   *[
     _type == "gambiaProject" &&
-    slug.current == $slug
+    slug.current == $slug &&
+    locale == $locale
   ][0] {
     _id,
     _type,
@@ -55,7 +56,11 @@ export const projectBySlugQuery = defineQuery(`
       title,
       description
     },
-    gallery,
+    gallery[] {
+      asset,
+      alt,
+      caption
+    },
     ctaTitle,
     ctaText
   }

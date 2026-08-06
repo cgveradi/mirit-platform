@@ -57,6 +57,7 @@ export const gambiaProject = defineType({
       options: {
         hotspot: true,
       },
+      validation: (Rule) => Rule.required(),
     }),
 
     defineField({
@@ -133,6 +134,20 @@ export const gambiaProject = defineType({
           options: {
             hotspot: true,
           },
+          fields: [
+            defineField({
+              name: "alt",
+              title: "Alternative text",
+              type: "string",
+              description: "Describe the image for people using screen readers.",
+              validation: (Rule) => Rule.required(),
+            }),
+            defineField({
+              name: "caption",
+              title: "Caption",
+              type: "string",
+            }),
+          ],
         },
       ],
     }),
