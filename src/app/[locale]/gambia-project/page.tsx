@@ -137,18 +137,19 @@ export default async function GambiaProjectPage() {
         <ScrollReveal><div className="project-details-heading">
           <p className="eyebrow">{t("detailsEyebrow")}</p>
           <h2 id="project-details-title">{t("detailsTitle")}</h2>
-          <p>{t("detailsIntro")}</p>
         </div></ScrollReveal>
         <ScrollReveal delay={80}>
         <dl className="project-details-grid">
-          {(["dates", "location", "deadline", "fee", "capacity", "eligibility"] as const).map((key) => (
+          {(["dates", "location", "deadline"] as const).map((key) => (
             <div key={key} className="project-detail-card">
               <dt>{t(`details.${key}.label`)}</dt>
               <dd>{t(`details.${key}.value`)}</dd>
             </div>
           ))}
         </dl>
-        <p className="project-details-note">{t("detailsNote")}</p>
+        <a href="#gambia-application" className="scroll-cue project-details-cta">
+          {t("detailsCta")} <span aria-hidden="true">↓</span>
+        </a>
         </ScrollReveal>
       </section>
 
@@ -262,7 +263,7 @@ export default async function GambiaProjectPage() {
           </ScrollReveal>
         </section>
 
-      <section className="project-cta">
+      <section className="project-cta" id="gambia-application">
         <ScrollReveal><div>
         {project.ctaTitle && (
           <h2>
