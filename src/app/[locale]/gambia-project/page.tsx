@@ -140,20 +140,28 @@ export default async function GambiaProjectPage() {
         </div></ScrollReveal>
         <ScrollReveal delay={80}>
         <dl className="project-details-grid">
-          {(["dates", "location", "deadline"] as const).map((key) => (
+          {(["dates", "location"] as const).map((key) => (
             <div key={key} className="project-detail-card">
               <dt>{t(`details.${key}.label`)}</dt>
               <dd>{t(`details.${key}.value`)}</dd>
             </div>
           ))}
+          <div className="project-detail-card project-detail-action">
+            <dt>{t("applicationLabel")}</dt>
+            <dd>
+              <a href="#gambia-application" className="button-link">
+                {t("detailsCta")} <span aria-hidden="true">↓</span>
+              </a>
+            </dd>
+          </div>
         </dl>
-        <a href="#gambia-application" className="scroll-cue project-details-cta">
-          {t("detailsCta")} <span aria-hidden="true">↓</span>
+        <a href="#project-overview" className="scroll-cue project-details-cta">
+          {t("exploreProject")} <span aria-hidden="true">↓</span>
         </a>
         </ScrollReveal>
       </section>
 
-      <section className="project-intro">
+      <section className="project-intro" id="project-overview">
         <p className="eyebrow">
           {t("introEyebrow")}
         </p>

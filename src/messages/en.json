@@ -43,11 +43,12 @@
     "introImageAlt": "A Gambian and a Russian participant sharing books and cultural ideas",
     "detailsEyebrow": "At a glance",
     "detailsTitle": "Plan your participation",
+    "applicationLabel": "Applications",
     "detailsCta": "Register",
+    "exploreProject": "Explore the project",
     "details": {
-      "dates": { "label": "Programme dates", "value": "To be announced" },
+      "dates": { "label": "Programme dates", "value": "17–31 August 2026" },
       "location": { "label": "Location in The Gambia", "value": "Venue to be confirmed" },
-      "deadline": { "label": "Application deadline", "value": "To be announced" },
       "fee": { "label": "Participation fee", "value": "To be confirmed" },
       "capacity": { "label": "Available places", "value": "To be confirmed" },
       "eligibility": { "label": "Eligibility", "value": "Final criteria to be announced" }
