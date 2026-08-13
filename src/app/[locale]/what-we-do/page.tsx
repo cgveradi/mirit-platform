@@ -4,7 +4,7 @@ import { getTranslations } from "next-intl/server";
 import ScrollReveal from "@/components/ScrollReveal";
 import { Link } from "@/i18n/navigation";
 
-const services = ["research", "culture", "digital", "programmes"] as const;
+const services = ["digital", "research", "culture"] as const;
 const capabilityGroups = ["strategy", "experience", "technology"] as const;
 
 export async function generateMetadata(): Promise<Metadata> {

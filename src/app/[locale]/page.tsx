@@ -51,8 +51,9 @@ export default function Home() {
             <p>{t("pathsIntro")}</p>
           </div>
           <div className="paths-grid">
-            <Link href="/gambia-project" className="path-card path-card-warm"><span>01</span><h2>{t("pathOneTitle")}</h2><p>{t("pathOneText")}</p><b aria-hidden="true">↗</b></Link>
-            <Link href="/what-we-do" className="path-card path-card-cool"><span>02</span><h2>{t("pathTwoTitle")}</h2><p>{t("pathTwoText")}</p><b aria-hidden="true">↗</b></Link>
+            <Link href="/what-we-do" className="path-card path-card-digital"><span>01</span><h2>{t("pathThreeTitle")}</h2><p>{t("pathThreeText")}</p><b aria-hidden="true">↗</b></Link>
+            <Link href="/gambia-project" className="path-card path-card-warm"><span>02</span><h2>{t("pathOneTitle")}</h2><p>{t("pathOneText")}</p><b aria-hidden="true">↗</b></Link>
+            <Link href="/what-we-do" className="path-card path-card-cool"><span>03</span><h2>{t("pathTwoTitle")}</h2><p>{t("pathTwoText")}</p><b aria-hidden="true">↗</b></Link>
           </div>
         </ScrollReveal>
       </section>

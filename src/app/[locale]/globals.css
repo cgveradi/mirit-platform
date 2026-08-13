@@ -70,11 +70,11 @@ body {
 .text-link { align-self: flex-start; border-bottom: 1px solid var(--color-foreground); padding-bottom: .3rem; color: var(--color-foreground); font-size: .85rem; font-weight: 600; }
 
 .paths-section { padding: 0 0 clamp(6rem, 11vw, 11rem); }.paths-heading { display: flex; justify-content: space-between; gap: 2rem; margin-bottom: 2rem; }.paths-heading > p:last-child { max-width: 27rem; color: var(--color-muted); }
-.paths-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1rem; }
+.paths-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1rem; }
 .path-card { position: relative; display: flex; min-height: 29rem; flex-direction: column; justify-content: end; overflow: hidden; padding: 2rem; transition: transform 350ms cubic-bezier(.2,.8,.2,1), box-shadow 350ms ease; }
-.path-card:hover { box-shadow: 0 1.2rem 2.4rem rgba(32, 30, 24, .13); transform: translateY(-.45rem); }.path-card-warm { background: var(--warm); color: #1d211c; }.path-card-cool { background: var(--cool); color: #1d211c; }
+.path-card:hover { box-shadow: 0 1.2rem 2.4rem rgba(32, 30, 24, .13); transform: translateY(-.45rem); }.path-card-warm { background: var(--warm); color: #1d211c; }.path-card-cool { background: var(--cool); color: #1d211c; }.path-card-digital { background: var(--color-accent); color: var(--color-background); }
 .path-card::before { position: absolute; inset: 8% 8% auto auto; width: 55%; aspect-ratio: 1; border: 1px solid rgba(29,33,28,.25); border-radius: 50%; content: ""; transition: transform 500ms ease; }.path-card:hover::before { transform: scale(1.12); }
-.path-card span { position: absolute; top: 2rem; left: 2rem; font-family: var(--font-mono); font-size: .7rem; }.path-card h2 { max-width: 25rem; font-size: clamp(2.2rem, 4.5vw, 4.75rem); font-weight: 450; letter-spacing: -.065em; line-height: .92; }.path-card p { max-width: 22rem; margin-top: 1rem; line-height: 1.5; }.path-card b { position: absolute; right: 2rem; bottom: 2rem; font-size: 1.5rem; font-weight: 400; }
+.path-card span { position: absolute; top: 2rem; left: 2rem; font-family: var(--font-mono); font-size: .7rem; }.path-card h2 { max-width: 25rem; font-size: clamp(2rem, 3.2vw, 3.5rem); font-weight: 450; letter-spacing: -.065em; line-height: .92; }.path-card p { max-width: 22rem; margin-top: 1rem; line-height: 1.5; }.path-card b { position: absolute; right: 2rem; bottom: 2rem; font-size: 1.5rem; font-weight: 400; }
 
 .closing-section { padding: clamp(6rem, 12vw, 12rem) 0; border-top: 1px solid var(--line); }.closing-section h2 { max-width: 57rem; margin: 3rem 0; }.button-link { display: inline-flex; gap: 1rem; border-radius: 999px; background: var(--color-accent); padding: .85rem 1.25rem; color: var(--color-background); font-size: .8rem; font-weight: 700; transition: transform 200ms ease; }.button-link:hover { transform: translateY(-2px); }
 

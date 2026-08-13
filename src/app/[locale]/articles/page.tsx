@@ -2,6 +2,7 @@ import { client } from '@/sanity/lib/client';
 import { articlesListQuery } from '@/sanity/lib/queries';
 import { Link } from '@/i18n/navigation';
 import ScrollReveal from '@/components/ScrollReveal';
+import { getTranslations } from 'next-intl/server';
 
 type Article = {
   _id: string;
@@ -18,12 +19,13 @@ export default async function ArticlesPage({
   params: Promise<{ locale: string }>;
 }) {
   const { locale } = await params;
+  const t = await getTranslations('articles');
 
   const articles = await client.fetch<Article[]>(articlesListQuery, { locale });
 
   return (
     <main className="max-w-3xl mx-auto px-8 py-24">
-      <ScrollReveal><h1 className="text-4xl font-bold mb-12 text-center">Insights</h1></ScrollReveal>
+      <ScrollReveal><h1 className="text-4xl font-bold mb-12 text-center">{t('title')}</h1></ScrollReveal>
 
       <div className="flex flex-col gap-10">
         {articles.map((article, index) => (
@@ -37,7 +39,7 @@ export default async function ArticlesPage({
         ))}
 
         {articles.length === 0 && (
-          <p className="text-muted text-center">No articles yet — check back soon.</p>
+          <p className="text-muted text-center">{t('empty')}</p>
         )}
       </div>
     </main>
