@@ -25,6 +25,13 @@ function AnimatedNavLabel({ label }: { label: string }) {
 export default function Navbar() {
   const t = useTranslations("nav");
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const mobileNavItems = [
+    { href: "/what-we-do", label: t("whatWeDo") },
+    { href: "/gambia-project", label: t("gambiaProject") },
+    { href: "/articles", label: t("research") },
+    { href: "/about", label: t("about") },
+    { href: "/contact", label: t("contact") },
+  ] as const;
 
   useEffect(() => {
     if (!isMenuOpen) return;
@@ -110,13 +117,26 @@ export default function Navbar() {
         aria-hidden={!isMenuOpen}
       >
         <div className="mobile-navigation-links">
-          <Link href="/what-we-do" tabIndex={isMenuOpen ? 0 : -1} onClick={() => setIsMenuOpen(false)}>{t("whatWeDo")}</Link>
-          <Link href="/gambia-project" tabIndex={isMenuOpen ? 0 : -1} onClick={() => setIsMenuOpen(false)}>{t("gambiaProject")}</Link>
-          <Link href="/articles" tabIndex={isMenuOpen ? 0 : -1} onClick={() => setIsMenuOpen(false)}>{t("research")}</Link>
-          <Link href="/about" tabIndex={isMenuOpen ? 0 : -1} onClick={() => setIsMenuOpen(false)}>{t("about")}</Link>
-          <Link href="/contact" tabIndex={isMenuOpen ? 0 : -1} onClick={() => setIsMenuOpen(false)}>{t("contact")}</Link>
+          {mobileNavItems.map((item, index) => (
+            <Link
+              key={item.href}
+              href={item.href}
+              tabIndex={isMenuOpen ? 0 : -1}
+              onClick={() => setIsMenuOpen(false)}
+              style={{ "--menu-index": index } as React.CSSProperties}
+            >
+              <span className="mobile-navigation-index" aria-hidden="true">
+                {String(index + 1).padStart(2, "0")}
+              </span>
+              <span className="mobile-navigation-label">{item.label}</span>
+              <span className="mobile-navigation-arrow" aria-hidden="true">↗</span>
+            </Link>
+          ))}
         </div>
-        <p>MIRIT / 01—26</p>
+        <div className="mobile-navigation-footer">
+          <p className="mobile-navigation-tagline">{t("tagline")}</p>
+          <p className="mobile-navigation-signature">MIRIT / 01—26</p>
+        </div>
       </div>
     </nav>
   );
