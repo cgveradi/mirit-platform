@@ -7,13 +7,42 @@ import LanguageSwitcher from "@/components/LanguageSwitcher";
 import ThemeToggle from "@/components/ThemeToggle";
 
 function AnimatedNavLabel({ label }: { label: string }) {
+  const characters = Array.from(label);
+  const [jumpingLetters, setJumpingLetters] = useState<Map<number, number>>(new Map());
+
+  function jumpRandomLetters() {
+    if (
+      !window.matchMedia("(hover: hover) and (pointer: fine)").matches ||
+      window.matchMedia("(prefers-reduced-motion: reduce)").matches
+    ) return;
+
+    const availableIndices = characters
+      .map((character, index) => ({ character, index }))
+      .filter(({ character }) => character !== " ")
+      .map(({ index }) => index);
+
+    for (let index = availableIndices.length - 1; index > 0; index -= 1) {
+      const randomIndex = Math.floor(Math.random() * (index + 1));
+      [availableIndices[index], availableIndices[randomIndex]] = [availableIndices[randomIndex], availableIndices[index]];
+    }
+
+    setJumpingLetters(new Map(
+      availableIndices.slice(0, 2).map((index) => [index, Math.random() * 28 - 14]),
+    ));
+  }
+
   return (
-    <span className="nav-label" aria-hidden="true">
-      {Array.from(label).map((character, index) => (
+    <span
+      className="nav-label"
+      aria-hidden="true"
+      onMouseEnter={jumpRandomLetters}
+      onAnimationEnd={() => setJumpingLetters(new Map())}
+    >
+      {characters.map((character, index) => (
         <span
           key={`${character}-${index}`}
-          className="nav-label-char"
-          style={{ animationDelay: `${index * 24}ms` }}
+          className={`nav-label-char${jumpingLetters.has(index) ? " is-jumping" : ""}`}
+          style={{ "--letter-rotation": `${jumpingLetters.get(index) ?? 0}deg` } as React.CSSProperties}
         >
           {character === " " ? "\u00A0" : character}
         </span>
