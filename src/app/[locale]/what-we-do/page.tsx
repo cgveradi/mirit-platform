@@ -4,7 +4,6 @@ import { getTranslations } from "next-intl/server";
 import ScrollReveal from "@/components/ScrollReveal";
 import { Link } from "@/i18n/navigation";
 
-const services = ["digital", "research", "culture"] as const;
 const capabilityGroups = ["strategy", "experience", "technology"] as const;
 
 export async function generateMetadata(): Promise<Metadata> {
@@ -17,47 +16,43 @@ export default async function WhatWeDoPage() {
 
   return (
     <main className="services-page">
-      <section className="services-hero">
-        <p className="eyebrow services-reveal">{t("eyebrow")}</p>
-        <div className="services-hero-grid">
-          <h1 className="services-reveal">{t("title")}</h1>
-          <p className="services-lead services-reveal">{t("intro")}</p>
+      <section className="services-hero services-hero-editorial">
+        <div className="services-orbit-field" aria-hidden="true">
+          <i className="services-orbit services-orbit-one" />
+          <i className="services-orbit services-orbit-two" />
+          <i className="services-orbit services-orbit-three" />
+          <span className="services-orbit-node services-orbit-node-one" />
+          <span className="services-orbit-node services-orbit-node-two" />
+          <span className="services-orbit-node services-orbit-node-three" />
         </div>
-      </section>
-
-      <section className="services-list-section" aria-labelledby="services-list-title">
-        <ScrollReveal className="services-list-heading">
-          <p className="eyebrow">{t("servicesEyebrow")}</p>
-          <h2 id="services-list-title">{t("servicesTitle")}</h2>
-        </ScrollReveal>
-        <div className="services-list">
-          {services.map((service, index) => (
-            <ScrollReveal key={service} delay={index * 65}>
-              <article className="service-row">
-                <span>{String(index + 1).padStart(2, "0")}</span>
-                <div>
-                  <h3>{t(`services.${service}.title`)}</h3>
-                  <p>{t(`services.${service}.text`)}</p>
-                </div>
-                <span className="service-row-arrow" aria-hidden="true">↗</span>
-              </article>
-            </ScrollReveal>
-          ))}
+        <p className="eyebrow services-reveal">{t("eyebrow")}</p>
+        <h1 className="services-reveal">{t("title")}</h1>
+        <div className="services-hero-bottom services-hero-bottom-index services-reveal">
+          <span aria-hidden="true">01 / 03</span>
         </div>
       </section>
 
       <section className="capabilities-section" aria-labelledby="capabilities-title">
         <ScrollReveal className="capabilities-heading">
           <p className="eyebrow">{t("capabilitiesEyebrow")}</p>
-          <h2 id="capabilities-title">{t("capabilitiesTitle")}</h2>
+          <div className="capabilities-title-wrap">
+            <h2 id="capabilities-title">{t("capabilitiesTitle")}</h2>
+            <p>{t("capabilitiesIntro")}</p>
+          </div>
         </ScrollReveal>
         <div className="capabilities-grid">
           {capabilityGroups.map((group, index) => (
             <ScrollReveal key={group} className="capability-column" delay={index * 90}>
-              <h3>{t(`capabilities.${group}.title`)}</h3>
-              <ul>
-                {[0, 1, 2, 3].map((item) => <li key={item}>{t(`capabilities.${group}.items.${item}`)}</li>)}
-              </ul>
+              <div className="capability-topline"><span>0{index + 1}</span><span>{t("capabilityLabel")}</span></div>
+              <div className={`capability-visual capability-visual-${group}`} aria-hidden="true">
+                <i /><i /><i />
+              </div>
+              <div className="capability-content">
+                <h3>{t(`capabilities.${group}.title`)}</h3>
+                <ul>
+                  {[0, 1, 2, 3].map((item) => <li key={item}>{t(`capabilities.${group}.items.${item}`)}</li>)}
+                </ul>
+              </div>
             </ScrollReveal>
           ))}
         </div>

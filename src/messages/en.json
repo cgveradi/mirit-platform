@@ -1,6 +1,7 @@
 {
   "nav": {
     "whatWeDo": "What We Do",
+    "work": "Work",
     "gambiaProject": "Gambia Project",
     "research": "Research",
     "about": "About",
@@ -32,6 +33,49 @@
     "pathThreeTag": "Technology",
     "closingEyebrow": "Make the next connection",
     "closingTitle": "Curiosity is where every meaningful project begins."
+  },
+
+  "work": {
+    "eyebrow": "Selected work",
+    "title": "Work shaped across disciplines.",
+    "intro": "Projects, programmes and practical capabilities where research, culture and technology become something people can use.",
+    "pathsLabel": "Explore work by direction",
+    "paths": {
+      "digital": {
+        "eyebrow": "Digital practice",
+        "title": "AI & Digital Innovation",
+        "status": "MIRIT AI · Current practice",
+        "text": "We design practical digital systems around real organisational needs—from early product thinking to useful automation and intelligent workflows.",
+        "imageAlt": "MIRIT digital innovation practice",
+        "services": ["AI systems and automation", "Data analytics", "Web products and MVPs", "Content platforms"],
+        "cta": "Explore our capabilities"
+      },
+      "culture": {
+        "eyebrow": "Featured project",
+        "title": "The Gambia Project",
+        "status": "Cultural exchange · Active programme",
+        "text": "A cultural and educational exchange developed around language, creative practice, shared learning and meaningful connections between communities.",
+        "imageAlt": "Participants collaborating during a creative cultural exchange workshop",
+        "services": ["Programme design", "Cultural exchange", "Community engagement", "Workshops and learning"],
+        "cta": "View the project"
+      },
+      "research": {
+        "eyebrow": "Research practice",
+        "title": "Research & Insight",
+        "status": "Ongoing research and editorial work",
+        "text": "We explore cultural and social questions, translate complexity into clear perspectives, and turn research into useful direction for programmes and products.",
+        "imageAlt": "Two participants studying cultural material together",
+        "services": ["Research and discovery", "Cultural insight", "Editorial storytelling", "Strategic direction"],
+        "cta": "Read our research"
+      }
+    },
+    "closingEyebrow": "Start a conversation",
+    "closingTitle": "Have a project that belongs between disciplines?",
+    "closingCta": "Work with MIRIT",
+    "seo": {
+      "title": "Selected Work | MIRIT",
+      "description": "Explore MIRIT projects and practices across AI, digital innovation, cultural exchange and research."
+    }
   },
 
   "articles": {
@@ -112,6 +156,8 @@
     },
     "capabilitiesEyebrow": "Capabilities",
     "capabilitiesTitle": "Built around the question, not a fixed formula.",
+    "capabilitiesIntro": "We connect research, culture and technology to shape thoughtful programmes, experiences and digital tools across borders. From early discovery and strategic framing to design, production and practical delivery, we assemble the right mix of disciplines around each challenge.",
+    "capabilityLabel": "MIRIT capability",
     "capabilities": {
       "strategy": { "title": "Strategy", "items": ["Research and discovery", "Programme framing", "Content direction", "Partnership planning"] },
       "experience": { "title": "Experience", "items": ["Cultural programmes", "Workshops and learning", "Editorial storytelling", "Community engagement"] },

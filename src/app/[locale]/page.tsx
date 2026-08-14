@@ -46,7 +46,7 @@ export default function Home() {
             <h2>{t("perspectiveTitle")}</h2>
             <div className="perspective-copy">
               <p>{t("perspectiveText")}</p>
-              <Link href="/about" className="text-link">
+              <Link href="/what-we-do" className="text-link">
                 {t("ctaAbout")} <span aria-hidden="true">↗</span>
               </Link>
             </div>

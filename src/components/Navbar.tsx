@@ -56,9 +56,9 @@ export default function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const mobileNavItems = [
     { href: "/what-we-do", label: t("whatWeDo") },
+    { href: "/work", label: t("work") },
     { href: "/gambia-project", label: t("gambiaProject") },
     { href: "/articles", label: t("research") },
-    { href: "/about", label: t("about") },
     { href: "/contact", label: t("contact") },
   ] as const;
 
@@ -93,6 +93,10 @@ export default function Navbar() {
             <AnimatedNavLabel label={t("whatWeDo")} />
           </Link>
 
+        <Link href="/work" aria-label={t("work")}>
+          <AnimatedNavLabel label={t("work")} />
+        </Link>
+
         <Link
           href="/gambia-project"
           aria-label={t("gambiaProject")}
@@ -105,13 +109,6 @@ export default function Navbar() {
           aria-label={t("research")}
         >
           <AnimatedNavLabel label={t("research")} />
-        </Link>
-
-        <Link
-          href="/about"
-          aria-label={t("about")}
-        >
-          <AnimatedNavLabel label={t("about")} />
         </Link>
 
         <Link
