@@ -4,6 +4,7 @@ import { notFound } from "next/navigation";
 import { getLocale, getTranslations } from "next-intl/server";
 
 import GambiaApplicationForm from "@/components/GambiaApplicationForm";
+import GambiaGallerySlider from "@/components/GambiaGallerySlider";
 import ScrollReveal from "@/components/ScrollReveal";
 import { sanityFetch } from "@/sanity/lib/live";
 import { projectBySlugQuery } from "@/sanity/lib/queries";
@@ -97,6 +98,11 @@ export default async function GambiaProjectPage() {
   const introText = locale === "ru"
     ? project.introText?.replace("meaningful connections", "содержательных связей")
     : project.introText;
+  const galleryImages = (project.gallery && project.gallery.length > 0 ? project.gallery : conceptGallery).map((image) => ({
+    src: "src" in image ? image.src : urlFor(image).width(1400).quality(85).url(),
+    alt: "altKey" in image ? t(image.altKey) : image.alt || "",
+    caption: "caption" in image ? image.caption : undefined,
+  }));
 
   return (
     <main>
@@ -251,23 +257,12 @@ export default async function GambiaProjectPage() {
           </ScrollReveal>
 
           <ScrollReveal delay={80}>
-          <div className="project-gallery-grid">
-            {(project.gallery && project.gallery.length > 0 ? project.gallery : conceptGallery).map((image, index) => (
-              <figure
-                key={"src" in image ? image.src : image.asset?._ref ?? index}
-                className="project-gallery-image"
-              >
-                <Image
-                  src={"src" in image ? image.src : urlFor(image).width(1200).quality(85).url()}
-                  alt={"altKey" in image ? t(image.altKey) : image.alt || ""}
-                  fill
-                  sizes="(max-width: 768px) 100vw, 50vw"
-                  className="object-cover transition-transform duration-700 hover:scale-[1.03]"
-                />
-                {"caption" in image && image.caption && <figcaption>{image.caption}</figcaption>}
-              </figure>
-            ))}
-          </div>
+          <GambiaGallerySlider
+            images={galleryImages}
+            previousLabel={t("galleryPrevious")}
+            nextLabel={t("galleryNext")}
+            selectLabel={t("gallerySelect")}
+          />
           </ScrollReveal>
         </section>
 
