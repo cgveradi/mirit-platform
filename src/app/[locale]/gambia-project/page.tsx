@@ -139,34 +139,6 @@ export default async function GambiaProjectPage() {
         <p className="project-hero-index" aria-hidden="true">01 / MIRIT</p>
       </section>
 
-      <section className="project-details" aria-labelledby="project-details-title">
-        <ScrollReveal><div className="project-details-heading">
-          <p className="eyebrow">{t("detailsEyebrow")}</p>
-          <h2 id="project-details-title">{t("detailsTitle")}</h2>
-        </div></ScrollReveal>
-        <ScrollReveal delay={80}>
-        <dl className="project-details-grid">
-          {(["dates", "location"] as const).map((key) => (
-            <div key={key} className="project-detail-card">
-              <dt>{t(`details.${key}.label`)}</dt>
-              <dd>{t(`details.${key}.value`)}</dd>
-            </div>
-          ))}
-          <div className="project-detail-card project-detail-action">
-            <dt>{t("applicationLabel")}</dt>
-            <dd>
-              <a href="#gambia-application" className="button-link">
-                {t("detailsCta")} <span aria-hidden="true">↓</span>
-              </a>
-            </dd>
-          </div>
-        </dl>
-        <a href="#project-overview" className="scroll-cue project-details-cta">
-          {t("exploreProject")} <span aria-hidden="true">↓</span>
-        </a>
-        </ScrollReveal>
-      </section>
-
       <section className="project-intro" id="project-overview">
         <p className="eyebrow">
           {t("introEyebrow")}
@@ -188,10 +160,31 @@ export default async function GambiaProjectPage() {
             {introText && <p className="project-intro-copy">{introText}</p>}
           </ScrollReveal>
         </div>
+        <ScrollReveal delay={80}>
+        <dl className="project-details-grid project-intro-details">
+          {(["dates", "location"] as const).map((key) => (
+            <div key={key} className="project-detail-card">
+              <dt>{t(`details.${key}.label`)}</dt>
+              <dd>{t(`details.${key}.value`)}</dd>
+            </div>
+          ))}
+          <div className="project-detail-card project-detail-action">
+            <dt>{t("applicationLabel")}</dt>
+            <dd>
+              <a href="#gambia-application" className="button-link">
+                {t("detailsCta")} <span aria-hidden="true">↓</span>
+              </a>
+            </dd>
+          </div>
+        </dl>
+        <a href="#project-program" className="scroll-cue project-details-cta">
+          {t("exploreProject")} <span aria-hidden="true">↓</span>
+        </a>
+        </ScrollReveal>
       </section>
 
       {project.programItems && project.programItems.length > 0 && (
-        <section className="project-program">
+        <section className="project-program" id="project-program">
           <div className="project-program-inner">
             <ScrollReveal>
             <div className="project-program-heading">

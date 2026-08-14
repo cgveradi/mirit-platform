@@ -146,6 +146,20 @@ body {
 @media (prefers-reduced-motion: reduce) { *, *::before, *::after { scroll-behavior: auto !important; animation-duration: .01ms !important; transition-duration: .01ms !important; }.scroll-reveal { opacity: 1; transform: none; }.hero-dot-field g { animation: none !important; transform: none; } }
 
 /* Lightweight bento gallery */
+.project-program { scroll-margin-top: 5.5rem; }
+.project-intro-details { margin-top: clamp(5rem, 9vw, 9rem); }
+.project-cta h2 { margin: 0; padding-bottom: clamp(3rem, 4.5vw, 4rem); line-height: .94; }
+.project-cta > div > p { margin: 0 auto 3rem; }
+.project-intro-visual::after { content: none; }
+.project-intro-visual::before { border-color: color-mix(in srgb, var(--color-foreground) 18%, transparent); background: linear-gradient(145deg, color-mix(in srgb, var(--surface) 76%, transparent), color-mix(in srgb, var(--color-background) 24%, transparent)); box-shadow: 0 1.4rem 3.5rem rgba(35,32,25,.09); }
+.project-intro-image { box-shadow: inset 0 1px 0 rgba(255,255,255,.24), 0 1.8rem 4.2rem rgba(35,32,25,.18), 0 .35rem .8rem rgba(35,32,25,.08); transform-origin: 48% 56%; }
+.project-intro-visual.is-visible .project-intro-image { animation: projectPortraitFloat 8s ease-in-out 1s infinite alternate; }
+.project-intro-visual.is-visible .project-intro-image:hover { animation: none; box-shadow: inset 0 1px 0 rgba(255,255,255,.3), 0 2.2rem 5rem rgba(35,32,25,.23), 0 .45rem 1rem rgba(35,32,25,.1); transform: translate3d(0, -.45rem, 0) rotate(.15deg); }
+.project-intro-visual.is-visible .project-intro-image:hover img { filter: saturate(1.04) contrast(1.02); transform: scale(1.055); }
+:root.dark .project-intro-visual::before { box-shadow: 0 1.4rem 3.5rem rgba(0,0,0,.2); }
+:root.dark .project-intro-image { box-shadow: inset 0 1px 0 rgba(255,255,255,.1), 0 1.8rem 4.2rem rgba(0,0,0,.34), 0 .35rem .8rem rgba(0,0,0,.18); }
+:root.dark .project-intro-visual.is-visible .project-intro-image:hover { box-shadow: inset 0 1px 0 rgba(255,255,255,.13), 0 2.2rem 5rem rgba(0,0,0,.46), 0 .45rem 1rem rgba(0,0,0,.22); }
+@keyframes projectPortraitFloat { from { transform: translate3d(0, 0, 0) rotate(-.15deg); } to { transform: translate3d(0, -.55rem, 0) rotate(.18deg); } }
 .project-bento { display: grid; min-height: clamp(34rem, 58vw, 50rem); grid-template-columns: minmax(0, 1.72fr) minmax(17rem, .78fr); gap: 1rem; }
 .project-bento-feature { position: relative; min-height: 100%; overflow: hidden; border: 1px solid var(--line); border-radius: 1.5rem 5.5rem 1.5rem 1.5rem; background: var(--surface); box-shadow: 0 1.5rem 3.5rem rgba(35,32,25,.11); }
 .project-bento-feature-image { object-fit: cover; animation: bentoImageIn 650ms cubic-bezier(.2,.75,.2,1); }
