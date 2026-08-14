@@ -23,10 +23,13 @@
     "pathsIntro": "Programs and practical work that turn curiosity into meaningful exchange.",
     "pathOneTitle": "The Gambia Project",
     "pathOneText": "A living exchange shaped with local communities, students and professionals.",
+    "pathOneTag": "Community",
     "pathTwoTitle": "Culture, made useful",
     "pathTwoText": "Research, experiences and tools designed for real human connection.",
+    "pathTwoTag": "Culture",
     "pathThreeTitle": "AI & Digital Innovation",
     "pathThreeText": "MIRIT AI brings together data analytics, AI systems, web products, MVPs and workflow automation for practical progress.",
+    "pathThreeTag": "Technology",
     "closingEyebrow": "Make the next connection",
     "closingTitle": "Curiosity is where every meaningful project begins."
   },
