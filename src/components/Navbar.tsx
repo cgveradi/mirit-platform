@@ -55,10 +55,9 @@ export default function Navbar() {
   const t = useTranslations("nav");
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const mobileNavItems = [
-    { href: "/what-we-do", label: t("whatWeDo") },
-    { href: "/work", label: t("work") },
+    { href: "/about", label: t("about") },
     { href: "/gambia-project", label: t("gambiaProject") },
-    { href: "/articles", label: t("research") },
+    { href: "/gambia-project/classroom", label: t("classroom") },
     { href: "/contact", label: t("contact") },
   ] as const;
 
@@ -89,34 +88,21 @@ export default function Navbar() {
 
       <div className="nav-content">
         <div className="nav-links">
-          <Link href="/what-we-do" aria-label={t("whatWeDo")}>
-            <AnimatedNavLabel label={t("whatWeDo")} />
+          <Link href="/about" aria-label={t("about")}>
+            <AnimatedNavLabel label={t("about")} />
           </Link>
 
-        <Link href="/work" aria-label={t("work")}>
-          <AnimatedNavLabel label={t("work")} />
-        </Link>
+          <Link href="/gambia-project" aria-label={t("gambiaProject")}>
+            <AnimatedNavLabel label={t("gambiaProject")} />
+          </Link>
 
-        <Link
-          href="/gambia-project"
-          aria-label={t("gambiaProject")}
-        >
-          <AnimatedNavLabel label={t("gambiaProject")} />
-        </Link>
+          <Link href="/gambia-project/classroom" aria-label={t("classroom")}>
+            <AnimatedNavLabel label={t("classroom")} />
+          </Link>
 
-        <Link
-          href="/articles"
-          aria-label={t("research")}
-        >
-          <AnimatedNavLabel label={t("research")} />
-        </Link>
-
-        <Link
-          href="/contact"
-          aria-label={t("contact")}
-        >
-          <AnimatedNavLabel label={t("contact")} />
-        </Link>
+          <Link href="/contact" aria-label={t("contact")}>
+            <AnimatedNavLabel label={t("contact")} />
+          </Link>
 
         </div>
 

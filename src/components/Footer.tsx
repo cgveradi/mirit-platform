@@ -21,10 +21,17 @@ export default function Footer() {
           </Link>
 
           <Link
-            href="/work"
+            href="/gambia-project"
             className="hover:text-foreground transition-colors"
           >
-            {tNav("work")}
+            {tNav("gambiaProject")}
+          </Link>
+
+          <Link
+            href="/gambia-project/classroom"
+            className="hover:text-foreground transition-colors"
+          >
+            {tNav("classroom")}
           </Link>
 
           <Link

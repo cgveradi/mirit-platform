@@ -16,3 +16,6 @@ with check (approved = false);
 create policy "Only approved classroom comments are public"
 on public.classroom_comments for select to anon, authenticated
 using (approved = true);
+
+create index if not exists classroom_comments_item_approved_created_idx
+on public.classroom_comments (classroom_item_id, approved, created_at);

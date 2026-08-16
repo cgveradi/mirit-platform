@@ -73,6 +73,14 @@ export default async function ClassroomPage() {
           </article>
         ))}</div> : <p className="classroom-empty">{t("resourcesEmpty")}</p>}
       </section>
+
+      <section className="classroom-section classroom-questions-section">
+        <div className="classroom-section-heading"><p className="eyebrow">03</p><h2>{t("questionsTitle")}</h2></div>
+        <div className="classroom-question-card">
+          <p>{t("questionsIntro")}</p>
+          <ClassroomComments itemId="general" />
+        </div>
+      </section>
     </main>
   );
 }
