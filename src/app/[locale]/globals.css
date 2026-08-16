@@ -394,7 +394,7 @@ body > div { position: relative; z-index: 1; }
 .classroom-comments input, .classroom-comments textarea { width: 100%; border-bottom: 1px solid var(--line); padding: .75rem 0; color: var(--color-foreground); outline: none; }
 .classroom-comments .button-link { width: fit-content; border: 0; cursor: pointer; }
 .classroom-comments .button-link:disabled { cursor: wait; opacity: .55; }
-.classroom-question-card { max-width: 52rem; margin-left: auto; border: 1px solid var(--line); border-radius: 1.5rem 5rem 1.5rem 1.5rem; padding: clamp(1.5rem, 3vw, 2.5rem); background: color-mix(in srgb, var(--surface) 60%, transparent); }
+.classroom-question-card { max-width: 52rem; margin: 0 auto; border: 1px solid var(--line); border-radius: 1.5rem 5rem 1.5rem 1.5rem; padding: clamp(1.5rem, 3vw, 2.5rem); background: color-mix(in srgb, var(--surface) 60%, transparent); }
 .classroom-question-card > p, .classroom-comment-note, .classroom-comment-load-error { color: var(--color-muted); line-height: 1.6; }
 .classroom-comment-note { font-size: .72rem; }
 .classroom-comment-list { display: grid; gap: 1rem; margin-bottom: 2rem; }
