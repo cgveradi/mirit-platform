@@ -31,6 +31,7 @@
 }
 
 html { scroll-behavior: smooth; }
+html, body { overflow-x: clip; }
 
 body {
   position: relative;
@@ -102,6 +103,33 @@ body > div { position: relative; z-index: 1; }
 @keyframes reveal { from { opacity: 0; transform: translateY(1.2rem); } to { opacity: 1; transform: translateY(0); } }
 @keyframes titleFloat { to { transform: translateY(-.25rem); } }
 @keyframes dotDuneDrift { from { opacity: .66; transform: translate3d(-.35rem, .15rem, 0) scale(.99); } to { opacity: 1; transform: translate3d(.45rem, -.35rem, 0) scale(1.015); } }
+
+/* A slow spotlight travelling through the homepage statement */
+.hero-title {
+  background-image: linear-gradient(
+    105deg,
+    var(--color-foreground) 0%,
+    var(--color-foreground) 42%,
+    color-mix(in srgb, var(--color-foreground) 46%, white) 48%,
+    color-mix(in srgb, var(--cool) 48%, white) 50%,
+    color-mix(in srgb, var(--color-foreground) 46%, white) 52%,
+    var(--color-foreground) 58%,
+    var(--color-foreground) 100%
+  );
+  background-position: 130% 50%;
+  background-size: 260% 100%;
+  color: transparent;
+  -webkit-background-clip: text;
+  background-clip: text;
+  animation: titleFloat 6s ease-in-out infinite alternate, heroLetterSpotlight 8s cubic-bezier(.45,0,.55,1) infinite;
+}
+@keyframes heroLetterSpotlight {
+  0%, 14% { background-position: 130% 50%; }
+  72%, 100% { background-position: -30% 50%; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .hero-title { animation: none; background-position: 50% 50%; }
+}
 
 .project-hero { position: relative; display: grid; min-height: min(49rem, calc(100svh - 5.5rem)); place-items: center; overflow: hidden; padding: 2rem; color: #f6f1e8; text-align: center; }.project-hero-image { object-fit: cover; filter: saturate(.8) brightness(.55); transform: scale(1.03); animation: projectImageIn 1.5s both cubic-bezier(.2,.8,.2,1); }.project-hero-overlay { position: absolute; inset: 0; background: linear-gradient(180deg, rgba(15,18,14,.34), rgba(15,18,14,.65)); }.project-hero-content { position: relative; z-index: 1; max-width: 68rem; }.project-eyebrow { margin-bottom: 1.75rem; color: rgba(246,241,232,.72); font-size: .72rem; font-weight: 650; letter-spacing: .17em; text-transform: uppercase; }.project-hero-title { font-family: Iowan Old Style, Baskerville, "Times New Roman", serif; font-size: clamp(4.25rem, 11vw, 11rem); font-weight: 400; letter-spacing: -.075em; line-height: .8; }.project-hero-subtitle { max-width: 35rem; margin: 2rem auto 0; color: rgba(246,241,232,.85); font-size: clamp(1rem, 1.55vw, 1.3rem); line-height: 1.5; }.project-hero-index { position: absolute; z-index: 1; right: 2.5rem; bottom: 2rem; font-family: var(--font-mono); font-size: .65rem; letter-spacing: .12em; }.project-reveal { animation: reveal .8s both cubic-bezier(.2,.8,.2,1); }.project-hero-title { animation-delay: .12s; }.project-hero-subtitle { animation-delay: .24s; }
 .project-intro, .project-program-inner, .project-gallery { width: min(100% - 4rem, 88rem); margin: 0 auto; }.project-intro { padding: clamp(6rem, 12vw, 12rem) 0; }.project-intro-layout { display: grid; grid-template-columns: minmax(18rem, .78fr) minmax(0, 1.22fr); gap: clamp(2.5rem, 7vw, 7rem); align-items: center; margin-top: 2.5rem; }.project-intro-visual { position: relative; padding: 0 1rem 1rem 0; }.project-intro-visual::before { position: absolute; z-index: -1; inset: 1rem 0 0 1rem; border: 1px solid var(--line); border-radius: 48% 48% 1.5rem 1.5rem / 15% 15% 1.5rem 1.5rem; background: color-mix(in srgb, var(--surface) 58%, transparent); content: ""; }.project-intro-visual::after { position: absolute; z-index: 3; right: -.35rem; bottom: 4rem; padding: .55rem .75rem; border: 1px solid var(--line); border-radius: 999px; background: color-mix(in srgb, var(--color-background) 82%, transparent); color: var(--color-muted); content: "MIRIT / 02"; font-family: var(--font-mono); font-size: .58rem; letter-spacing: .11em; -webkit-backdrop-filter: blur(10px); backdrop-filter: blur(10px); }.project-intro-image { position: relative; min-height: clamp(31rem, 52vw, 48rem); overflow: hidden; border: 1px solid color-mix(in srgb, var(--color-foreground) 14%, transparent); border-radius: 48% 48% 1.25rem 1.25rem / 15% 15% 1.25rem 1.25rem; box-shadow: 0 1.5rem 3.5rem rgba(35,32,25,.12); }.project-intro-image::after { position: absolute; inset: 0; background: linear-gradient(180deg, transparent 62%, rgba(24,25,21,.22)); content: ""; pointer-events: none; }.project-intro-image img { transform: scale(1.08); transition: transform 1.35s cubic-bezier(.2,.75,.2,1), filter 1.2s ease; filter: saturate(.78) contrast(.96); }.project-intro-visual.is-visible .project-intro-image img { transform: scale(1); filter: saturate(.94) contrast(1); }.project-intro-image:hover img { transform: scale(1.035); filter: saturate(1) contrast(1); }.project-intro-content h2 { max-width: 52rem; font-family: Iowan Old Style, Baskerville, "Times New Roman", serif; font-size: clamp(3rem, 6.5vw, 7rem); font-weight: 400; letter-spacing: -.07em; line-height: .9; }.project-intro-copy { max-width: 38rem; margin: 3rem 0 0; color: var(--color-muted); font-size: clamp(1rem, 1.35vw, 1.2rem); line-height: 1.65; white-space: pre-line; }.scroll-reveal { opacity: 0; transform: translateY(2rem); transition: opacity 800ms cubic-bezier(.2,.75,.2,1), transform 900ms cubic-bezier(.2,.75,.2,1); }.scroll-reveal.is-visible { opacity: 1; transform: translateY(0); }
@@ -331,4 +359,169 @@ body > div { position: relative; z-index: 1; }
   .capability-content, .capability-column:nth-child(3) .capability-content { grid-template-columns: 1fr; gap: 1.5rem; }
   .capability-visual { top: 14%; right: 8%; width: 52%; }
   .capability-visual-technology { width: 58%; }
+}
+
+/* Gambia learning hub and classroom */
+.learning-hub-cta .eyebrow { margin-bottom: 1.5rem; text-align: center; }
+.learning-hub-cta .button-link { width: fit-content; margin: 2.25rem auto 0; }
+.learning-hub-features { display: grid; grid-template-columns: repeat(3, 1fr); gap: .75rem; margin-top: 2.5rem; }
+.learning-hub-features span { border: 1px solid var(--line); border-radius: 999px; padding: .8rem 1rem; color: var(--color-muted); font-size: .72rem; font-weight: 600; text-align: center; text-transform: uppercase; }
+.classroom-page { width: min(100% - 4rem, 88rem); margin: 0 auto; }
+.classroom-hero { display: grid; min-height: calc(72svh - 5.5rem); grid-template-columns: minmax(0, 1fr) minmax(16rem, .38fr); align-content: end; gap: 2rem; padding: clamp(4rem, 10vw, 9rem) 0 3rem; }
+.classroom-hero .eyebrow, .classroom-hero > span { grid-column: 1 / -1; }
+.classroom-hero h1 { font-family: Iowan Old Style, Baskerville, "Times New Roman", serif; font-size: clamp(5rem, 12vw, 12rem); font-weight: 400; letter-spacing: -.075em; line-height: .78; }
+.classroom-hero > p:not(.eyebrow) { align-self: end; color: var(--color-muted); font-size: clamp(1rem, 1.3vw, 1.15rem); line-height: 1.6; }
+.classroom-hero > span { border-top: 1px solid var(--line); padding-top: 1.2rem; color: var(--color-muted); font-family: var(--font-mono); font-size: .68rem; }
+.classroom-section { border-top: 1px solid var(--line); padding: clamp(6rem, 10vw, 10rem) 0; }
+.classroom-section-heading { display: grid; grid-template-columns: minmax(8rem, .3fr) 1fr; margin-bottom: 4rem; }
+.classroom-section-heading h2 { font-family: Iowan Old Style, Baskerville, "Times New Roman", serif; font-size: clamp(3rem, 6vw, 6rem); font-weight: 400; letter-spacing: -.065em; line-height: .9; }
+.classroom-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1rem; }
+.classroom-card { border: 1px solid var(--line); border-radius: 1.5rem 5rem 1.5rem 1.5rem; padding: clamp(1.5rem, 3vw, 2.5rem); background: color-mix(in srgb, var(--surface) 60%, transparent); }
+.classroom-card-meta { color: var(--color-muted); font-family: var(--font-mono); font-size: .65rem; text-transform: uppercase; }
+.classroom-card h3 { margin-top: 2.5rem; font-family: Iowan Old Style, Baskerville, "Times New Roman", serif; font-size: clamp(2rem, 3vw, 3.4rem); font-weight: 400; letter-spacing: -.05em; line-height: .95; }
+.classroom-card > p:not(.classroom-card-meta), .classroom-instructions { margin: 1.2rem 0 2rem; color: var(--color-muted); line-height: 1.65; }
+.classroom-empty { border: 1px solid var(--line); border-radius: 1.5rem; padding: 3rem; color: var(--color-muted); text-align: center; }
+.classroom-comments { margin-top: 2.5rem; border-top: 1px solid var(--line); padding-top: 1.25rem; }
+.classroom-comments summary { cursor: pointer; font-size: .8rem; font-weight: 650; }
+.classroom-comments form { display: grid; gap: 1rem; margin-top: 1.5rem; }
+.classroom-comments label { display: grid; gap: .5rem; color: var(--color-muted); font-size: .72rem; }
+.classroom-comments input, .classroom-comments textarea { width: 100%; border-bottom: 1px solid var(--line); padding: .75rem 0; color: var(--color-foreground); outline: none; }
+.classroom-comments .button-link { width: fit-content; border: 0; cursor: pointer; }
+@media (max-width: 760px) {
+  .learning-hub-features, .classroom-grid, .classroom-hero, .classroom-section-heading { grid-template-columns: 1fr; }
+  .classroom-page { width: min(100% - 2.5rem, 88rem); }
+  .classroom-hero h1 { font-size: clamp(4.5rem, 21vw, 7rem); }
+  .classroom-section-heading { gap: 1.5rem; }
+}
+
+/* Shared primary action */
+.button-link, .contact-submit {
+  position: relative;
+  display: inline-flex;
+  min-height: 3.45rem;
+  min-width: 11.75rem;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.35rem;
+  overflow: hidden;
+  border: 1px solid color-mix(in srgb, var(--color-foreground) 14%, transparent);
+  border-radius: 1rem;
+  padding: .8rem 1.15rem  .8rem 1.35rem;
+  background: color-mix(in srgb, var(--surface) 74%, transparent);
+  box-shadow: 0 .65rem 1.6rem color-mix(in srgb, #000 12%, transparent), inset 0 1px 0 color-mix(in srgb, #fff 13%, transparent);
+  color: var(--color-foreground);
+  -webkit-backdrop-filter: blur(14px) saturate(1.08);
+  backdrop-filter: blur(14px) saturate(1.08);
+  font-family: var(--font-sans);
+  font-size: .78rem;
+  font-weight: 700;
+  letter-spacing: .015em;
+  line-height: 1;
+  transition: border-color 260ms ease, box-shadow 300ms ease, transform 260ms cubic-bezier(.2,.75,.2,1);
+}
+.button-link > span, .contact-submit > span {
+  display: inline-grid;
+  width: auto;
+  height: auto;
+  flex: none;
+  place-items: center;
+  background: transparent;
+  color: currentColor;
+  font-size: 1.05rem;
+  transition: transform 320ms cubic-bezier(.2,.8,.2,1);
+}
+.button-link:hover, .contact-submit:hover {
+  border-color: color-mix(in srgb, var(--color-foreground) 25%, transparent);
+  background: color-mix(in srgb, var(--surface) 90%, transparent);
+  box-shadow: 0 .85rem 1.9rem color-mix(in srgb, #000 17%, transparent), inset 0 1px 0 color-mix(in srgb, #fff 18%, transparent);
+  transform: translateY(-3px);
+}
+.button-link:hover > span, .contact-submit:hover > span { transform: translate(.22rem, -.08rem); }
+.button-link:focus-visible, .contact-submit:focus-visible { outline: 2px solid var(--color-foreground); outline-offset: 4px; }
+.contact-submit:disabled { cursor: wait; opacity: .5; transform: none; }
+
+/* Requested CTA alignment */
+.closing-section .scroll-reveal { display: grid; }
+.closing-section .button-link { justify-self: end; }
+.project-detail-action dd { display: flex; width: 100%; max-width: none; justify-content: flex-end; }
+.project-detail-action .button-link { margin-left: auto; }
+.learning-hub-cta .button-link { display: flex; margin-right: 0; margin-left: auto; }
+.contact-submit { align-self: flex-end; }
+.project-intro-details .project-detail-card:nth-child(2) dd { max-width: none; white-space: nowrap; }
+.project-intro-details .project-detail-card:nth-child(2) { min-width: 0; }
+
+/* Compact classroom opening and cultural bridge */
+.classroom-hero { display: block; min-height: 0; padding: clamp(4rem, 7vw, 7rem) 0 clamp(4.5rem, 7vw, 7rem); }
+.classroom-hero-grid { display: grid; grid-template-columns: minmax(0, 1.25fr) minmax(17rem, .55fr); align-items: end; gap: clamp(3rem, 11vw, 11rem); margin-top: clamp(2.5rem, 5vw, 5rem); }
+.classroom-hero .classroom-hero-grid h1 { font-size: clamp(4.5rem, 9vw, 9.5rem); }
+.classroom-hero-intro { color: var(--color-muted); font-size: clamp(1rem, 1.3vw, 1.15rem); line-height: 1.6; }
+.classroom-hero-intro > span { display: block; margin-top: 2rem; color: var(--color-muted); font-family: var(--font-mono); font-size: .67rem; letter-spacing: .06em; opacity: .76; }
+.classroom-bridge-system { display: grid; grid-template-columns: auto minmax(8rem, 1fr) auto; align-items: center; gap: 1.5rem; margin-top: clamp(3rem, 6vw, 6rem); border: 1px solid var(--line); border-radius: 1.25rem; padding: 1.25rem 1.4rem; background: color-mix(in srgb, var(--surface) 52%, transparent); box-shadow: inset 0 1px 0 color-mix(in srgb, #fff 10%, transparent); -webkit-backdrop-filter: blur(12px); backdrop-filter: blur(12px); }
+.classroom-bridge-place { display: flex; align-items: center; gap: .7rem; color: var(--color-muted); font-family: var(--font-mono); font-size: .62rem; font-weight: 650; letter-spacing: .11em; text-transform: uppercase; }
+.classroom-bridge-place > i { width: .55rem; height: .55rem; border-radius: 50%; background: var(--warm); box-shadow: 0 0 0 .35rem color-mix(in srgb, var(--warm) 16%, transparent); }
+.classroom-bridge-place-gambia > i { background: var(--cool); box-shadow: 0 0 0 .35rem color-mix(in srgb, var(--cool) 18%, transparent); }
+.classroom-bridge-route { position: relative; height: 1px; background: linear-gradient(90deg, var(--warm), var(--line) 32%, var(--line) 68%, var(--cool)); }
+.classroom-bridge-route i { position: absolute; top: 50%; width: .28rem; height: .28rem; border-radius: 50%; background: var(--color-foreground); opacity: .48; animation: bridgePulse 3.6s ease-in-out infinite; transform: translateY(-50%); }
+.classroom-bridge-route i:first-child { left: 22%; }.classroom-bridge-route i:nth-child(2) { left: 50%; animation-delay: -.9s; }.classroom-bridge-route i:last-child { left: 78%; animation-delay: -1.8s; }
+@keyframes bridgePulse { 0%, 100% { opacity: .2; transform: translateY(-50%) scale(.75); } 50% { opacity: .85; transform: translateY(-50%) scale(1.35); } }
+
+/* Bring Work content into the first viewport */
+.work-hero { min-height: 0; padding: clamp(4rem, 7vw, 7rem) 0 clamp(4rem, 6vw, 6rem); }
+.work-hero-copy { margin-top: clamp(3rem, 6vw, 6rem); }
+
+/* Flag-colour wash for the Russia—The Gambia bridge */
+.classroom-bridge-system { position: relative; overflow: hidden; isolation: isolate; }
+.classroom-bridge-system::before, .classroom-bridge-system::after { position: absolute; z-index: -1; top: 0; bottom: 0; width: 50%; content: ""; pointer-events: none; }
+.classroom-bridge-system::before {
+  left: 0;
+  background:
+    linear-gradient(90deg, color-mix(in srgb, #fff 8%, transparent), transparent 82%),
+    linear-gradient(180deg, rgba(255,255,255,.1) 0 33.333%, rgba(0,57,166,.13) 33.333% 66.666%, rgba(213,43,30,.13) 66.666% 100%);
+  -webkit-mask-image: linear-gradient(90deg, transparent 0, #000 10%, #000 64%, transparent 100%), linear-gradient(180deg, transparent, #000 24%, #000 76%, transparent);
+  mask-image: linear-gradient(90deg, transparent 0, #000 10%, #000 64%, transparent 100%), linear-gradient(180deg, transparent, #000 24%, #000 76%, transparent);
+  -webkit-mask-composite: source-in;
+  mask-composite: intersect;
+}
+.classroom-bridge-system::after {
+  right: 0;
+  background:
+    linear-gradient(270deg, rgba(58,119,86,.08), transparent 82%),
+    linear-gradient(180deg, rgba(206,17,38,.13) 0 30%, rgba(255,255,255,.07) 30% 36%, rgba(12,28,140,.14) 36% 64%, rgba(255,255,255,.07) 64% 70%, rgba(58,119,86,.14) 70% 100%);
+  -webkit-mask-image: linear-gradient(270deg, transparent 0, #000 10%, #000 64%, transparent 100%), linear-gradient(180deg, transparent, #000 24%, #000 76%, transparent);
+  mask-image: linear-gradient(270deg, transparent 0, #000 10%, #000 64%, transparent 100%), linear-gradient(180deg, transparent, #000 24%, #000 76%, transparent);
+  -webkit-mask-composite: source-in;
+  mask-composite: intersect;
+}
+
+/* A wider, editorial Gambia hero instead of a full-screen square */
+.project-hero { width: min(100% - 4rem, 88rem); min-height: clamp(30rem, 56vw, 42rem); margin: 1.25rem auto 0; border: 1px solid var(--line); border-radius: 1.5rem 6rem 1.5rem 1.5rem; }
+.project-hero-title { font-size: clamp(4rem, 9vw, 9rem); }
+
+/* Separate the project facts into three tactile cards */
+.project-intro-details { gap: 1rem; border: 0; }
+.project-intro-details .project-detail-card { min-height: 11rem; border: 1px solid var(--line); border-radius: 1.25rem; background: color-mix(in srgb, var(--surface) 38%, transparent); box-shadow: inset 0 1px 0 color-mix(in srgb, #fff 9%, transparent); transition: border-color 250ms ease, background-color 250ms ease, transform 280ms cubic-bezier(.2,.75,.2,1); }
+.project-intro-details .project-detail-card:first-child { border-radius: 3.5rem 1.25rem 1.25rem 1.25rem; }
+.project-intro-details .project-detail-card:last-child { border-radius: 1.25rem 3.5rem 1.25rem 1.25rem; }
+.project-intro-details .project-detail-card:hover { border-color: color-mix(in srgb, var(--color-foreground) 29%, transparent); background: color-mix(in srgb, var(--surface) 58%, transparent); transform: translateY(-.3rem); }
+
+/* A single calm direction for primary action arrows */
+.button-link > span, .contact-submit > span { font-family: var(--font-sans); font-weight: 400; }
+
+/* Match the tighter Work-page distribution on What We Do */
+.services-hero-editorial { min-height: 0; grid-template-rows: auto auto auto; row-gap: clamp(1.75rem, 3.5vw, 3.5rem); padding: clamp(3rem, 5vw, 5rem) 0 clamp(3rem, 4.5vw, 4.5rem); }
+.services-hero-editorial > h1 { max-width: 68rem; align-self: auto; font-size: clamp(4rem, 7.8vw, 8.2rem); }
+.capabilities-section { padding-top: clamp(3rem, 5vw, 5rem); }
+
+@media (max-width: 760px) {
+  .closing-section .button-link, .learning-hub-cta .button-link { justify-self: auto; margin-right: 0; margin-left: auto; }
+  .project-intro-details .project-detail-card:nth-child(2) dd { white-space: normal; }
+  .project-detail-action .button-link { margin-left: 0; }
+  .classroom-hero-grid { grid-template-columns: 1fr; gap: 2rem; }
+  .classroom-hero .classroom-hero-grid h1 { font-size: clamp(4.5rem, 21vw, 7rem); }
+  .classroom-bridge-system { grid-template-columns: auto 1fr auto; gap: .75rem; padding: 1rem; }
+  .classroom-bridge-place { font-size: .52rem; letter-spacing: .07em; }
+  .work-hero { min-height: 0; padding-top: 4rem; }
+  .services-hero-editorial { min-height: 0; grid-template-rows: auto auto auto; row-gap: 2.5rem; padding: 4rem 0; }
+  .project-hero { width: calc(100% - 2.5rem); min-height: 34rem; margin-top: .75rem; border-radius: 1.25rem 3.5rem 1.25rem 1.25rem; }
+  .project-intro-details { gap: .75rem; }
 }

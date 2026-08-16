@@ -108,7 +108,7 @@ export default function GambiaApplicationForm() {
       </label>
 
       <button type="submit" disabled={status === 'submitting'} className="contact-submit">
-        {status === 'submitting' ? t('submitting') : t('submit')} <span aria-hidden="true">↗</span>
+        {status === 'submitting' ? t('submitting') : t('submit')} <span aria-hidden="true">→</span>
       </button>
 
       <div aria-live="polite">

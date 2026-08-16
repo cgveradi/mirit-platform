@@ -36,7 +36,7 @@ export default function AboutPage() {
       </section>
 
       <section className="about-closing">
-        <ScrollReveal><p className="eyebrow">{t("closingEyebrow")}</p><h2>{t("closingTitle")}</h2><Link href="/contact" className="button-link">{t("closingCta")} <span aria-hidden="true">↗</span></Link></ScrollReveal>
+        <ScrollReveal><p className="eyebrow">{t("closingEyebrow")}</p><h2>{t("closingTitle")}</h2><Link href="/contact" className="button-link">{t("closingCta")} <span aria-hidden="true">→</span></Link></ScrollReveal>
       </section>
     </main>
   );

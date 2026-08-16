@@ -65,3 +65,9 @@ export const projectBySlugQuery = defineQuery(`
     ctaText
   }
 `);
+
+export const classroomItemsQuery = defineQuery(`
+  *[_type == "classroomItem" && locale == $locale] | order(publishedAt desc) {
+    _id, title, slug, kind, summary, instructions, dueDate, resourceUrl, publishedAt
+  }
+`);

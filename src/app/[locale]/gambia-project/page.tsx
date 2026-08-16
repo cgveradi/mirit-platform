@@ -3,9 +3,9 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { getLocale, getTranslations } from "next-intl/server";
 
-import GambiaApplicationForm from "@/components/GambiaApplicationForm";
 import GambiaGallerySlider from "@/components/GambiaGallerySlider";
 import ScrollReveal from "@/components/ScrollReveal";
+import { Link } from "@/i18n/navigation";
 import { sanityFetch } from "@/sanity/lib/live";
 import { projectBySlugQuery } from "@/sanity/lib/queries";
 import { urlFor } from "@/sanity/lib/image";
@@ -171,9 +171,9 @@ export default async function GambiaProjectPage() {
           <div className="project-detail-card project-detail-action">
             <dt>{t("applicationLabel")}</dt>
             <dd>
-              <a href="#gambia-application" className="button-link">
-                {t("detailsCta")} <span aria-hidden="true">↓</span>
-              </a>
+              <Link href="/gambia-project/classroom" className="button-link">
+                {t("detailsCta")} <span aria-hidden="true">→</span>
+              </Link>
             </dd>
           </div>
         </dl>
@@ -259,21 +259,19 @@ export default async function GambiaProjectPage() {
           </ScrollReveal>
         </section>
 
-      <section className="project-cta" id="gambia-application">
+      <section className="project-cta learning-hub-cta" id="gambia-classroom">
         <ScrollReveal><div>
-        {project.ctaTitle && (
-          <h2>
-            {project.ctaTitle}
-          </h2>
-        )}
-
-        {project.ctaText && (
-          <p>
-            {project.ctaText}
-          </p>
-        )}
-
-        <GambiaApplicationForm />
+          <p className="eyebrow">{t("classroom.eyebrow")}</p>
+          <h2>{t("classroom.title")}</h2>
+          <p>{t("classroom.intro")}</p>
+          <div className="learning-hub-features">
+            <span>{t("classroom.homework")}</span>
+            <span>{t("classroom.resources")}</span>
+            <span>{t("classroom.comments")}</span>
+          </div>
+          <Link href="/gambia-project/classroom" className="button-link">
+            {t("classroom.open")} <span aria-hidden="true">→</span>
+          </Link>
         </div></ScrollReveal>
       </section>
     </main>

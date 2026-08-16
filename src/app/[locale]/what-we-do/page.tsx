@@ -62,7 +62,7 @@ export default async function WhatWeDoPage() {
         <ScrollReveal>
           <p className="eyebrow">{t("closingEyebrow")}</p>
           <h2>{t("closingTitle")}</h2>
-          <Link href="/contact" className="button-link">{t("closingCta")} <span aria-hidden="true">↗</span></Link>
+          <Link href="/contact" className="button-link">{t("closingCta")} <span aria-hidden="true">→</span></Link>
         </ScrollReveal>
       </section>
     </main>

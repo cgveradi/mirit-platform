@@ -71,7 +71,7 @@ export default function ContactForm() {
         disabled={status === 'submitting'}
         className="contact-submit"
       >
-        {status === 'submitting' ? t('sending') : t('submit')} <span aria-hidden="true">↗</span>
+        {status === 'submitting' ? t('sending') : t('submit')} <span aria-hidden="true">→</span>
       </button>
 
       {status === 'success' && <p className="contact-status contact-status-success">{t('success')}</p>}

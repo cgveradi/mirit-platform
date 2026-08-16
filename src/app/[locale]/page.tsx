@@ -99,7 +99,7 @@ export default function Home() {
       </section>
 
       <section className="closing-section">
-        <ScrollReveal><p className="eyebrow">{t("closingEyebrow")}</p><h2>{t("closingTitle")}</h2><Link href="/gambia-project" className="button-link">{t("ctaGambia")} <span aria-hidden="true">↗</span></Link></ScrollReveal>
+        <ScrollReveal><p className="eyebrow">{t("closingEyebrow")}</p><h2>{t("closingTitle")}</h2><Link href="/gambia-project" className="button-link">{t("ctaGambia")} <span aria-hidden="true">→</span></Link></ScrollReveal>
       </section>
     </main>
   );

@@ -93,12 +93,12 @@
     "gallerySelect": "Show gallery image",
     "detailsEyebrow": "At a glance",
     "detailsTitle": "Join us",
-    "applicationLabel": "Applications",
-    "detailsCta": "Register",
+    "applicationLabel": "Classroom",
+    "detailsCta": "Open classroom",
     "exploreProject": "Explore more",
     "details": {
       "dates": { "label": "Programme dates", "value": "17–31 August 2026" },
-      "location": { "label": "Location in The Gambia", "value": "Venue to be confirmed" },
+      "location": { "label": "Location in The Gambia", "value": "University of The Gambia" },
       "fee": { "label": "Participation fee", "value": "To be confirmed" },
       "capacity": { "label": "Available places", "value": "To be confirmed" },
       "eligibility": { "label": "Eligibility", "value": "Final criteria to be announced" }
@@ -114,6 +114,15 @@
     "seo": {
       "title": "The Gambia Project | MIRIT",
       "description": "A two-week cultural and educational exchange connecting Russia and The Gambia through language, arts, dialogue and community learning."
+    },
+    "classroom": {
+      "eyebrow": "Learning hub",
+      "title": "Your classroom, beyond the classroom",
+      "intro": "Find homework, recommended dictionaries and learning materials, then leave a question for the programme team.",
+      "homework": "Homework",
+      "resources": "Dictionaries & resources",
+      "comments": "Questions & comments",
+      "open": "Enter the classroom"
     },
     "form": {
       "name": "Full name",
@@ -140,6 +149,33 @@
       "submitting": "Submitting…",
       "success": "Your interest has been registered — thank you. We will share confirmed details when they are available.",
       "error": "Something went wrong. Please try again."
+    }
+  },
+
+  "classroom": {
+    "seoTitle": "Gambia Classroom | MIRIT",
+    "seoDescription": "Homework, resources and classroom discussion for The Gambia Project.",
+    "eyebrow": "The Gambia Project / Learning hub",
+    "bannerAlt": "Participants from Russia and The Gambia exchanging books and ideas",
+    "title": "Classroom",
+    "intro": "Everything for the programme in one place: current homework, dictionaries, useful materials and a space to ask questions.",
+    "venue": "University of The Gambia · 17–31 August 2026",
+    "homeworkTitle": "Homework",
+    "resourcesTitle": "Dictionaries & resources",
+    "homework": "Homework",
+    "resource": "Recommended resource",
+    "due": "Due {date}",
+    "openResource": "Open resource",
+    "homeworkEmpty": "The first homework will appear here after the opening class.",
+    "resourcesEmpty": "Recommended dictionaries and learning materials will appear here soon.",
+    "comments": {
+      "title": "Leave a question or comment",
+      "name": "Your name",
+      "comment": "Question or comment",
+      "submit": "Send comment",
+      "sending": "Sending…",
+      "success": "Thank you. Your comment was sent for review.",
+      "error": "The comment could not be sent. Please try again."
     }
   },
 
