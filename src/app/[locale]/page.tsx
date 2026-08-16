@@ -46,9 +46,6 @@ export default function Home() {
             <h2>{t("perspectiveTitle")}</h2>
             <div className="perspective-copy">
               <p>{t("perspectiveText")}</p>
-              <Link href="/what-we-do" className="text-link">
-                {t("ctaAbout")} <span aria-hidden="true">↗</span>
-              </Link>
             </div>
           </div>
         </ScrollReveal>
@@ -58,7 +55,6 @@ export default function Home() {
         <ScrollReveal>
           <div className="paths-heading">
             <p className="eyebrow">{t("pathsEyebrow")}</p>
-            <p>{t("pathsIntro")}</p>
           </div>
           <div className="paths-grid">
             <Link href="/what-we-do" className="path-card path-card-digital">
