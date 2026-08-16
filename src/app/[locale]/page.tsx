@@ -10,19 +10,19 @@ export default function Home() {
     <main>
       <section className="hero-shell">
         <svg className="hero-dot-field" viewBox="0 0 1440 900" preserveAspectRatio="none" aria-hidden="true">
-          <g>
-            {Array.from({ length: 17 }, (_, row) =>
-              Array.from({ length: 29 }, (_, column) => {
+          {Array.from({ length: 17 }, (_, row) => (
+            <g key={row} className={`hero-dot-row hero-dot-row-${row % 4}`}>
+              {Array.from({ length: 29 }, (_, column) => {
                 const x = 20 + column * 50;
                 const y = 105 + row * 43 + Math.sin(column * 0.42 + row * 0.62) * (15 + Math.abs(row - 8) * 1.35);
                 const distanceFromCenter = Math.abs(column - 14) / 14;
                 const distanceFromMiddle = Math.abs(row - 8) / 8;
-                const radius = Math.max(1, 2.15 - distanceFromCenter * 0.45 - distanceFromMiddle * 0.3);
+                const radius = Math.max(.45, 1.25 - distanceFromCenter * .32 - distanceFromMiddle * .22);
 
                 return <circle key={`${row}-${column}`} cx={x} cy={y} r={radius} />;
-              }),
-            )}
-          </g>
+              })}
+            </g>
+          ))}
         </svg>
         <div className="hero-content">
           <p className="eyebrow hero-reveal">MIRIT / 01—26</p>

@@ -78,7 +78,7 @@ body > div { position: relative; z-index: 1; }
 .hero-bottom { display: flex; align-items: end; justify-content: flex-end; }.hero-intro { max-width: 31rem; margin-top: clamp(1.5rem, 2.2vw, 2.4rem); color: var(--color-muted); font-size: clamp(1rem, 1.45vw, 1.25rem); line-height: 1.45; }
 .scroll-cue { display: inline-flex; gap: .85rem; align-items: center; border-bottom: 1px solid var(--color-foreground); padding-bottom: .35rem; font-size: .75rem; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; }
 .hero-shell::after { position: absolute; inset: 5% 2% -8%; background: radial-gradient(ellipse at 50% 58%, color-mix(in srgb, var(--cool) 18%, transparent), transparent 70%); content: ""; opacity: .5; pointer-events: none; }
-.hero-dot-field { position: absolute; z-index: 0; inset: 0; width: 100%; height: 100%; overflow: visible; opacity: .38; pointer-events: none; -webkit-mask-image: radial-gradient(ellipse 88% 94% at 50% 52%, #000 18%, rgba(0,0,0,.82) 52%, transparent 91%); mask-image: radial-gradient(ellipse 88% 94% at 50% 52%, #000 18%, rgba(0,0,0,.82) 52%, transparent 91%); }.hero-dot-field g { animation: dotDuneDrift 12s ease-in-out infinite alternate; transform-origin: center; }.hero-dot-field circle { fill: var(--color-foreground); opacity: .4; }
+.hero-dot-field { position: absolute; z-index: 0; inset: 0; width: 100%; height: 100%; overflow: visible; opacity: .32; pointer-events: none; -webkit-mask-image: radial-gradient(ellipse 88% 94% at 50% 52%, #000 18%, rgba(0,0,0,.82) 52%, transparent 91%); mask-image: radial-gradient(ellipse 88% 94% at 50% 52%, #000 18%, rgba(0,0,0,.82) 52%, transparent 91%); }.hero-dot-row { animation: dotDuneDrift 20s cubic-bezier(.45,.05,.55,.95) infinite alternate; transform-origin: center; }.hero-dot-row-1 { animation-duration: 24s; animation-delay: -7s; }.hero-dot-row-2 { animation-duration: 27s; animation-delay: -15s; }.hero-dot-row-3 { animation-duration: 22s; animation-delay: -11s; }.hero-dot-field circle { fill: var(--color-foreground); opacity: .34; }
 .hero-reveal { animation: reveal .75s both cubic-bezier(.2,.8,.2,1); }
 .hero-title { animation-delay: .12s; }.hero-bottom { animation-delay: .24s; }
 
@@ -102,7 +102,7 @@ body > div { position: relative; z-index: 1; }
 
 @keyframes reveal { from { opacity: 0; transform: translateY(1.2rem); } to { opacity: 1; transform: translateY(0); } }
 @keyframes titleFloat { to { transform: translateY(-.25rem); } }
-@keyframes dotDuneDrift { from { opacity: .66; transform: translate3d(-.35rem, .15rem, 0) scale(.99); } to { opacity: 1; transform: translate3d(.45rem, -.35rem, 0) scale(1.015); } }
+@keyframes dotDuneDrift { 0% { opacity: .62; transform: translate3d(-.22rem, .12rem, 0); } 48% { opacity: .9; } 100% { opacity: .72; transform: translate3d(.3rem, -.2rem, 0); } }
 
 /* A slow spotlight travelling through the homepage statement */
 .hero-title {
