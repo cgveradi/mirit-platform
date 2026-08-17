@@ -57,27 +57,28 @@ export default function Home() {
             <p className="eyebrow">{t("pathsEyebrow")}</p>
           </div>
           <div className="paths-grid">
-            <Link href="/what-we-do" className="path-card path-card-digital">
+            <a
+              href="https://miritai.com"
+              className="path-card path-card-digital"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
               <div className="path-card-topline"><span>01</span><em>{t("pathThreeTag")}</em></div>
-              <div className="path-card-visual path-card-visual-digital" aria-hidden="true">
-                <svg className="digital-blueprint" viewBox="0 0 640 360" preserveAspectRatio="xMidYMid meet">
-                  <g className="digital-guides">
-                    <path d="M76 102H564M76 258H564M142 58V300M498 58V300" />
-                    <path d="M126 238L262 92M196 274L350 72M286 282L444 86M374 272L516 122" />
-                    <path d="M102 180H538M320 48V312" />
-                  </g>
-                  <text x="320" y="215" textAnchor="middle">MIRIT</text>
-                  <circle cx="548" cy="88" r="5" />
-                  <circle cx="566" cy="88" r="5" />
-                </svg>
+              <div className="path-card-visual">
+                <Image
+                  src="/images/miritai/data-ai-software-systems.png"
+                  alt=""
+                  fill
+                  sizes="(max-width: 760px) 100vw, 33vw"
+                />
               </div>
               <div className="path-card-content"><h2>{t("pathThreeTitle")}</h2><p>{t("pathThreeText")}</p></div>
               <b aria-hidden="true">↗</b>
-            </Link>
+            </a>
             <Link href="/gambia-project" className="path-card path-card-warm">
               <div className="path-card-topline"><span>02</span><em>{t("pathOneTag")}</em></div>
               <div className="path-card-visual">
-                <Image src="/images/gambia/community-connection-concept.png" alt="" fill sizes="(max-width: 760px) 100vw, 33vw" />
+                <Image src="/images/cards/gambia-cultural-exchange.png" alt="" fill sizes="(max-width: 760px) 100vw, 33vw" />
               </div>
               <div className="path-card-content"><h2>{t("pathOneTitle")}</h2><p>{t("pathOneText")}</p></div>
               <b aria-hidden="true">↗</b>
@@ -85,7 +86,7 @@ export default function Home() {
             <Link href="/what-we-do" className="path-card path-card-cool">
               <div className="path-card-topline"><span>03</span><em>{t("pathTwoTag")}</em></div>
               <div className="path-card-visual">
-                <Image src="/images/gambia/creative-exchange-concept.png" alt="" fill sizes="(max-width: 760px) 100vw, 33vw" />
+                <Image src="/images/cards/culture-made-useful.png" alt="" fill sizes="(max-width: 760px) 100vw, 33vw" />
               </div>
               <div className="path-card-content"><h2>{t("pathTwoTitle")}</h2><p>{t("pathTwoText")}</p></div>
               <b aria-hidden="true">↗</b>
