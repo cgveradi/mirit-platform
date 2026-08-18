@@ -392,13 +392,13 @@ body > div { position: relative; z-index: 1; }
 .classroom-resource-copy { padding: clamp(1.15rem, 2vw, 1.6rem); }
 .classroom-resource-copy h3 { margin-top: 1rem; font-family: Iowan Old Style, Baskerville, "Times New Roman", serif; font-size: clamp(1.55rem, 2.25vw, 2.25rem); font-weight: 400; letter-spacing: -.045em; line-height: .98; }
 .classroom-resource-copy > p:last-child { margin-top: 1rem; color: var(--color-muted); line-height: 1.6; }
-.classroom-resource-viewer { position: fixed; z-index: 100; inset: 0; display: grid; place-items: center; overflow-y: auto; padding: clamp(1rem, 3vw, 2.5rem); background: rgba(17,18,16,.88); -webkit-backdrop-filter: blur(16px); backdrop-filter: blur(16px); animation: viewerFadeIn 180ms ease both; }
-.classroom-resource-viewer-inner { position: relative; display: grid; max-width: min(94vw, 76rem); max-height: 92svh; justify-items: center; gap: .75rem; }
-.classroom-resource-viewer-portrait { max-width: min(94vw, 44rem); }
-.classroom-resource-viewer-image { display: grid; min-height: 0; place-items: center; overflow: auto; border: 1px solid rgba(246,241,232,.24); border-radius: 1rem; background: #e7dfd2; box-shadow: 0 2rem 6rem rgba(0,0,0,.38); }
-.classroom-resource-viewer-image img { display: block; width: auto; max-width: 100%; height: auto; max-height: calc(92svh - 5rem); object-fit: contain; }
+.classroom-resource-viewer { position: fixed; z-index: 100; inset: 0; display: block; overflow: auto; padding: clamp(5rem, 8vw, 7rem) clamp(1rem, 3vw, 2.5rem) 3rem; background: rgba(17,18,16,.9); -webkit-backdrop-filter: blur(16px); backdrop-filter: blur(16px); animation: viewerFadeIn 180ms ease both; overscroll-behavior: contain; }
+.classroom-resource-viewer-inner { display: grid; width: min(94vw, 80rem); margin: 0 auto; justify-items: center; gap: 1.25rem; }
+.classroom-resource-viewer-portrait { width: min(94vw, 64rem); }
+.classroom-resource-viewer-image { display: grid; width: 100%; place-items: center; border: 1px solid rgba(246,241,232,.24); border-radius: 1rem; background: #e7dfd2; box-shadow: 0 2rem 6rem rgba(0,0,0,.38); }
+.classroom-resource-viewer-image img { display: block; width: 100%; height: auto; object-fit: contain; }
 .classroom-resource-viewer-inner > p { color: #f6f1e8; font-family: var(--font-mono); font-size: .65rem; letter-spacing: .07em; }
-.classroom-resource-viewer-close { position: absolute; z-index: 2; top: .8rem; right: .8rem; display: inline-flex; min-height: 2.65rem; align-items: center; gap: .5rem; border: 1px solid rgba(246,241,232,.42); border-radius: 999px; padding: .55rem .9rem; background: rgba(20,22,19,.72); color: #f6f1e8; font-size: .72rem; cursor: pointer; -webkit-backdrop-filter: blur(10px); backdrop-filter: blur(10px); }
+.classroom-resource-viewer-close { position: fixed; z-index: 2; top: clamp(1rem, 2vw, 1.75rem); right: clamp(1rem, 2vw, 1.75rem); display: inline-flex; min-height: 2.8rem; align-items: center; gap: .5rem; border: 1px solid rgba(246,241,232,.42); border-radius: 999px; padding: .6rem 1rem; background: rgba(20,22,19,.78); color: #f6f1e8; font-size: .72rem; cursor: pointer; box-shadow: 0 .5rem 1.5rem rgba(0,0,0,.2); -webkit-backdrop-filter: blur(10px); backdrop-filter: blur(10px); }
 .classroom-resource-viewer-close span { font-size: 1.25rem; line-height: .7; }
 @keyframes viewerFadeIn { from { opacity: 0; } to { opacity: 1; } }
 .classroom-linked-resources { margin-top: 1rem; }
