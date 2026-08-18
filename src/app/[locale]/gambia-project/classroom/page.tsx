@@ -5,6 +5,7 @@ import { getLocale, getTranslations } from "next-intl/server";
 import ClassroomComments from "@/components/ClassroomComments";
 import ClassroomResourceGallery from "@/components/ClassroomResourceGallery";
 import InteractiveHomework, { type InteractiveQuestion } from "@/components/InteractiveHomework";
+import { client } from "@/sanity/lib/client";
 import { sanityFetch } from "@/sanity/lib/live";
 import { classroomItemsQuery } from "@/sanity/lib/queries";
 
@@ -62,7 +63,15 @@ export default async function ClassroomPage() {
     const { data } = await sanityFetch({ query: classroomItemsQuery, params: { locale } });
     items = (data ?? []) as ClassroomItem[];
   } catch {
-    // Keep the classroom available with its empty states if the CMS is temporarily unreachable.
+    // Fall through to the direct public query below.
+  }
+  if (items.length === 0) {
+    try {
+      // Bypass a stale empty Live API result after the first classroom item is published.
+      items = (await client.fetch(classroomItemsQuery, { locale }, { cache: "no-store" })) as ClassroomItem[];
+    } catch {
+      // Keep the classroom available with its empty state if both CMS requests fail.
+    }
   }
   const homework = items.filter((item) => item.kind === "homework");
   const resources = items.filter((item) => item.kind === "resource");
@@ -76,7 +85,7 @@ export default async function ClassroomPage() {
           <div className="classroom-hero-intro">
             <p>{t("intro")}</p>
             <span>{t("venue")}</span>
-            <a className="classroom-question-jump" href="#classroom-questions">{t("askQuestion")} ↓</a>
+            <a className="classroom-question-jump" href="#classroom-questions"><span>{t("askQuestion")}</span><i aria-hidden="true">↓</i></a>
           </div>
         </div>
         <div className="classroom-bridge-system" aria-label={t("bannerAlt")}>

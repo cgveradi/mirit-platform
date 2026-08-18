@@ -382,16 +382,16 @@ body > div { position: relative; z-index: 1; }
 .classroom-section-heading { display: grid; grid-template-columns: minmax(8rem, .3fr) 1fr; margin-bottom: 4rem; }
 .classroom-section-heading h2 { font-family: Iowan Old Style, Baskerville, "Times New Roman", serif; font-size: clamp(3rem, 6vw, 6rem); font-weight: 400; letter-spacing: -.065em; line-height: .9; }
 .classroom-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1rem; }
-.classroom-resource-gallery { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1rem; }
-.classroom-visual-resource { overflow: hidden; border: 1px solid var(--line); border-radius: 1.5rem; background: color-mix(in srgb, var(--surface) 60%, transparent); }
-.classroom-resource-image { position: relative; display: block; width: 100%; aspect-ratio: 4 / 3; overflow: hidden; border: 0; border-bottom: 1px solid var(--line); background: #d7d0c3; cursor: zoom-in; }
+.classroom-resource-gallery { display: grid; width: min(100%, 64rem); grid-template-columns: repeat(3, minmax(0, 1fr)); gap: .85rem; margin: 0 auto; }
+.classroom-visual-resource { overflow: hidden; border: 1px solid var(--line); border-radius: 1.25rem; background: color-mix(in srgb, var(--surface) 60%, transparent); }
+.classroom-resource-image { position: relative; display: block; width: 100%; aspect-ratio: 16 / 9; overflow: hidden; border: 0; border-bottom: 1px solid var(--line); background: #d7d0c3; cursor: zoom-in; }
 .classroom-resource-image img { display: block; width: 100%; height: 100%; object-fit: cover; object-position: center; transition: filter 350ms ease, transform 600ms cubic-bezier(.2,.75,.2,1); }
 .classroom-visual-resource-portrait .classroom-resource-image img { object-position: top; }
 .classroom-resource-image:hover img { filter: saturate(1.03) contrast(1.02); transform: scale(1.018); }
-.classroom-resource-image > span { position: absolute; right: 1rem; bottom: 1rem; border: 1px solid rgba(246,241,232,.42); border-radius: 999px; padding: .6rem .8rem; background: rgba(20,22,19,.58); color: #f6f1e8; font-family: var(--font-mono); font-size: .6rem; letter-spacing: .06em; -webkit-backdrop-filter: blur(10px); backdrop-filter: blur(10px); }
-.classroom-resource-copy { padding: clamp(1.15rem, 2vw, 1.6rem); }
-.classroom-resource-copy h3 { margin-top: 1rem; font-family: Iowan Old Style, Baskerville, "Times New Roman", serif; font-size: clamp(1.55rem, 2.25vw, 2.25rem); font-weight: 400; letter-spacing: -.045em; line-height: .98; }
-.classroom-resource-copy > p:last-child { margin-top: 1rem; color: var(--color-muted); line-height: 1.6; }
+.classroom-resource-image > span { position: absolute; right: .7rem; bottom: .7rem; border: 1px solid rgba(246,241,232,.42); border-radius: 999px; padding: .5rem .7rem; background: rgba(20,22,19,.58); color: #f6f1e8; font-family: var(--font-mono); font-size: .56rem; letter-spacing: .05em; -webkit-backdrop-filter: blur(10px); backdrop-filter: blur(10px); }
+.classroom-resource-copy { padding: 1rem 1.1rem 1.15rem; }
+.classroom-resource-copy h3 { margin-top: .75rem; font-family: Iowan Old Style, Baskerville, "Times New Roman", serif; font-size: clamp(1.35rem, 1.8vw, 1.8rem); font-weight: 400; letter-spacing: -.04em; line-height: 1; }
+.classroom-resource-copy > p:last-child { display: -webkit-box; overflow: hidden; margin-top: .75rem; color: var(--color-muted); font-size: .82rem; line-height: 1.5; -webkit-box-orient: vertical; -webkit-line-clamp: 3; }
 .classroom-resource-viewer { position: fixed; z-index: 100; inset: 0; display: block; overflow: auto; padding: clamp(5rem, 8vw, 7rem) clamp(1rem, 3vw, 2.5rem) 3rem; background: rgba(17,18,16,.9); -webkit-backdrop-filter: blur(16px); backdrop-filter: blur(16px); animation: viewerFadeIn 180ms ease both; overscroll-behavior: contain; }
 .classroom-resource-viewer-inner { display: grid; width: min(94vw, 80rem); margin: 0 auto; justify-items: center; gap: 1.25rem; }
 .classroom-resource-viewer-portrait { width: min(94vw, 64rem); }
@@ -526,8 +526,10 @@ body > div { position: relative; z-index: 1; }
 .classroom-hero .classroom-hero-grid h1 { font-size: clamp(4.5rem, 9vw, 9.5rem); }
 .classroom-hero-intro { color: var(--color-muted); font-size: clamp(1rem, 1.3vw, 1.15rem); line-height: 1.6; }
 .classroom-hero-intro > span { display: block; margin-top: 2rem; color: var(--color-muted); font-family: var(--font-mono); font-size: .67rem; letter-spacing: .06em; opacity: .76; }
-.classroom-question-jump { display: inline-flex; width: fit-content; margin-top: 1.25rem; border-bottom: 1px solid currentColor; padding-bottom: .25rem; color: var(--color-foreground); font-size: .72rem; font-weight: 650; letter-spacing: .06em; text-transform: uppercase; transition: opacity 180ms ease; }
-.classroom-question-jump:hover { opacity: .64; }
+.classroom-question-jump { display: flex; width: min(100%, 18rem); min-height: 3.4rem; align-items: center; justify-content: space-between; gap: 1.25rem; margin: 1.5rem 0 0 auto; border: 1px solid var(--line); border-radius: 1rem; padding: .75rem .75rem .75rem 1.15rem; background: color-mix(in srgb, var(--surface) 60%, transparent); color: var(--color-foreground); box-shadow: inset 0 1px 0 color-mix(in srgb, #fff 14%, transparent); font-size: .7rem; font-weight: 650; letter-spacing: .07em; text-transform: uppercase; transition: background-color 180ms ease, transform 180ms ease; }
+.classroom-question-jump i { display: grid; width: 2rem; height: 2rem; place-items: center; border-radius: .65rem; background: var(--color-foreground); color: var(--color-background); font-family: var(--font-sans); font-size: .9rem; font-style: normal; transition: transform 180ms ease; }
+.classroom-question-jump:hover { background: var(--surface); transform: translateY(-2px); }
+.classroom-question-jump:hover i { transform: translateY(.15rem); }
 .classroom-bridge-system { display: grid; grid-template-columns: auto minmax(8rem, 1fr) auto; align-items: center; gap: 1.5rem; margin-top: clamp(3rem, 6vw, 6rem); border: 1px solid var(--line); border-radius: 1.25rem; padding: 1.25rem 1.4rem; background: color-mix(in srgb, var(--surface) 52%, transparent); box-shadow: inset 0 1px 0 color-mix(in srgb, #fff 10%, transparent); -webkit-backdrop-filter: blur(12px); backdrop-filter: blur(12px); }
 .classroom-bridge-place { display: flex; align-items: center; gap: .7rem; color: var(--color-muted); font-family: var(--font-mono); font-size: .62rem; font-weight: 650; letter-spacing: .11em; text-transform: uppercase; }
 .classroom-bridge-place > i { width: .55rem; height: .55rem; border-radius: 50%; background: var(--warm); box-shadow: 0 0 0 .35rem color-mix(in srgb, var(--warm) 16%, transparent); }
