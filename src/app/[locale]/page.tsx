@@ -1,10 +1,32 @@
 import { Link } from "@/i18n/navigation";
-import { useTranslations } from "next-intl";
+import { getLocale, getTranslations } from "next-intl/server";
 import Image from "next/image";
 import ScrollReveal from "@/components/ScrollReveal";
+import { sanityFetch } from "@/sanity/lib/live";
+import { projectBySlugQuery } from "@/sanity/lib/queries";
+import { urlFor } from "@/sanity/lib/image";
 
-export default function Home() {
-  const t = useTranslations("home");
+type HomeProject = {
+  heroImage?: {
+    asset?: { _ref: string };
+  };
+};
+
+export default async function Home() {
+  const locale = await getLocale();
+  const t = await getTranslations("home");
+  const slug = locale === "ru" ? "proekt-v-gambii" : "gambia-project";
+  let gambiaBanner = "/images/gambia/language-workshop-concept.png";
+
+  try {
+    const { data } = await sanityFetch({ query: projectBySlugQuery, params: { slug, locale } });
+    const project = data as HomeProject | null;
+    if (project?.heroImage?.asset) {
+      gambiaBanner = urlFor(project.heroImage).width(1200).height(720).fit("crop").quality(85).url();
+    }
+  } catch {
+    // Keep the homepage complete if Sanity is temporarily unavailable.
+  }
 
   return (
     <main>
@@ -72,13 +94,13 @@ export default function Home() {
                   sizes="(max-width: 760px) 100vw, 33vw"
                 />
               </div>
-              <div className="path-card-content"><h2>{t("pathThreeTitle")}</h2><p>{t("pathThreeText")}</p></div>
+              <div className="path-card-content"><span className="path-card-destination">{t("pathThreeDestination")}</span><h2>{t("pathThreeTitle")}</h2><p>{t("pathThreeText")}</p></div>
               <b aria-hidden="true">↗</b>
             </a>
             <Link href="/gambia-project" className="path-card path-card-warm">
               <div className="path-card-topline"><span>02</span><em>{t("pathOneTag")}</em></div>
               <div className="path-card-visual">
-                <Image src="/images/gambia/russia-gambia-cultural-bridge-concept.png" alt="" fill sizes="(max-width: 760px) 100vw, 33vw" />
+                <Image src={gambiaBanner} alt="" fill sizes="(max-width: 760px) 100vw, 33vw" />
               </div>
               <div className="path-card-content"><h2>{t("pathOneTitle")}</h2><p>{t("pathOneText")}</p></div>
               <b aria-hidden="true">↗</b>
