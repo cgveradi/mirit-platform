@@ -382,6 +382,26 @@ body > div { position: relative; z-index: 1; }
 .classroom-section-heading { display: grid; grid-template-columns: minmax(8rem, .3fr) 1fr; margin-bottom: 4rem; }
 .classroom-section-heading h2 { font-family: Iowan Old Style, Baskerville, "Times New Roman", serif; font-size: clamp(3rem, 6vw, 6rem); font-weight: 400; letter-spacing: -.065em; line-height: .9; }
 .classroom-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1rem; }
+.classroom-resource-gallery { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1rem; }
+.classroom-visual-resource { overflow: hidden; border: 1px solid var(--line); border-radius: 1.5rem; background: color-mix(in srgb, var(--surface) 60%, transparent); }
+.classroom-resource-image { position: relative; display: block; width: 100%; aspect-ratio: 4 / 3; overflow: hidden; border: 0; border-bottom: 1px solid var(--line); background: #d7d0c3; cursor: zoom-in; }
+.classroom-resource-image img { display: block; width: 100%; height: 100%; object-fit: cover; object-position: center; transition: filter 350ms ease, transform 600ms cubic-bezier(.2,.75,.2,1); }
+.classroom-visual-resource-portrait .classroom-resource-image img { object-position: top; }
+.classroom-resource-image:hover img { filter: saturate(1.03) contrast(1.02); transform: scale(1.018); }
+.classroom-resource-image > span { position: absolute; right: 1rem; bottom: 1rem; border: 1px solid rgba(246,241,232,.42); border-radius: 999px; padding: .6rem .8rem; background: rgba(20,22,19,.58); color: #f6f1e8; font-family: var(--font-mono); font-size: .6rem; letter-spacing: .06em; -webkit-backdrop-filter: blur(10px); backdrop-filter: blur(10px); }
+.classroom-resource-copy { padding: clamp(1.15rem, 2vw, 1.6rem); }
+.classroom-resource-copy h3 { margin-top: 1rem; font-family: Iowan Old Style, Baskerville, "Times New Roman", serif; font-size: clamp(1.55rem, 2.25vw, 2.25rem); font-weight: 400; letter-spacing: -.045em; line-height: .98; }
+.classroom-resource-copy > p:last-child { margin-top: 1rem; color: var(--color-muted); line-height: 1.6; }
+.classroom-resource-viewer { position: fixed; z-index: 100; inset: 0; display: grid; place-items: center; overflow-y: auto; padding: clamp(1rem, 3vw, 2.5rem); background: rgba(17,18,16,.88); -webkit-backdrop-filter: blur(16px); backdrop-filter: blur(16px); animation: viewerFadeIn 180ms ease both; }
+.classroom-resource-viewer-inner { position: relative; display: grid; max-width: min(94vw, 76rem); max-height: 92svh; justify-items: center; gap: .75rem; }
+.classroom-resource-viewer-portrait { max-width: min(94vw, 44rem); }
+.classroom-resource-viewer-image { display: grid; min-height: 0; place-items: center; overflow: auto; border: 1px solid rgba(246,241,232,.24); border-radius: 1rem; background: #e7dfd2; box-shadow: 0 2rem 6rem rgba(0,0,0,.38); }
+.classroom-resource-viewer-image img { display: block; width: auto; max-width: 100%; height: auto; max-height: calc(92svh - 5rem); object-fit: contain; }
+.classroom-resource-viewer-inner > p { color: #f6f1e8; font-family: var(--font-mono); font-size: .65rem; letter-spacing: .07em; }
+.classroom-resource-viewer-close { position: absolute; z-index: 2; top: .8rem; right: .8rem; display: inline-flex; min-height: 2.65rem; align-items: center; gap: .5rem; border: 1px solid rgba(246,241,232,.42); border-radius: 999px; padding: .55rem .9rem; background: rgba(20,22,19,.72); color: #f6f1e8; font-size: .72rem; cursor: pointer; -webkit-backdrop-filter: blur(10px); backdrop-filter: blur(10px); }
+.classroom-resource-viewer-close span { font-size: 1.25rem; line-height: .7; }
+@keyframes viewerFadeIn { from { opacity: 0; } to { opacity: 1; } }
+.classroom-linked-resources { margin-top: 1rem; }
 .classroom-card { border: 1px solid var(--line); border-radius: 1.5rem 5rem 1.5rem 1.5rem; padding: clamp(1.5rem, 3vw, 2.5rem); background: color-mix(in srgb, var(--surface) 60%, transparent); }
 .classroom-card-meta { color: var(--color-muted); font-family: var(--font-mono); font-size: .65rem; text-transform: uppercase; }
 .classroom-card h3 { margin-top: 2.5rem; font-family: Iowan Old Style, Baskerville, "Times New Roman", serif; font-size: clamp(2rem, 3vw, 3.4rem); font-weight: 400; letter-spacing: -.05em; line-height: .95; }
@@ -405,7 +425,7 @@ body > div { position: relative; z-index: 1; }
 .classroom-comment-list time { color: var(--color-muted); font-family: var(--font-mono); font-size: .6rem; }
 .classroom-comment-list article p { margin-top: .65rem; color: var(--color-muted); line-height: 1.55; white-space: pre-wrap; }
 @media (max-width: 760px) {
-  .learning-hub-features, .classroom-grid, .classroom-hero, .classroom-section-heading { grid-template-columns: 1fr; }
+  .learning-hub-features, .classroom-grid, .classroom-resource-gallery, .classroom-hero, .classroom-section-heading { grid-template-columns: 1fr; }
   .classroom-page { width: min(100% - 2.5rem, 88rem); }
   .classroom-hero h1 { font-size: clamp(4.5rem, 21vw, 7rem); }
   .classroom-section-heading { gap: 1.5rem; }

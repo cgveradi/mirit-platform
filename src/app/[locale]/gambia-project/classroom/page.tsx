@@ -3,6 +3,7 @@ import { PortableText, type PortableTextBlock } from "@portabletext/react";
 import { getLocale, getTranslations } from "next-intl/server";
 
 import ClassroomComments from "@/components/ClassroomComments";
+import ClassroomResourceGallery from "@/components/ClassroomResourceGallery";
 import { sanityFetch } from "@/sanity/lib/live";
 import { classroomItemsQuery } from "@/sanity/lib/queries";
 
@@ -15,6 +16,36 @@ type ClassroomItem = {
   dueDate?: string;
   resourceUrl?: string;
 };
+
+const visualResources = [
+  {
+    src: "/images/classroom/english-russian-alphabet.jpeg",
+    width: 1280,
+    height: 657,
+    titleKey: "alphabetTitle",
+    summaryKey: "alphabetSummary",
+    altKey: "alphabetAlt",
+    layout: "wide",
+  },
+  {
+    src: "/images/classroom/russian-syllable-chart.png",
+    width: 1024,
+    height: 1536,
+    titleKey: "syllablesTitle",
+    summaryKey: "syllablesSummary",
+    altKey: "syllablesAlt",
+    layout: "portrait",
+  },
+  {
+    src: "/images/classroom/russian-syllable-practice.png",
+    width: 1024,
+    height: 1536,
+    titleKey: "practiceTitle",
+    summaryKey: "practiceSummary",
+    altKey: "practiceAlt",
+    layout: "portrait",
+  },
+] as const;
 
 export async function generateMetadata(): Promise<Metadata> {
   const t = await getTranslations("classroom");
@@ -66,12 +97,18 @@ export default async function ClassroomPage() {
 
       <section className="classroom-section">
         <div className="classroom-section-heading"><p className="eyebrow">02</p><h2>{t("resourcesTitle")}</h2></div>
-        {resources.length ? <div className="classroom-grid">{resources.map((item) => (
+        <ClassroomResourceGallery
+          resources={visualResources.map((resource) => ({ ...resource, title: t(resource.titleKey), summary: t(resource.summaryKey), alt: t(resource.altKey) }))}
+          visualGuideLabel={t("visualGuide")}
+          viewFullSizeLabel={t("viewFullSize")}
+          closeLabel={t("closeViewer")}
+        />
+        {resources.length > 0 && <div className="classroom-grid classroom-linked-resources">{resources.map((item) => (
           <article className="classroom-card" key={item._id}>
             <p className="classroom-card-meta">{t("resource")}</p><h3>{item.title}</h3><p>{item.summary}</p>
             {item.resourceUrl && <a className="text-link" href={item.resourceUrl} target="_blank" rel="noreferrer">{t("openResource")} ↗</a>}
           </article>
-        ))}</div> : <p className="classroom-empty">{t("resourcesEmpty")}</p>}
+        ))}</div>}
       </section>
 
       <section className="classroom-section classroom-questions-section">
