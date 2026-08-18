@@ -68,6 +68,15 @@ export const projectBySlugQuery = defineQuery(`
 
 export const classroomItemsQuery = defineQuery(`
   *[_type == "classroomItem" && locale == $locale] | order(publishedAt desc) {
-    _id, title, slug, kind, summary, instructions, dueDate, resourceUrl, publishedAt
+    _id, title, slug, kind, summary, instructions, dueDate, resourceUrl, publishedAt,
+    questions[]{
+      _key,
+      questionType,
+      prompt,
+      hint,
+      acceptedAnswers,
+      options[]{ _key, label, isCorrect },
+      explanation
+    }
   }
 `);

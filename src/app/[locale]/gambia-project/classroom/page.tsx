@@ -4,6 +4,7 @@ import { getLocale, getTranslations } from "next-intl/server";
 
 import ClassroomComments from "@/components/ClassroomComments";
 import ClassroomResourceGallery from "@/components/ClassroomResourceGallery";
+import InteractiveHomework, { type InteractiveQuestion } from "@/components/InteractiveHomework";
 import { sanityFetch } from "@/sanity/lib/live";
 import { classroomItemsQuery } from "@/sanity/lib/queries";
 
@@ -15,6 +16,7 @@ type ClassroomItem = {
   instructions?: PortableTextBlock[];
   dueDate?: string;
   resourceUrl?: string;
+  questions?: InteractiveQuestion[];
 };
 
 const visualResources = [
@@ -90,6 +92,7 @@ export default async function ClassroomPage() {
             <p className="classroom-card-meta">{item.dueDate ? t("due", { date: new Intl.DateTimeFormat(locale, { dateStyle: "medium" }).format(new Date(item.dueDate)) }) : t("homework")}</p>
             <h3>{item.title}</h3><p>{item.summary}</p>
             {item.instructions && <div className="classroom-instructions"><PortableText value={item.instructions} /></div>}
+            {item.questions && item.questions.length > 0 && <InteractiveHomework itemId={item._id} questions={item.questions} />}
             <ClassroomComments itemId={item._id} />
           </article>
         ))}</div> : <p className="classroom-empty">{t("homeworkEmpty")}</p>}

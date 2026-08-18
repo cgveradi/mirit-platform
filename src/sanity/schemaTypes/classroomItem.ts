@@ -11,6 +11,52 @@ export const classroomItem = defineType({
     defineField({ name: "locale", title: "Website language", description: "English content appears on the English classroom; Russian content appears on the Russian classroom.", type: "string", initialValue: "en", options: { list: [{ title: "English", value: "en" }, { title: "Russian", value: "ru" }], layout: "radio" }, validation: (Rule) => Rule.required() }),
     defineField({ name: "summary", title: "Summary", type: "text", rows: 3, validation: (Rule) => Rule.required() }),
     defineField({ name: "instructions", title: "Homework instructions", description: "Add the steps, vocabulary or exercise students should complete.", type: "array", of: [defineArrayMember({ type: "block" })], hidden: ({ parent }) => parent?.kind !== "homework" }),
+    defineField({
+      name: "questions",
+      title: "Interactive exercise",
+      description: "Add questions students can answer, check and submit directly in the classroom.",
+      type: "array",
+      hidden: ({ parent }) => parent?.kind !== "homework",
+      of: [
+        defineArrayMember({
+          name: "interactiveQuestion",
+          title: "Question",
+          type: "object",
+          fields: [
+            defineField({ name: "questionType", title: "Answer format", type: "string", initialValue: "shortAnswer", options: { list: [{ title: "Short answer", value: "shortAnswer" }, { title: "Multiple choice", value: "multipleChoice" }, { title: "Fill in the blank", value: "fillBlank" }], layout: "radio" }, validation: (Rule) => Rule.required() }),
+            defineField({ name: "prompt", title: "Question", type: "text", rows: 2, validation: (Rule) => Rule.required().max(500) }),
+            defineField({ name: "hint", title: "Optional hint", type: "string", validation: (Rule) => Rule.max(200) }),
+            defineField({
+              name: "acceptedAnswers",
+              title: "Accepted answers",
+              description: "Add spelling variants as separate answers. Checking ignores capitalisation and extra spaces.",
+              type: "array",
+              of: [defineArrayMember({ type: "string" })],
+              hidden: ({ parent }) => parent?.questionType === "multipleChoice",
+              validation: (Rule) => Rule.custom((value, context) => {
+                const questionType = (context.parent as { questionType?: string } | undefined)?.questionType;
+                return questionType !== "multipleChoice" && (!value || value.length === 0) ? "Add at least one accepted answer." : true;
+              }),
+            }),
+            defineField({
+              name: "options",
+              title: "Choices",
+              type: "array",
+              hidden: ({ parent }) => parent?.questionType !== "multipleChoice",
+              of: [defineArrayMember({ name: "answerOption", title: "Choice", type: "object", fields: [defineField({ name: "label", title: "Answer", type: "string", validation: (Rule) => Rule.required().max(200) }), defineField({ name: "isCorrect", title: "Correct answer", type: "boolean", initialValue: false })], preview: { select: { title: "label", isCorrect: "isCorrect" }, prepare({ title, isCorrect }) { return { title, subtitle: isCorrect ? "Correct answer" : "Incorrect answer" }; } } })],
+              validation: (Rule) => Rule.custom((value, context) => {
+                const questionType = (context.parent as { questionType?: string } | undefined)?.questionType;
+                if (questionType !== "multipleChoice") return true;
+                if (!value || value.length < 2) return "Add at least two choices.";
+                return (value as { isCorrect?: boolean }[]).filter((option) => option.isCorrect).length === 1 ? true : "Select exactly one correct answer.";
+              }),
+            }),
+            defineField({ name: "explanation", title: "Explanation after checking", type: "text", rows: 2, validation: (Rule) => Rule.max(500) }),
+          ],
+          preview: { select: { title: "prompt", questionType: "questionType" }, prepare({ title, questionType }) { const labels: Record<string, string> = { shortAnswer: "Short answer", multipleChoice: "Multiple choice", fillBlank: "Fill in the blank" }; return { title, subtitle: labels[questionType] ?? "Question" }; } },
+        }),
+      ],
+    }),
     defineField({ name: "dueDate", title: "Due date", type: "datetime", hidden: ({ parent }) => parent?.kind !== "homework" }),
     defineField({ name: "resourceUrl", title: "Resource link", description: "Paste the full website address, beginning with https://", type: "url", hidden: ({ parent }) => parent?.kind !== "resource", validation: (Rule) => Rule.uri({ scheme: ["http", "https"] }).custom((value, context) => context.parent && (context.parent as { kind?: string }).kind === "resource" && !value ? "A link is required for a resource." : true) }),
     defineField({ name: "publishedAt", title: "Publish date", type: "datetime", initialValue: () => new Date().toISOString(), validation: (Rule) => Rule.required() }),
