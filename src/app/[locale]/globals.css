@@ -403,6 +403,33 @@ body > div { position: relative; z-index: 1; }
 @keyframes viewerFadeIn { from { opacity: 0; } to { opacity: 1; } }
 .classroom-linked-resources { margin-top: 1rem; }
 .classroom-card { border: 1px solid var(--line); border-radius: 1.5rem 5rem 1.5rem 1.5rem; padding: clamp(1.5rem, 3vw, 2.5rem); background: color-mix(in srgb, var(--surface) 60%, transparent); }
+.classroom-homework-grid { display: grid; width: min(100%, 64rem); grid-template-columns: repeat(3, minmax(0, 1fr)); gap: .85rem; margin: 0 auto; }
+.classroom-homework-grid:has(> :only-child:not([open])) { grid-template-columns: minmax(0, 20.8rem); justify-content: center; }
+.classroom-homework-card { min-height: 22rem; padding: 0; overflow: hidden; border-radius: 1.25rem; transition: box-shadow 220ms ease, transform 220ms ease; }
+.classroom-homework-card[open] { min-height: 0; grid-column: 1 / -1; border-radius: 1.5rem 5rem 1.5rem 1.5rem; }
+.classroom-homework-card > summary { display: flex; min-height: 22rem; flex-direction: column; padding: 1.25rem; cursor: pointer; list-style: none; }
+.classroom-homework-card > summary::-webkit-details-marker { display: none; }
+.classroom-homework-card > summary:hover { background: color-mix(in srgb, var(--surface) 68%, transparent); }
+.classroom-homework-card > summary:focus-visible { outline: 2px solid var(--color-foreground); outline-offset: -3px; }
+.classroom-homework-card[open] > summary { min-height: 0; border-bottom: 1px solid var(--line); }
+.classroom-homework-card > summary h3 { margin-top: 1.25rem; font-size: clamp(1.5rem, 2vw, 2rem); }
+.classroom-homework-card > summary > p:not(.classroom-card-meta) { display: -webkit-box; overflow: hidden; margin-top: .85rem; color: var(--color-muted); font-size: .84rem; line-height: 1.55; -webkit-box-orient: vertical; -webkit-line-clamp: 3; }
+.classroom-homework-toggle { display: flex; align-items: center; justify-content: space-between; gap: 1rem; margin-top: auto; border-top: 1px solid var(--line); padding-top: 1rem; font-family: var(--font-mono); font-size: .59rem; font-weight: 650; letter-spacing: .06em; text-transform: uppercase; }
+.classroom-homework-toggle i { display: grid; width: 2rem; height: 2rem; place-items: center; border-radius: .65rem; background: var(--color-foreground); color: var(--color-background); font-size: .85rem; font-style: normal; transition: transform 220ms ease; }
+.classroom-homework-close-label { display: none; }
+.classroom-homework-card[open] .classroom-homework-open-label { display: none; }
+.classroom-homework-card[open] .classroom-homework-close-label { display: inline; }
+.classroom-homework-card[open] .classroom-homework-toggle { margin-top: 1.25rem; }
+.classroom-homework-card[open] .classroom-homework-toggle i { transform: rotate(180deg); }
+.classroom-homework-content { padding: clamp(1.5rem, 3vw, 2.5rem); }
+.classroom-homework-placeholder { position: relative; display: flex; min-height: 22rem; flex-direction: column; overflow: hidden; border-radius: 1.25rem; padding: 1.25rem; background: linear-gradient(145deg, color-mix(in srgb, var(--surface) 68%, transparent), color-mix(in srgb, var(--color-background) 86%, transparent)); }
+.classroom-homework-placeholder::after { position: absolute; right: -4rem; bottom: -5rem; width: 12rem; aspect-ratio: 1; border: 1px solid color-mix(in srgb, var(--color-foreground) 9%, transparent); border-radius: 50%; box-shadow: 0 0 0 2.2rem color-mix(in srgb, var(--color-foreground) 2%, transparent), 0 0 0 4.4rem color-mix(in srgb, var(--color-foreground) 2%, transparent); content: ""; pointer-events: none; }
+.classroom-homework-placeholder-mark { display: flex; align-items: center; gap: .75rem; margin: 2.2rem 0 1.35rem; color: var(--color-muted); font-family: var(--font-mono); font-size: .68rem; }
+.classroom-homework-placeholder-mark i { width: 2.5rem; height: 1px; background: var(--line); }
+.classroom-homework-placeholder h3 { position: relative; z-index: 1; margin-top: 0; font-size: clamp(1.5rem, 2vw, 2rem); }
+.classroom-homework-placeholder > p:not(.classroom-card-meta) { position: relative; z-index: 1; margin: .85rem 0 1.5rem; color: var(--color-muted); font-size: .84rem; line-height: 1.55; }
+.classroom-homework-placeholder-status { position: relative; z-index: 1; display: flex; align-items: center; gap: .55rem; margin-top: auto; border-top: 1px solid var(--line); padding-top: 1rem; color: var(--color-muted); font-family: var(--font-mono); font-size: .59rem; font-weight: 650; letter-spacing: .06em; text-transform: uppercase; }
+.classroom-homework-placeholder-status i { width: .42rem; height: .42rem; border-radius: 50%; background: var(--warm); box-shadow: 0 0 0 .3rem color-mix(in srgb, var(--warm) 14%, transparent); }
 .classroom-card-meta { color: var(--color-muted); font-family: var(--font-mono); font-size: .65rem; text-transform: uppercase; }
 .classroom-card h3 { margin-top: 2.5rem; font-family: Iowan Old Style, Baskerville, "Times New Roman", serif; font-size: clamp(2rem, 3vw, 3.4rem); font-weight: 400; letter-spacing: -.05em; line-height: .95; }
 .classroom-card > p:not(.classroom-card-meta), .classroom-instructions { margin: 1.2rem 0 2rem; color: var(--color-muted); line-height: 1.65; }
@@ -454,7 +481,9 @@ body > div { position: relative; z-index: 1; }
 .classroom-comment-list time { color: var(--color-muted); font-family: var(--font-mono); font-size: .6rem; }
 .classroom-comment-list article p { margin-top: .65rem; color: var(--color-muted); line-height: 1.55; white-space: pre-wrap; }
 @media (max-width: 760px) {
-  .learning-hub-features, .classroom-grid, .classroom-resource-gallery, .classroom-hero, .classroom-section-heading { grid-template-columns: 1fr; }
+  .learning-hub-features, .classroom-grid, .classroom-resource-gallery, .classroom-homework-grid, .classroom-homework-grid:has(> :only-child:not([open])), .classroom-hero, .classroom-section-heading { grid-template-columns: 1fr; }
+  .classroom-homework-card { min-height: 19rem; }
+  .classroom-homework-card > summary { min-height: 19rem; }
   .classroom-page { width: min(100% - 2.5rem, 88rem); }
   .classroom-hero h1 { font-size: clamp(4.5rem, 21vw, 7rem); }
   .classroom-section-heading { gap: 1.5rem; }

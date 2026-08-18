@@ -97,15 +97,32 @@ export default async function ClassroomPage() {
 
       <section className="classroom-section">
         <div className="classroom-section-heading"><p className="eyebrow">01</p><h2>{t("homeworkTitle")}</h2></div>
-        {homework.length ? <div className="classroom-grid">{homework.map((item) => (
-          <article className="classroom-card" key={item._id}>
-            <p className="classroom-card-meta">{item.dueDate ? t("due", { date: new Intl.DateTimeFormat(locale, { dateStyle: "medium" }).format(new Date(item.dueDate)) }) : t("homework")}</p>
-            <h3>{item.title}</h3><p>{item.summary}</p>
-            {item.instructions && <div className="classroom-instructions"><PortableText value={item.instructions} /></div>}
-            {item.questions && item.questions.length > 0 && <InteractiveHomework itemId={item._id} questions={item.questions} />}
-            <ClassroomComments itemId={item._id} />
-          </article>
-        ))}</div> : <p className="classroom-empty">{t("homeworkEmpty")}</p>}
+        {homework.length ? <div className="classroom-homework-grid">
+          {homework.map((item) => (
+            <details className="classroom-card classroom-homework-card" key={item._id}>
+              <summary>
+                <p className="classroom-card-meta">{item.dueDate ? t("due", { date: new Intl.DateTimeFormat(locale, { dateStyle: "medium" }).format(new Date(item.dueDate)) }) : t("homework")}</p>
+                <h3>{item.title}</h3>
+                <p>{item.summary}</p>
+                <span className="classroom-homework-toggle"><span className="classroom-homework-open-label">{t("openHomework")}</span><span className="classroom-homework-close-label">{t("closeHomework")}</span><i aria-hidden="true">↓</i></span>
+              </summary>
+              <div className="classroom-homework-content">
+                {item.instructions && <div className="classroom-instructions"><PortableText value={item.instructions} /></div>}
+                {item.questions && item.questions.length > 0 && <InteractiveHomework itemId={item._id} questions={item.questions} />}
+                <ClassroomComments itemId={item._id} />
+              </div>
+            </details>
+          ))}
+          {[2, 3].map((number) => (
+            <article className="classroom-card classroom-homework-placeholder" key={number} aria-label={t("comingSoonTitle", { number })}>
+              <p className="classroom-card-meta">{t("comingSoonEyebrow")}</p>
+              <div className="classroom-homework-placeholder-mark" aria-hidden="true"><span>{String(number).padStart(2, "0")}</span><i /></div>
+              <h3>{t("comingSoonTitle", { number })}</h3>
+              <p>{t("comingSoonText")}</p>
+              <span className="classroom-homework-placeholder-status"><i aria-hidden="true" />{t("comingSoonStatus")}</span>
+            </article>
+          ))}
+        </div> : <p className="classroom-empty">{t("homeworkEmpty")}</p>}
       </section>
 
       <section className="classroom-section">

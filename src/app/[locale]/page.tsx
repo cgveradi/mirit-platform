@@ -78,7 +78,7 @@ export default function Home() {
             <Link href="/gambia-project" className="path-card path-card-warm">
               <div className="path-card-topline"><span>02</span><em>{t("pathOneTag")}</em></div>
               <div className="path-card-visual">
-                <Image src="/images/cards/gambia-cultural-exchange.png" alt="" fill sizes="(max-width: 760px) 100vw, 33vw" />
+                <Image src="/images/gambia/russia-gambia-cultural-bridge-concept.png" alt="" fill sizes="(max-width: 760px) 100vw, 33vw" />
               </div>
               <div className="path-card-content"><h2>{t("pathOneTitle")}</h2><p>{t("pathOneText")}</p></div>
               <b aria-hidden="true">↗</b>
@@ -86,7 +86,7 @@ export default function Home() {
             <Link href="/what-we-do" className="path-card path-card-cool">
               <div className="path-card-topline"><span>03</span><em>{t("pathTwoTag")}</em></div>
               <div className="path-card-visual">
-                <Image src="/images/cards/culture-made-useful.png" alt="" fill sizes="(max-width: 760px) 100vw, 33vw" />
+                <Image src="/images/cards/culture-made-useful-editorial.png" alt="" fill sizes="(max-width: 760px) 100vw, 33vw" />
               </div>
               <div className="path-card-content"><h2>{t("pathTwoTitle")}</h2><p>{t("pathTwoText")}</p></div>
               <b aria-hidden="true">↗</b>
