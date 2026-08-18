@@ -443,6 +443,7 @@ body > div { position: relative; z-index: 1; }
 .classroom-comments .button-link { width: fit-content; border: 0; cursor: pointer; }
 .classroom-comments .button-link:disabled { cursor: wait; opacity: .55; }
 .classroom-question-card { max-width: 52rem; margin: 0 auto; border: 1px solid var(--line); border-radius: 1.5rem 5rem 1.5rem 1.5rem; padding: clamp(1.5rem, 3vw, 2.5rem); background: color-mix(in srgb, var(--surface) 60%, transparent); }
+.classroom-questions-section { scroll-margin-top: 6rem; }
 .classroom-question-card > p, .classroom-comment-note, .classroom-comment-load-error { color: var(--color-muted); line-height: 1.6; }
 .classroom-comment-note { font-size: .72rem; }
 .classroom-comment-list { display: grid; gap: 1rem; margin-bottom: 2rem; }
@@ -525,6 +526,8 @@ body > div { position: relative; z-index: 1; }
 .classroom-hero .classroom-hero-grid h1 { font-size: clamp(4.5rem, 9vw, 9.5rem); }
 .classroom-hero-intro { color: var(--color-muted); font-size: clamp(1rem, 1.3vw, 1.15rem); line-height: 1.6; }
 .classroom-hero-intro > span { display: block; margin-top: 2rem; color: var(--color-muted); font-family: var(--font-mono); font-size: .67rem; letter-spacing: .06em; opacity: .76; }
+.classroom-question-jump { display: inline-flex; width: fit-content; margin-top: 1.25rem; border-bottom: 1px solid currentColor; padding-bottom: .25rem; color: var(--color-foreground); font-size: .72rem; font-weight: 650; letter-spacing: .06em; text-transform: uppercase; transition: opacity 180ms ease; }
+.classroom-question-jump:hover { opacity: .64; }
 .classroom-bridge-system { display: grid; grid-template-columns: auto minmax(8rem, 1fr) auto; align-items: center; gap: 1.5rem; margin-top: clamp(3rem, 6vw, 6rem); border: 1px solid var(--line); border-radius: 1.25rem; padding: 1.25rem 1.4rem; background: color-mix(in srgb, var(--surface) 52%, transparent); box-shadow: inset 0 1px 0 color-mix(in srgb, #fff 10%, transparent); -webkit-backdrop-filter: blur(12px); backdrop-filter: blur(12px); }
 .classroom-bridge-place { display: flex; align-items: center; gap: .7rem; color: var(--color-muted); font-family: var(--font-mono); font-size: .62rem; font-weight: 650; letter-spacing: .11em; text-transform: uppercase; }
 .classroom-bridge-place > i { width: .55rem; height: .55rem; border-radius: 50%; background: var(--warm); box-shadow: 0 0 0 .35rem color-mix(in srgb, var(--warm) 16%, transparent); }

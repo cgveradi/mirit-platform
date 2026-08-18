@@ -76,6 +76,7 @@ export default async function ClassroomPage() {
           <div className="classroom-hero-intro">
             <p>{t("intro")}</p>
             <span>{t("venue")}</span>
+            <a className="classroom-question-jump" href="#classroom-questions">{t("askQuestion")} ↓</a>
           </div>
         </div>
         <div className="classroom-bridge-system" aria-label={t("bannerAlt")}>
@@ -114,7 +115,7 @@ export default async function ClassroomPage() {
         ))}</div>}
       </section>
 
-      <section className="classroom-section classroom-questions-section">
+      <section className="classroom-section classroom-questions-section" id="classroom-questions">
         <div className="classroom-section-heading"><p className="eyebrow">03</p><h2>{t("questionsTitle")}</h2></div>
         <div className="classroom-question-card">
           <p>{t("questionsIntro")}</p>
