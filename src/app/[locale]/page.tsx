@@ -130,13 +130,29 @@ export default async function Home() {
             <p className="eyebrow">{t("pathsEyebrow")}</p>
           </div>
           <div className="paths-grid">
+            <Link href="/gambia-project" className="path-card path-card-warm">
+              <div className="path-card-topline"><span>01</span><em>{t("pathOneTag")}</em></div>
+              <div className="path-card-visual">
+                <Image src={gambiaBanner} alt="" fill sizes="(max-width: 760px) 100vw, 33vw" />
+              </div>
+              <div className="path-card-content"><h2>{t("pathOneTitle")}</h2><p>{t("pathOneText")}</p></div>
+              <b aria-hidden="true">↗</b>
+            </Link>
+            <Link href="/what-we-do" className="path-card path-card-cool">
+              <div className="path-card-topline"><span>02</span><em>{t("pathTwoTag")}</em></div>
+              <div className="path-card-visual">
+                <Image src="/images/cards/culture-made-useful-editorial.png" alt="" fill sizes="(max-width: 760px) 100vw, 33vw" />
+              </div>
+              <div className="path-card-content"><h2>{t("pathTwoTitle")}</h2><p>{t("pathTwoText")}</p></div>
+              <b aria-hidden="true">↗</b>
+            </Link>
             <a
               href="https://miritai.com"
               className="path-card path-card-digital"
               target="_blank"
               rel="noopener noreferrer"
             >
-              <div className="path-card-topline"><span>01</span><em>{t("pathThreeTag")}</em></div>
+              <div className="path-card-topline"><span>03</span><em>{t("pathThreeTag")}</em></div>
               <div className="path-card-visual">
                 <Image
                   src="/images/miritai/data-ai-software-systems.png"
@@ -148,22 +164,6 @@ export default async function Home() {
               <div className="path-card-content"><span className="path-card-destination">{t("pathThreeDestination")}</span><h2>{t("pathThreeTitle")}</h2><p>{t("pathThreeText")}</p></div>
               <b aria-hidden="true">↗</b>
             </a>
-            <Link href="/gambia-project" className="path-card path-card-warm">
-              <div className="path-card-topline"><span>02</span><em>{t("pathOneTag")}</em></div>
-              <div className="path-card-visual">
-                <Image src={gambiaBanner} alt="" fill sizes="(max-width: 760px) 100vw, 33vw" />
-              </div>
-              <div className="path-card-content"><h2>{t("pathOneTitle")}</h2><p>{t("pathOneText")}</p></div>
-              <b aria-hidden="true">↗</b>
-            </Link>
-            <Link href="/what-we-do" className="path-card path-card-cool">
-              <div className="path-card-topline"><span>03</span><em>{t("pathTwoTag")}</em></div>
-              <div className="path-card-visual">
-                <Image src="/images/cards/culture-made-useful-editorial.png" alt="" fill sizes="(max-width: 760px) 100vw, 33vw" />
-              </div>
-              <div className="path-card-content"><h2>{t("pathTwoTitle")}</h2><p>{t("pathTwoText")}</p></div>
-              <b aria-hidden="true">↗</b>
-            </Link>
           </div>
         </ScrollReveal>
       </section>

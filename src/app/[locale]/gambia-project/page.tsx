@@ -219,14 +219,6 @@ export default async function GambiaProjectPage() {
               <dd>{t(`details.${key}.value`)}</dd>
             </div>
           ))}
-          <div className="project-detail-card project-detail-action">
-            <dt>{t("applicationLabel")}</dt>
-            <dd>
-              <Link href="/gambia-project/classroom" className="button-link">
-                {t("detailsCta")} <span aria-hidden="true">→</span>
-              </Link>
-            </dd>
-          </div>
         </dl>
         <a href="#project-program" className="scroll-cue project-details-cta">
           {t("exploreProject")} <span aria-hidden="true">↓</span>
