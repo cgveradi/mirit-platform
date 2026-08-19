@@ -589,8 +589,7 @@ body > div { position: relative; z-index: 1; }
 .work-hero-copy { margin-top: clamp(3rem, 6vw, 6rem); }
 
 /* Flag-colour wash for the Russia—The Gambia bridge */
-.classroom-bridge-system { position: relative; overflow: visible; isolation: auto; }
-.classroom-bridge-system::before, .classroom-bridge-system::after { display: none; }
+.classroom-bridge-system { position: relative; overflow: hidden; isolation: isolate; }
 .classroom-bridge-system::before, .classroom-bridge-system::after { position: absolute; z-index: -1; top: 0; bottom: 0; width: 50%; content: ""; pointer-events: none; }
 .classroom-bridge-system::before {
   left: 0;
