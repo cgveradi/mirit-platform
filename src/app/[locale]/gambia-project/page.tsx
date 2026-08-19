@@ -53,9 +53,18 @@ const conceptGallery = [
 ] as const;
 
 const partners = [
-  { name: "Russkiy Mir Foundation", logo: "/images/gambia/partners/russkiy-mir.png", width: 359, height: 156 },
-  { name: "Volga Institute", logo: "/images/gambia/partners/volga-institute.png", width: 210, height: 210 },
-  { name: "University of The Gambia", logo: "/images/gambia/partners/university-of-the-gambia.jpg", width: 400, height: 400 },
+  { name: "Russkiy Mir Foundation", logo: "/images/gambia/partners/russkiy-mir-transparent.png", width: 1942, height: 809 },
+  { name: "Volga Institute", logo: "/images/gambia/partners/volga-institute-transparent.png", width: 1435, height: 1096 },
+  { name: "University of The Gambia", logo: "/images/gambia/partners/university-of-the-gambia-transparent.png", width: 1222, height: 1287 },
+] as const;
+
+const programImages = [
+  "/images/gambia/program/russian-language.png",
+  "/images/gambia/program/culture-traditions.png",
+  "/images/gambia/program/arts-creative-expression.png",
+  "/images/gambia/program/cultural-exchange.png",
+  "/images/gambia/program/education-dialogue.png",
+  "/images/gambia/program/community.png",
 ] as const;
 
 export async function generateMetadata(): Promise<Metadata> {
@@ -105,7 +114,20 @@ export default async function GambiaProjectPage() {
   const introText = locale === "ru"
     ? project.introText?.replace("meaningful connections", "содержательных связей")
     : project.introText;
+  const abstractExchangeAlt = t.has("conceptAlt.abstractExchange")
+    ? t("conceptAlt.abstractExchange")
+    : locale === "ru"
+      ? "Абстрактное изображение культурного обмена между Россией и Гамбией"
+      : "Abstract artwork representing cultural exchange between Russia and The Gambia";
+  const heroImageSrc = project.heroImage
+    ? urlFor(project.heroImage).width(2000).quality(85).url()
+    : "/images/gambia/language-workshop-concept.png";
   const galleryImages = [
+    {
+      src: heroImageSrc,
+      alt: t("heroAlt"),
+      caption: project.heroSubtitle,
+    },
     {
       src: "/images/gambia/mirit-class.jpeg",
       alt: t("heroAlt"),
@@ -135,9 +157,7 @@ export default async function GambiaProjectPage() {
     <main>
       <section className="project-hero">
         <Image
-          src={project.heroImage
-            ? urlFor(project.heroImage).width(2000).quality(85).url()
-            : "/images/gambia/language-workshop-concept.png"}
+          src={heroImageSrc}
           alt={t("heroAlt")}
           fill
           priority
@@ -166,40 +186,39 @@ export default async function GambiaProjectPage() {
         <p className="project-hero-index" aria-hidden="true">01 / MIRIT</p>
       </section>
 
-      <section className="project-partners" aria-labelledby="project-partners-title">
-        <ScrollReveal>
-          <div className="project-partners-heading">
-            <p className="eyebrow">{t("collaborationEyebrow")}</p>
-            <h2 className="sr-only" id="project-partners-title">{t("collaborationTitle")}</h2>
-          </div>
-          <div className="project-partners-strip">
-            {partners.map((partner) => (
-              <span className="project-partner-name" key={partner.name}>
-                <Image
-                  src={partner.logo}
-                  alt=""
-                  width={partner.width}
-                  height={partner.height}
-                  aria-hidden="true"
-                />
-                <b>{partner.name}</b>
-                <i aria-hidden="true">✦</i>
-              </span>
-            ))}
-          </div>
-        </ScrollReveal>
-      </section>
-
       <section className="project-intro" id="project-overview">
         <p className="eyebrow">
           {t("introEyebrow")}
         </p>
+        <div className="project-partners" aria-labelledby="project-partners-title">
+          <ScrollReveal>
+            <div className="project-partners-heading">
+              <p className="eyebrow">{t("collaborationEyebrow")}</p>
+              <h2 className="sr-only" id="project-partners-title">{t("collaborationTitle")}</h2>
+            </div>
+            <div className="project-partners-strip">
+              {partners.map((partner) => (
+                <span className="project-partner-name" key={partner.name}>
+                  <Image
+                    src={partner.logo}
+                    alt=""
+                    width={partner.width}
+                    height={partner.height}
+                    aria-hidden="true"
+                  />
+                  <b>{partner.name}</b>
+                  <i aria-hidden="true">✦</i>
+                </span>
+              ))}
+            </div>
+          </ScrollReveal>
+        </div>
         <div className="project-intro-layout">
           <ScrollReveal className="project-intro-visual">
             <figure className="project-intro-image">
               <Image
                 src="/images/gambia/cultural-exchange-abstract.png"
-                alt={t("conceptAlt.abstractExchange")}
+                alt={abstractExchangeAlt}
                 fill
                 sizes="(max-width: 760px) 100vw, 42vw"
                 className="object-cover"
@@ -256,21 +275,21 @@ export default async function GambiaProjectPage() {
                   key={`${item.number ?? index}-${item.title}`}
                   className="project-program-card"
                 >
-                  {item.number && (
-                    <span>
-                      {item.number}
-                    </span>
-                  )}
-
-                  <h3>
-                    {item.title}
-                  </h3>
-
-                  {item.description && (
-                    <p>
-                      {item.description}
-                    </p>
-                  )}
+                  <div className="project-program-card-visual">
+                    <Image
+                      src={programImages[index % programImages.length]}
+                      alt=""
+                      fill
+                      sizes="(max-width: 760px) 34vw, (max-width: 1100px) 20vw, 12vw"
+                      className="project-program-card-image"
+                      aria-hidden="true"
+                    />
+                  </div>
+                  <div className="project-program-card-content">
+                    {item.number && <span>{item.number}</span>}
+                    <h3>{item.title}</h3>
+                    {item.description && <p>{item.description}</p>}
+                  </div>
                 </div>
               ))}
             </div>
