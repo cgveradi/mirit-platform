@@ -573,14 +573,12 @@ body > div { position: relative; z-index: 1; }
 .classroom-hero .classroom-hero-grid h1 { font-size: clamp(4.5rem, 9vw, 9.5rem); }
 .classroom-hero-intro { color: var(--color-muted); font-size: clamp(1rem, 1.3vw, 1.15rem); line-height: 1.6; }
 .classroom-hero-intro > span { display: block; margin-top: 2rem; color: var(--color-muted); font-family: var(--font-mono); font-size: .67rem; letter-spacing: .06em; opacity: .76; }
-.classroom-question-jump { display: flex; width: min(100%, 18rem); min-height: 3.4rem; align-items: center; justify-content: space-between; gap: 1.25rem; margin: 1.5rem 0 0 auto; border: 1px solid var(--line); border-radius: 1rem; padding: .75rem .75rem .75rem 1.15rem; background: color-mix(in srgb, var(--surface) 60%, transparent); color: var(--color-foreground); box-shadow: inset 0 1px 0 color-mix(in srgb, #fff 14%, transparent); font-size: .7rem; font-weight: 650; letter-spacing: .07em; text-transform: uppercase; transition: background-color 180ms ease, transform 180ms ease; }
-.classroom-question-jump i { display: grid; width: 2rem; height: 2rem; place-items: center; border-radius: .65rem; background: var(--color-foreground); color: var(--color-background); font-family: var(--font-sans); font-size: .9rem; font-style: normal; transition: transform 180ms ease; }
-.classroom-question-jump:hover { background: var(--surface); transform: translateY(-2px); }
-.classroom-question-jump:hover i { transform: translateY(.15rem); }
-.classroom-bridge-system { display: grid; grid-template-columns: auto minmax(8rem, 1fr) auto; align-items: center; gap: 1.5rem; margin-top: clamp(3rem, 6vw, 6rem); border: 1px solid var(--line); border-radius: 1.25rem; padding: 1.25rem 1.4rem; background: color-mix(in srgb, var(--surface) 52%, transparent); box-shadow: inset 0 1px 0 color-mix(in srgb, #fff 10%, transparent); -webkit-backdrop-filter: blur(12px); backdrop-filter: blur(12px); }
+.classroom-question-jump { width: min(100%, 13rem); margin: 1.5rem 0 0 auto; text-transform: uppercase; }
+.classroom-question-jump b { font: inherit; letter-spacing: .06em; }
+.classroom-bridge-system { display: grid; grid-template-columns: auto minmax(8rem, 1fr) auto; align-items: center; gap: 1.5rem; margin-top: clamp(3rem, 6vw, 6rem); border: 0; border-radius: 0; padding: .65rem 0; background: transparent; box-shadow: none; }
 .classroom-bridge-place { display: flex; align-items: center; gap: .7rem; color: var(--color-muted); font-family: var(--font-mono); font-size: .62rem; font-weight: 650; letter-spacing: .11em; text-transform: uppercase; }
-.classroom-bridge-place > i { width: .55rem; height: .55rem; border-radius: 50%; background: var(--warm); box-shadow: 0 0 0 .35rem color-mix(in srgb, var(--warm) 16%, transparent); }
-.classroom-bridge-place-gambia > i { background: var(--cool); box-shadow: 0 0 0 .35rem color-mix(in srgb, var(--cool) 18%, transparent); }
+.classroom-bridge-place > i { width: .55rem; height: .55rem; border-radius: 50%; background: var(--warm); }
+.classroom-bridge-place-gambia > i { background: var(--cool); }
 .classroom-bridge-route { position: relative; height: 1px; background: linear-gradient(90deg, var(--warm), var(--line) 32%, var(--line) 68%, var(--cool)); }
 .classroom-bridge-route i { position: absolute; top: 50%; width: .28rem; height: .28rem; border-radius: 50%; background: var(--color-foreground); opacity: .48; animation: bridgePulse 3.6s ease-in-out infinite; transform: translateY(-50%); }
 .classroom-bridge-route i:first-child { left: 22%; }.classroom-bridge-route i:nth-child(2) { left: 50%; animation-delay: -.9s; }.classroom-bridge-route i:last-child { left: 78%; animation-delay: -1.8s; }
@@ -591,7 +589,8 @@ body > div { position: relative; z-index: 1; }
 .work-hero-copy { margin-top: clamp(3rem, 6vw, 6rem); }
 
 /* Flag-colour wash for the Russia—The Gambia bridge */
-.classroom-bridge-system { position: relative; overflow: hidden; isolation: isolate; }
+.classroom-bridge-system { position: relative; overflow: visible; isolation: auto; }
+.classroom-bridge-system::before, .classroom-bridge-system::after { display: none; }
 .classroom-bridge-system::before, .classroom-bridge-system::after { position: absolute; z-index: -1; top: 0; bottom: 0; width: 50%; content: ""; pointer-events: none; }
 .classroom-bridge-system::before {
   left: 0;
@@ -712,7 +711,7 @@ body > div { position: relative; z-index: 1; }
   .project-detail-action .button-link { margin-left: 0; }
   .classroom-hero-grid { grid-template-columns: 1fr; gap: 2rem; }
   .classroom-hero .classroom-hero-grid h1 { font-size: clamp(4.5rem, 21vw, 7rem); }
-  .classroom-bridge-system { grid-template-columns: auto 1fr auto; gap: .75rem; padding: 1rem; }
+  .classroom-bridge-system { grid-template-columns: auto 1fr auto; gap: .75rem; padding: .5rem 0; }
   .classroom-bridge-place { font-size: .52rem; letter-spacing: .07em; }
   .work-hero { min-height: 0; padding-top: 4rem; }
   .services-hero-editorial { min-height: 0; grid-template-rows: auto auto auto; row-gap: 2.5rem; padding: 4rem 0; }

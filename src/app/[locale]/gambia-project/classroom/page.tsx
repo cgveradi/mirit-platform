@@ -86,7 +86,7 @@ export default async function ClassroomPage() {
           <div className="classroom-hero-intro">
             <p>{t("intro")}</p>
             <span>{t("venue")}</span>
-            <a className="classroom-question-jump" href="#classroom-questions"><span>{t("askQuestion")}</span><i aria-hidden="true">↓</i></a>
+            <a className="button-link classroom-question-jump" href="#classroom-questions"><b>{t("askQuestion")}</b><span aria-hidden="true">↓</span></a>
           </div>
         </div>
         <div className="classroom-bridge-system" aria-label={t("bannerAlt")}>
