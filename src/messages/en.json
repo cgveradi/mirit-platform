@@ -88,8 +88,8 @@
   "gambiaProject": {
     "introEyebrow": "The Project",
     "programEyebrow": "The Program",
-    "heroAlt": "Participants gathered around a table during a cultural learning workshop in The Gambia",
-    "introImageAlt": "A Gambian and a Russian participant sharing books and cultural ideas",
+    "heroAlt": "Students, teachers and programme partners gathered for the Russian language course in The Gambia",
+    "introImageAlt": "Russian language course introduction with teaching materials and a classroom presentation",
     "galleryPrevious": "Previous gallery image",
     "galleryNext": "Next gallery image",
     "gallerySelect": "Show gallery image",
@@ -107,9 +107,21 @@
     },
     "galleryEyebrow": "In Focus",
     "galleryTitle": "A vision for the exchange",
+    "collaborationEyebrow": "In collaboration with",
+    "collaborationTitle": "Built together with institutions committed to language, learning and exchange.",
+    "photoAlt": {
+      "alphabet": "Printed English and Russian alphabet learning sheets arranged on a classroom table",
+      "introduction": "Russian language course introduction with teaching materials and a classroom presentation"
+    },
+    "photoCaption": {
+      "alphabet": "Learning materials prepared for the Russian language programme.",
+      "class": "Students, teachers and programme partners at the opening of the course.",
+      "introduction": "The opening classroom presentation for the Russian language programme."
+    },
     "conceptAlt": {
       "language": "Concept image of adult participants collaborating during a language workshop",
       "creative": "Concept image of Gambian and Russian adults sharing a creative workshop",
+      "abstractExchange": "Abstract interwoven cultural currents symbolising exchange, learning and shared growth between Russia and The Gambia",
       "dialogue": "Concept image of adults exchanging perspectives in a courtyard discussion",
       "community": "Concept image of participants talking together after a community workshop"
     },

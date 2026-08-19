@@ -1,4 +1,4 @@
-import { PortableText } from '@portabletext/react';
+import { PortableText, type PortableTextBlock } from '@portabletext/react';
 import { client } from '@/sanity/lib/client';
 import { articleBySlugQuery } from '@/sanity/lib/queries';
 import { notFound } from 'next/navigation';
@@ -8,7 +8,7 @@ type Article = {
   title: string;
   excerpt?: string;
   category?: string;
-  body?: any;
+  body?: PortableTextBlock[];
   publishedAt?: string;
 };
 
@@ -19,9 +19,10 @@ export default async function ArticlePage({
 }) {
   const { locale, slug } = await params;
 
+  const contentLocale = locale === "es" || locale === "de" ? "en" : locale;
   const article = await client.fetch<Article | null>(articleBySlugQuery, {
     slug,
-    locale,
+    locale: contentLocale,
   });
 
   if (!article) {

@@ -58,9 +58,10 @@ export async function generateMetadata(): Promise<Metadata> {
 export default async function ClassroomPage() {
   const locale = await getLocale();
   const t = await getTranslations("classroom");
+  const contentLocale = locale === "es" || locale === "de" ? "en" : locale;
   let items: ClassroomItem[] = [];
   try {
-    const { data } = await sanityFetch({ query: classroomItemsQuery, params: { locale } });
+    const { data } = await sanityFetch({ query: classroomItemsQuery, params: { locale: contentLocale } });
     items = (data ?? []) as ClassroomItem[];
   } catch {
     // Fall through to the direct public query below.
@@ -68,7 +69,7 @@ export default async function ClassroomPage() {
   if (items.length === 0) {
     try {
       // Bypass a stale empty Live API result after the first classroom item is published.
-      items = (await client.fetch(classroomItemsQuery, { locale }, { cache: "no-store" })) as ClassroomItem[];
+      items = (await client.fetch(classroomItemsQuery, { locale: contentLocale }, { cache: "no-store" })) as ClassroomItem[];
     } catch {
       // Keep the classroom available with its empty state if both CMS requests fail.
     }

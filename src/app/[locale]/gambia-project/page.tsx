@@ -52,6 +52,12 @@ const conceptGallery = [
   { src: "/images/gambia/community-connection-concept.png", altKey: "conceptAlt.community" },
 ] as const;
 
+const partners = [
+  { name: "Russkiy Mir Foundation", logo: "/images/gambia/partners/russkiy-mir.png", width: 359, height: 156 },
+  { name: "Volga Institute", logo: "/images/gambia/partners/volga-institute.png", width: 210, height: 210 },
+  { name: "University of The Gambia", logo: "/images/gambia/partners/university-of-the-gambia.jpg", width: 400, height: 400 },
+] as const;
+
 export async function generateMetadata(): Promise<Metadata> {
   const t = await getTranslations("gambiaProject.seo");
 
@@ -80,12 +86,13 @@ export default async function GambiaProjectPage() {
     locale === "ru"
       ? "proekt-v-gambii"
       : "gambia-project";
+  const contentLocale = locale === "es" || locale === "de" ? "en" : locale;
 
   const { data } = await sanityFetch({
     query: projectBySlugQuery,
     params: {
       slug,
-      locale,
+      locale: contentLocale,
     },
   });
 
@@ -98,11 +105,31 @@ export default async function GambiaProjectPage() {
   const introText = locale === "ru"
     ? project.introText?.replace("meaningful connections", "содержательных связей")
     : project.introText;
-  const galleryImages = (project.gallery && project.gallery.length > 0 ? project.gallery : conceptGallery).map((image) => ({
-    src: "src" in image ? image.src : urlFor(image).width(1400).quality(85).url(),
-    alt: "altKey" in image ? t(image.altKey) : image.alt || "",
-    caption: "caption" in image ? image.caption : undefined,
-  }));
+  const galleryImages = [
+    {
+      src: "/images/gambia/mirit-class.jpeg",
+      alt: t("heroAlt"),
+      caption: t("photoCaption.class"),
+    },
+    {
+      src: "/images/gambia/mirit-introduction.jpeg",
+      alt: t("photoAlt.introduction"),
+      caption: t("photoCaption.introduction"),
+    },
+    {
+      src: "/images/gambia/mirit-alphabet.jpeg",
+      alt: t("photoAlt.alphabet"),
+      caption: t("photoCaption.alphabet"),
+    },
+    ...(project.gallery && project.gallery.length > 0
+      ? project.gallery
+      : conceptGallery.filter((_, index) => index !== 1)
+    ).map((image) => ({
+      src: "src" in image ? image.src : urlFor(image).width(1400).quality(85).url(),
+      alt: "altKey" in image ? t(image.altKey) : image.alt || "",
+      caption: "caption" in image ? image.caption : undefined,
+    })),
+  ];
 
   return (
     <main>
@@ -139,6 +166,30 @@ export default async function GambiaProjectPage() {
         <p className="project-hero-index" aria-hidden="true">01 / MIRIT</p>
       </section>
 
+      <section className="project-partners" aria-labelledby="project-partners-title">
+        <ScrollReveal>
+          <div className="project-partners-heading">
+            <p className="eyebrow">{t("collaborationEyebrow")}</p>
+            <h2 className="sr-only" id="project-partners-title">{t("collaborationTitle")}</h2>
+          </div>
+          <div className="project-partners-strip">
+            {partners.map((partner) => (
+              <span className="project-partner-name" key={partner.name}>
+                <Image
+                  src={partner.logo}
+                  alt=""
+                  width={partner.width}
+                  height={partner.height}
+                  aria-hidden="true"
+                />
+                <b>{partner.name}</b>
+                <i aria-hidden="true">✦</i>
+              </span>
+            ))}
+          </div>
+        </ScrollReveal>
+      </section>
+
       <section className="project-intro" id="project-overview">
         <p className="eyebrow">
           {t("introEyebrow")}
@@ -147,8 +198,8 @@ export default async function GambiaProjectPage() {
           <ScrollReveal className="project-intro-visual">
             <figure className="project-intro-image">
               <Image
-                src="/images/gambia/russia-gambia-cultural-bridge-concept.png"
-                alt={t("introImageAlt")}
+                src="/images/gambia/cultural-exchange-abstract.png"
+                alt={t("conceptAlt.abstractExchange")}
                 fill
                 sizes="(max-width: 760px) 100vw, 42vw"
                 className="object-cover"

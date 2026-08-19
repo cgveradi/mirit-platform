@@ -1,8 +1,43 @@
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Mirit",
-  description: "Education, Culture and Innovation",
+  metadataBase: new URL("https://mirit.org"),
+  applicationName: "MIRIT",
+  title: "MIRIT — Research, Culture & Innovation",
+  description:
+    "MIRIT connects research, culture and technology through international programmes, practical research and purposeful digital solutions.",
+  keywords: [
+    "MIRIT",
+    "research",
+    "cultural exchange",
+    "education",
+    "digital innovation",
+  ],
+  authors: [{ name: "MIRIT", url: "https://mirit.org" }],
+  creator: "MIRIT",
+  publisher: "MIRIT",
+  category: "education",
+  icons: {
+    icon: [
+      { url: "/favicon.ico", sizes: "48x48", type: "image/x-icon" },
+      { url: "/icon.svg", sizes: "any", type: "image/svg+xml" },
+    ],
+    shortcut: "/favicon.ico",
+  },
+  openGraph: {
+    type: "website",
+    siteName: "MIRIT",
+    title: "MIRIT — Research, Culture & Innovation",
+    description:
+      "MIRIT connects research, culture and technology through international programmes, practical research and purposeful digital solutions.",
+    url: "https://mirit.org",
+  },
+  twitter: {
+    card: "summary",
+    title: "MIRIT — Research, Culture & Innovation",
+    description:
+      "MIRIT connects research, culture and technology through international programmes, practical research and purposeful digital solutions.",
+  },
 };
 
 export default function RootLayout({

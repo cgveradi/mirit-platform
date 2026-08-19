@@ -1,0 +1,369 @@
+{
+  "nav": {
+    "whatWeDo": "Qué hacemos",
+    "work": "Proyectos",
+    "gambiaProject": "Proyecto Gambia",
+    "research": "Investigación",
+    "about": "Sobre MIRIT",
+    "classroom": "Aula",
+    "contact": "Contacto",
+    "tagline": "Investigación · Cultura · Innovación",
+    "openMenu": "Abrir menú",
+    "closeMenu": "Cerrar menú"
+  },
+  "home": {
+    "title": "Investigación, cultura e innovación",
+    "subtitle": "MIRIT conecta conocimiento, culturas y tecnología para crear experiencias significativas, investigación y soluciones digitales prácticas más allá de las fronteras.",
+    "ctaGambia": "Explorar el Proyecto Gambia",
+    "ctaAbout": "Descubrir MIRIT",
+    "scroll": "Desplázate para explorar",
+    "perspectiveEyebrow": "Nuestra perspectiva",
+    "perspectiveTitle": "Lugares diferentes. Posibilidades compartidas.",
+    "perspectiveText": "Convertimos la curiosidad en proyectos prácticos, experiencias compartidas y herramientas que las personas pueden usar de verdad.",
+    "pathsEyebrow": "En movimiento",
+    "pathsIntro": "Programas y trabajo práctico que convierten la curiosidad en un intercambio significativo.",
+    "pathOneTitle": "El Proyecto Gambia",
+    "pathOneText": "Un intercambio vivo creado con comunidades locales, estudiantes y profesionales.",
+    "pathOneTag": "Comunidad",
+    "pathTwoTitle": "Cultura que resulta útil",
+    "pathTwoText": "Investigación, experiencias y herramientas diseñadas para una conexión humana real.",
+    "pathTwoTag": "Cultura",
+    "pathThreeTitle": "MIRITAI",
+    "pathThreeDestination": "Visitar el estudio digital",
+    "pathThreeText": "MIRITAI crea herramientas prácticas de datos, automatizaciones específicas y aplicaciones web ligeras que ayudan a pequeños equipos a trabajar mejor.",
+    "pathThreeTag": "Tecnología",
+    "closingEyebrow": "Crea la próxima conexión",
+    "closingTitle": "La curiosidad es el comienzo de todo proyecto significativo."
+  },
+  "work": {
+    "eyebrow": "Proyectos seleccionados",
+    "title": "Trabajo creado entre disciplinas.",
+    "intro": "Proyectos, programas y capacidades prácticas donde la investigación, la cultura y la tecnología se convierten en algo útil.",
+    "pathsLabel": "Explorar por área",
+    "paths": {
+      "digital": {
+        "eyebrow": "Práctica digital",
+        "title": "IA e innovación digital",
+        "status": "MIRIT AI · Práctica actual",
+        "text": "Diseñamos sistemas digitales prácticos en torno a necesidades reales, desde las primeras ideas de producto hasta automatizaciones y flujos de trabajo inteligentes.",
+        "imageAlt": "Práctica de innovación digital de MIRIT",
+        "services": [
+          "Sistemas de IA y automatización",
+          "Análisis de datos",
+          "Productos web y MVP",
+          "Plataformas de contenido"
+        ],
+        "cta": "Explorar nuestras capacidades"
+      },
+      "culture": {
+        "eyebrow": "Proyecto destacado",
+        "title": "El Proyecto Gambia",
+        "status": "Intercambio cultural · Programa activo",
+        "text": "Un intercambio cultural y educativo desarrollado en torno al idioma, la práctica creativa, el aprendizaje compartido y los vínculos entre comunidades.",
+        "imageAlt": "Participantes colaborando en un taller de intercambio cultural",
+        "services": [
+          "Diseño de programas",
+          "Intercambio cultural",
+          "Participación comunitaria",
+          "Talleres y aprendizaje"
+        ],
+        "cta": "Ver el proyecto"
+      },
+      "research": {
+        "eyebrow": "Práctica de investigación",
+        "title": "Investigación y conocimiento",
+        "status": "Investigación y trabajo editorial continuos",
+        "text": "Exploramos cuestiones culturales y sociales, traducimos la complejidad en perspectivas claras y convertimos la investigación en orientación útil.",
+        "imageAlt": "Dos participantes estudiando material cultural",
+        "services": [
+          "Investigación y descubrimiento",
+          "Conocimiento cultural",
+          "Narrativa editorial",
+          "Dirección estratégica"
+        ],
+        "cta": "Leer nuestra investigación"
+      }
+    },
+    "closingEyebrow": "Inicia una conversación",
+    "closingTitle": "¿Tienes un proyecto que combina disciplinas?",
+    "closingCta": "Trabaja con MIRIT",
+    "seo": {
+      "title": "Proyectos seleccionados | MIRIT",
+      "description": "Explora los proyectos y prácticas de MIRIT en IA, innovación digital, intercambio cultural e investigación."
+    }
+  },
+  "articles": {
+    "title": "Ideas y perspectivas",
+    "empty": "Todavía no hay artículos. Vuelve pronto."
+  },
+  "gambiaProject": {
+    "introEyebrow": "El proyecto",
+    "programEyebrow": "El programa",
+    "heroAlt": "Estudiantes, docentes y colaboradores reunidos para el curso de ruso en Gambia",
+    "introImageAlt": "Introducción al curso de ruso con materiales didácticos y una presentación",
+    "galleryPrevious": "Imagen anterior",
+    "galleryNext": "Imagen siguiente",
+    "gallerySelect": "Mostrar imagen",
+    "detailsEyebrow": "En resumen",
+    "detailsTitle": "Únete",
+    "applicationLabel": "Aula",
+    "detailsCta": "Abrir el aula",
+    "exploreProject": "Explorar más",
+    "details": {
+      "dates": {
+        "label": "Fechas del programa",
+        "value": "17–31 de agosto de 2026"
+      },
+      "location": {
+        "label": "Lugar en Gambia",
+        "value": "Universidad de Gambia"
+      },
+      "fee": { "label": "Cuota de participación", "value": "Por confirmar" },
+      "capacity": { "label": "Plazas disponibles", "value": "Por confirmar" },
+      "eligibility": {
+        "label": "Requisitos",
+        "value": "Los criterios finales se anunciarán próximamente"
+      }
+    },
+    "galleryEyebrow": "En primer plano",
+    "galleryTitle": "Una visión del intercambio",
+    "collaborationEyebrow": "En colaboración con",
+    "collaborationTitle": "Creado junto a instituciones comprometidas con el idioma, el aprendizaje y el intercambio.",
+    "photoAlt": {
+      "alphabet": "Materiales impresos de los alfabetos inglés y ruso sobre una mesa",
+      "introduction": "Introducción al curso de ruso con materiales didácticos y una presentación"
+    },
+    "photoCaption": {
+      "alphabet": "Materiales preparados para el programa de lengua rusa.",
+      "class": "Estudiantes, docentes y colaboradores en la apertura del curso.",
+      "introduction": "Presentación inaugural del programa de lengua rusa."
+    },
+    "conceptAlt": {
+      "language": "Participantes adultos colaborando en un taller de idiomas",
+      "creative": "Participantes de Gambia y Rusia en un taller creativo",
+      "abstractExchange": "Corrientes culturales abstractas entrelazadas que simbolizan el intercambio, el aprendizaje y el crecimiento compartido entre Rusia y Gambia",
+      "dialogue": "Personas intercambiando perspectivas en un diálogo",
+      "community": "Participantes conversando tras un taller comunitario"
+    },
+    "seo": {
+      "title": "El Proyecto Gambia | MIRIT",
+      "description": "Un intercambio cultural y educativo de dos semanas que conecta Rusia y Gambia mediante idiomas, arte, diálogo y aprendizaje comunitario."
+    },
+    "classroom": {
+      "eyebrow": "Centro de aprendizaje",
+      "title": "Tu aula, más allá del aula",
+      "intro": "Encuentra tareas, diccionarios y materiales, y deja una pregunta al equipo del programa.",
+      "homework": "Tareas",
+      "resources": "Diccionarios y recursos",
+      "comments": "Preguntas y comentarios",
+      "open": "Entrar al aula"
+    },
+    "form": {
+      "name": "Nombre completo",
+      "namePlaceholder": "Tu nombre completo",
+      "email": "Correo electrónico",
+      "emailPlaceholder": "tu@ejemplo.com",
+      "dateOfBirth": "Fecha de nacimiento (opcional)",
+      "gender": "Género (opcional)",
+      "genderPlaceholder": "Prefiero no indicarlo",
+      "female": "Mujer",
+      "male": "Hombre",
+      "other": "Otro",
+      "role": "¿Cómo te gustaría participar?",
+      "rolePlaceholder": "Selecciona una opción",
+      "roleHelp": "Elige la opción más cercana. Podremos actualizarla cuando se confirmen los detalles.",
+      "roles": {
+        "student": "Estudiante",
+        "assistant": "Asistente del programa",
+        "professional": "Profesional o entidad colaboradora",
+        "event": "Inscripción al evento"
+      },
+      "message": "Unas palabras (opcional)",
+      "messagePlaceholder": "¿Qué te gustaría aprender, aportar o explorar?",
+      "fieldOfProfession": "Área profesional",
+      "consent": "Acepto que MIRIT use la información facilitada para valorar mi inscripción y contactarme sobre el Proyecto Gambia.",
+      "consentShort": "MIRIT puede usar estos datos para responderme y mantenerme informado sobre el Proyecto Gambia.",
+      "privacyNote": "Tus datos se usarán solo para la inscripción y comunicación del proyecto. No se venderán ni se usarán para marketing no relacionado. Puedes solicitar su corrección o eliminación.",
+      "submit": "Inscribirme",
+      "submitting": "Enviando…",
+      "success": "Tu interés ha quedado registrado. Gracias. Compartiremos los detalles confirmados cuando estén disponibles.",
+      "error": "Algo ha ido mal. Inténtalo de nuevo."
+    }
+  },
+  "classroom": {
+    "seoTitle": "Aula del Proyecto Gambia | MIRIT",
+    "seoDescription": "Tareas, recursos y conversación para el Proyecto Gambia.",
+    "eyebrow": "Proyecto Gambia / Centro de aprendizaje",
+    "bannerAlt": "Participantes de Rusia y Gambia intercambiando libros e ideas",
+    "title": "Aula",
+    "intro": "Todo el programa en un solo lugar: tareas, diccionarios, materiales útiles y un espacio para hacer preguntas.",
+    "venue": "Universidad de Gambia · 17–31 de agosto de 2026",
+    "askQuestion": "Hacer una pregunta",
+    "homeworkTitle": "Tareas",
+    "resourcesTitle": "Diccionarios y recursos",
+    "questionsTitle": "Preguntas y comentarios",
+    "questionsIntro": "Haz una pregunta al equipo, comparte tus comentarios o cuéntanos qué te ayudaría a aprender.",
+    "homework": "Tarea",
+    "openHomework": "Abrir tarea",
+    "closeHomework": "Cerrar tarea",
+    "comingSoonEyebrow": "Próximamente",
+    "comingSoonTitle": "Tarea {number}",
+    "comingSoonText": "Una nueva actividad se desbloqueará después de la próxima clase.",
+    "comingSoonStatus": "Próximamente",
+    "resource": "Recurso recomendado",
+    "due": "Entrega: {date}",
+    "openResource": "Abrir recurso",
+    "viewFullSize": "Ver a tamaño completo",
+    "closeViewer": "Cerrar",
+    "visualGuide": "Guía visual del aula",
+    "alphabetTitle": "Alfabetos inglés y ruso",
+    "alphabetSummary": "Guía comparativa de los alfabetos inglés y ruso, con vocales y consonantes resaltadas.",
+    "alphabetAlt": "Comparación ilustrada de los alfabetos inglés y ruso",
+    "syllablesTitle": "Tabla de sílabas rusas",
+    "syllablesSummary": "Construye sílabas rusas básicas combinando consonantes y vocales.",
+    "syllablesAlt": "Tabla de sílabas rusas",
+    "practiceTitle": "Práctica de sílabas rusas",
+    "practiceSummary": "Ejercicio de lectura para enlazar dos sílabas rusas con fluidez.",
+    "practiceAlt": "Tabla de práctica de lectura de sílabas rusas",
+    "homeworkEmpty": "La primera tarea aparecerá aquí después de la clase inicial.",
+    "resourcesEmpty": "Pronto aparecerán diccionarios y materiales recomendados.",
+    "exercise": {
+      "eyebrow": "Ejercicio interactivo",
+      "title": "Completa tu tarea",
+      "progress": "{completed} de {total} respondidas",
+      "shortAnswerLabel": "Tu respuesta",
+      "fillBlankLabel": "Completa el espacio",
+      "correct": "Correcto",
+      "tryAgain": "Inténtalo de nuevo",
+      "checkAnswers": "Comprobar respuestas",
+      "startAgain": "Empezar de nuevo",
+      "score": "Tu resultado: {score} de {total}",
+      "name": "Tu nombre",
+      "savedNote": "Tu progreso se guarda automáticamente en este dispositivo.",
+      "submit": "Enviar tarea",
+      "submitting": "Enviando…",
+      "success": "Tarea enviada. ¡Muy bien!",
+      "error": "No pudimos enviar la tarea. Tus respuestas siguen guardadas en este dispositivo."
+    },
+    "comments": {
+      "title": "Deja una pregunta o comentario",
+      "name": "Tu nombre",
+      "comment": "Pregunta o comentario",
+      "approvedTitle": "Conversación del aula",
+      "moderationNote": "Los comentarios se revisan antes de publicarse.",
+      "loadError": "La conversación no está disponible temporalmente.",
+      "submit": "Enviar comentario",
+      "sending": "Enviando…",
+      "success": "Gracias. Tu comentario se ha enviado para revisión.",
+      "error": "No se pudo enviar el comentario. Inténtalo de nuevo."
+    }
+  },
+  "whatWeDo": {
+    "eyebrow": "Qué hace MIRIT",
+    "title": "Las ideas se vuelven útiles cuando se ponen en movimiento.",
+    "intro": "Conectamos investigación, cultura y tecnología para crear programas, experiencias y herramientas digitales más allá de las fronteras.",
+    "servicesEyebrow": "Nuestro trabajo",
+    "servicesTitle": "Tres caminos. Un propósito común.",
+    "services": {
+      "research": {
+        "title": "Investigación y conocimiento",
+        "text": "Convertimos preguntas complejas en comprensión clara, perspectivas útiles y orientaciones prácticas."
+      },
+      "culture": {
+        "title": "Cultura, eventos y programas",
+        "text": "Creamos intercambios culturales, eventos y programas de aprendizaje donde personas, idiomas y tradiciones se encuentran."
+      },
+      "digital": {
+        "title": "IA e innovación digital",
+        "text": "A través de MIRIT AI creamos sistemas de IA, análisis de datos, productos web, MVP y automatización."
+      }
+    },
+    "capabilitiesEyebrow": "Capacidades",
+    "capabilitiesTitle": "Construido alrededor de la pregunta, no de una fórmula fija.",
+    "capabilitiesIntro": "Conectamos investigación, cultura y tecnología y reunimos la combinación adecuada de disciplinas para cada reto.",
+    "capabilityLabel": "Capacidad de MIRIT",
+    "capabilities": {
+      "strategy": {
+        "title": "Estrategia",
+        "items": [
+          "Investigación y descubrimiento",
+          "Definición de programas",
+          "Dirección de contenidos",
+          "Planificación de alianzas"
+        ]
+      },
+      "experience": {
+        "title": "Experiencia",
+        "items": [
+          "Programas culturales",
+          "Talleres y aprendizaje",
+          "Narrativa editorial",
+          "Participación comunitaria"
+        ]
+      },
+      "technology": {
+        "title": "Tecnología",
+        "items": [
+          "Sitios web y plataformas",
+          "Productos digitales",
+          "Sistemas de contenido",
+          "Automatización práctica"
+        ]
+      }
+    },
+    "closingEyebrow": "Trabaja con MIRIT",
+    "closingTitle": "Tráenos la pregunta. Encontraremos el siguiente paso significativo.",
+    "closingCta": "Inicia una conversación",
+    "seo": {
+      "title": "Qué hacemos | MIRIT",
+      "description": "Descubre el trabajo de MIRIT en investigación, intercambio cultural, educación y soluciones digitales con propósito."
+    }
+  },
+  "about": {
+    "eyebrow": "Sobre MIRIT",
+    "title": "Un lugar donde las ideas se encuentran, avanzan y se vuelven útiles.",
+    "intro": "MIRIT conecta conocimiento, culturas y tecnología para crear experiencias significativas y posibilidades prácticas.",
+    "storyEyebrow": "Nuestra perspectiva",
+    "storyTitle": "La curiosidad se hace más poderosa cuando se comparte.",
+    "storyTextOne": "MIRIT es una plataforma de intercambio en evolución. Reunimos personas, perspectivas y disciplinas porque las ideas duraderas rara vez nacen de un solo lugar.",
+    "storyTextTwo": "Nuestro trabajo se basa en escuchar, investigar y colaborar. Buscamos el siguiente paso práctico: un programa, una conexión, una herramienta o una experiencia compartida.",
+    "principlesEyebrow": "Lo que nos guía",
+    "principlesIntro": "Tres direcciones que definen cómo piensa, trabaja y crece MIRIT.",
+    "knowledge": {
+      "title": "Conocimiento compartido",
+      "text": "Hacemos que la investigación sea accesible, intercambiable y relevante para las preguntas actuales."
+    },
+    "culture": {
+      "title": "Cultura en diálogo",
+      "text": "Entendemos el intercambio cultural como una práctica viva, creada con atención, contexto y respeto."
+    },
+    "innovation": {
+      "title": "Innovación con propósito",
+      "text": "Usamos la tecnología cuando ayuda a las personas a conectar, aprender o actuar, nunca solo por novedad."
+    },
+    "closingEyebrow": "Trabaja con MIRIT",
+    "closingTitle": "Las cosas buenas comienzan cuando se encuentran distintas perspectivas.",
+    "closingCta": "Inicia una conversación"
+  },
+  "contact": {
+    "eyebrow": "Contacta con MIRIT",
+    "title": "Empieza con una conversación.",
+    "intro": "¿Tienes una idea, una pregunta o una posible colaboración? Nos encantará saber adónde podría llevar.",
+    "replyNote": "Todo intercambio comienza en algún lugar.",
+    "formEyebrow": "Cuéntanos más",
+    "formIntro": "Unas pocas palabras son suficientes. Te responderemos lo antes posible.",
+    "form": {
+      "name": "Tu nombre",
+      "namePlaceholder": "¿Cómo debemos llamarte?",
+      "email": "Correo electrónico",
+      "emailPlaceholder": "tu@ejemplo.com",
+      "message": "Tu mensaje",
+      "messagePlaceholder": "¿Qué te gustaría explorar juntos?",
+      "submit": "Enviar mensaje",
+      "sending": "Enviando",
+      "success": "Mensaje enviado. Gracias.",
+      "error": "Algo ha ido mal. Inténtalo de nuevo."
+    }
+  },
+  "footer": { "rights": "Todos los derechos reservados." }
+}

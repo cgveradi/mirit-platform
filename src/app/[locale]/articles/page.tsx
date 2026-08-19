@@ -21,7 +21,8 @@ export default async function ArticlesPage({
   const { locale } = await params;
   const t = await getTranslations('articles');
 
-  const articles = await client.fetch<Article[]>(articlesListQuery, { locale });
+  const contentLocale = locale === "es" || locale === "de" ? "en" : locale;
+  const articles = await client.fetch<Article[]>(articlesListQuery, { locale: contentLocale });
 
   return (
     <main className="max-w-3xl mx-auto px-8 py-24">

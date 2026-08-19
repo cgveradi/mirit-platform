@@ -12,6 +12,25 @@
   --font-mono: var(--font-geist-mono);
 }
 
+.project-partners { padding: clamp(6rem, 9vw, 9rem) 0 clamp(.75rem, 1.5vw, 1.25rem); overflow: hidden; }
+.project-partners-heading { width: min(100% - 4rem, 88rem); margin: 0 auto 1.35rem; }
+.project-partners-strip { display: grid; width: 100%; grid-template-columns: repeat(3, minmax(0, 1fr)); align-items: center; gap: clamp(1.25rem, 3vw, 3rem); padding: .65rem max(2rem, calc((100vw - 88rem) / 2)); white-space: nowrap; }
+.project-partner-name { display: inline-flex; min-width: 0; align-items: center; justify-content: center; gap: .9rem; color: var(--color-muted); font-family: var(--font-mono); font-size: clamp(.62rem, .8vw, .76rem); font-weight: 600; letter-spacing: .09em; text-transform: uppercase; }
+.project-partner-name img { width: auto; max-width: 7rem; height: auto; max-height: 2.8rem; opacity: .58; filter: grayscale(1) contrast(.78); mix-blend-mode: multiply; object-fit: contain; }
+.dark .project-partner-name img { opacity: .52; filter: grayscale(1) invert(1) contrast(.72); mix-blend-mode: screen; }
+.project-partner-name b { font: inherit; }
+.project-partner-name i { color: color-mix(in srgb, var(--color-foreground) 52%, transparent); font-size: .55rem; font-style: normal; }
+.project-partner-name i { margin-left: clamp(.6rem, 2vw, 2rem); }
+.project-partner-name:last-child i { display: none; }
+
+@media (max-width: 760px) {
+  .project-partners-heading { width: min(100% - 2.5rem, 88rem); }
+  .project-partners { padding: 4.5rem 0 1rem; }
+  .project-partners-strip { display: flex; justify-content: flex-start; gap: 2rem; overflow-x: auto; padding-right: 1.25rem; padding-left: 1.25rem; scrollbar-width: none; }
+  .project-partner-name { justify-content: flex-start; }
+  .project-partners-strip::-webkit-scrollbar { display: none; }
+}
+
 :root {
   --surface: #dcd2c2;
   --line: rgba(40, 38, 31, 0.18);
@@ -597,7 +616,7 @@ body > div { position: relative; z-index: 1; }
 }
 
 /* A wider, editorial Gambia hero instead of a full-screen square */
-.project-hero { width: min(100% - 4rem, 88rem); min-height: clamp(30rem, 56vw, 42rem); margin: 1.25rem auto 0; border: 1px solid var(--line); border-radius: 1.5rem 6rem 1.5rem 1.5rem; }
+.project-hero { width: min(100% - 4rem, 88rem); min-height: clamp(30rem, 56vw, 42rem); margin: clamp(3rem, 6vw, 5.5rem) auto 0; border: 1px solid var(--line); border-radius: 1.5rem 6rem 1.5rem 1.5rem; }
 .project-hero-title { font-size: clamp(4rem, 9vw, 9rem); }
 
 /* Separate the project facts into three tactile cards */
@@ -625,7 +644,7 @@ body > div { position: relative; z-index: 1; }
   .classroom-bridge-place { font-size: .52rem; letter-spacing: .07em; }
   .work-hero { min-height: 0; padding-top: 4rem; }
   .services-hero-editorial { min-height: 0; grid-template-rows: auto auto auto; row-gap: 2.5rem; padding: 4rem 0; }
-  .project-hero { width: calc(100% - 2.5rem); min-height: 34rem; margin-top: .75rem; border-radius: 1.25rem 3.5rem 1.25rem 1.25rem; }
+  .project-hero { width: calc(100% - 2.5rem); min-height: 34rem; margin-top: 2rem; border-radius: 1.25rem 3.5rem 1.25rem 1.25rem; }
   .project-intro-details { gap: .75rem; }
 }
 

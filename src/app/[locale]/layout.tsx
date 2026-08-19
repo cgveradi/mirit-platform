@@ -1,4 +1,3 @@
-import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import { NextIntlClientProvider, hasLocale } from "next-intl";
 import { notFound } from "next/navigation";
@@ -34,12 +33,46 @@ export default async function LocaleLayout({
     notFound();
   }
 
+  const siteUrl = "https://mirit.org";
+  const structuredData = {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Organization",
+        "@id": `${siteUrl}/#organization`,
+        name: "MIRIT",
+        url: siteUrl,
+        logo: {
+          "@type": "ImageObject",
+          url: `${siteUrl}/icon.svg`,
+        },
+        description:
+          "MIRIT connects research, culture and technology through international programmes, practical research and purposeful digital solutions.",
+      },
+      {
+        "@type": "WebSite",
+        "@id": `${siteUrl}/#website`,
+        url: siteUrl,
+        name: "MIRIT",
+        alternateName: "Mirit",
+        publisher: { "@id": `${siteUrl}/#organization` },
+        inLanguage: ["en", "ru"],
+      },
+    ],
+  };
+
   return (
     <div
       lang={locale}
       className={`${geistSans.variable} ${geistMono.variable} h-full min-h-full flex flex-col antialiased`}
     >
       <NextIntlClientProvider>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(structuredData).replace(/</g, "\\u003c"),
+          }}
+        />
         <Navbar />
         {children}
         <Footer />

@@ -5,6 +5,7 @@ import ScrollReveal from "@/components/ScrollReveal";
 import { sanityFetch } from "@/sanity/lib/live";
 import { projectBySlugQuery } from "@/sanity/lib/queries";
 import { urlFor } from "@/sanity/lib/image";
+import type { Metadata } from "next";
 
 type HomeProject = {
   heroImage?: {
@@ -12,14 +13,64 @@ type HomeProject = {
   };
 };
 
+export async function generateMetadata(): Promise<Metadata> {
+  const locale = await getLocale();
+  const localizedMetadata = {
+    en: {
+      title: "MIRIT — Research, Culture & Innovation",
+      description: "MIRIT connects research, culture and technology through international programmes, practical research and purposeful digital solutions.",
+      openGraphLocale: "en_GB",
+    },
+    ru: {
+      title: "MIRIT — Исследования, культура и инновации",
+      description: "MIRIT объединяет исследования, культуру и технологии, создавая международные программы, практические исследования и полезные цифровые решения.",
+      openGraphLocale: "ru_RU",
+    },
+    es: {
+      title: "MIRIT — Investigación, cultura e innovación",
+      description: "MIRIT conecta la investigación, la cultura y la tecnología mediante programas internacionales, investigación aplicada y soluciones digitales con propósito.",
+      openGraphLocale: "es_ES",
+    },
+    de: {
+      title: "MIRIT — Forschung, Kultur und Innovation",
+      description: "MIRIT verbindet Forschung, Kultur und Technologie durch internationale Programme, praxisnahe Forschung und sinnvolle digitale Lösungen.",
+      openGraphLocale: "de_DE",
+    },
+  } as const;
+  const current = localizedMetadata[locale as keyof typeof localizedMetadata] ?? localizedMetadata.en;
+  const { title, description } = current;
+  const canonicalPath = `/${locale}`;
+
+  return {
+    title,
+    description,
+    alternates: {
+      canonical: canonicalPath,
+      languages: {
+        en: "/en",
+        ru: "/ru",
+        "x-default": "/en",
+      },
+    },
+    openGraph: {
+      title,
+      description,
+      url: canonicalPath,
+      locale: current.openGraphLocale,
+    },
+    twitter: { title, description },
+  };
+}
+
 export default async function Home() {
   const locale = await getLocale();
   const t = await getTranslations("home");
   const slug = locale === "ru" ? "proekt-v-gambii" : "gambia-project";
+  const contentLocale = locale === "es" || locale === "de" ? "en" : locale;
   let gambiaBanner = "/images/gambia/language-workshop-concept.png";
 
   try {
-    const { data } = await sanityFetch({ query: projectBySlugQuery, params: { slug, locale } });
+    const { data } = await sanityFetch({ query: projectBySlugQuery, params: { slug, locale: contentLocale } });
     const project = data as HomeProject | null;
     if (project?.heroImage?.asset) {
       gambiaBanner = urlFor(project.heroImage).width(1200).height(720).fit("crop").quality(85).url();

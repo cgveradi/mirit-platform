@@ -12,6 +12,7 @@ export default function LanguageSwitcher() {
 
   return (
     <button
+      type="button"
       onClick={() => router.replace(pathname, { locale: otherLocale })}
       className="language-toggle"
       aria-label={`Switch language to ${otherLocale.toUpperCase()}`}

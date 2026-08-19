@@ -62,6 +62,8 @@ export const article = defineType({
         list: [
           { title: 'English', value: 'en' },
           { title: 'Russian', value: 'ru' },
+          { title: 'Spanish', value: 'es' },
+          { title: 'German', value: 'de' },
         ],
       },
     }),
