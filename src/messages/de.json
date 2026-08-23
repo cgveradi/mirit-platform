@@ -131,12 +131,18 @@
     "collaborationTitle": "Gemeinsam mit Institutionen, die sich für Sprache, Lernen und Austausch engagieren.",
     "photoAlt": {
       "alphabet": "Gedruckte Lernblätter zum englischen und russischen Alphabet auf einem Tisch",
-      "introduction": "Einführung in den Russischkurs mit Lernmaterialien und Präsentation"
+      "introduction": "Einführung in den Russischkurs mit Lernmaterialien und Präsentation",
+      "groupLesson": "Studierende und Lehrkräfte arbeiten gemeinsam in einer Russisch-Gruppenstunde",
+      "guidedPractice": "Eine Lehrerin begleitet Studierende bei russischen Arbeitsblättern am Unterrichtstisch",
+      "classSelfie": "Lehrerin macht ein Selfie mit Russischlernenden im Unterrichtsraum"
     },
     "photoCaption": {
       "alphabet": "Lernmaterialien für das Russischprogramm.",
       "class": "Studierende, Lehrkräfte und Partner bei der Eröffnung des Kurses.",
-      "introduction": "Die Eröffnungspräsentation des Russischprogramms."
+      "introduction": "Die Eröffnungspräsentation des Russischprogramms.",
+      "groupLesson": "Studierende und Lehrkräfte lernen gemeinsam im Russischkurs.",
+      "guidedPractice": "Begleitete Übung mit russischen Arbeitsblättern.",
+      "classSelfie": "Ein Moment aus dem Russischunterricht in Gambia."
     },
     "conceptAlt": {
       "language": "Erwachsene Teilnehmende bei einem Sprachworkshop",

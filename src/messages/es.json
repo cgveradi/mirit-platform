@@ -131,12 +131,18 @@
     "collaborationTitle": "Creado junto a instituciones comprometidas con el idioma, el aprendizaje y el intercambio.",
     "photoAlt": {
       "alphabet": "Materiales impresos de los alfabetos inglés y ruso sobre una mesa",
-      "introduction": "Introducción al curso de ruso con materiales didácticos y una presentación"
+      "introduction": "Introducción al curso de ruso con materiales didácticos y una presentación",
+      "groupLesson": "Estudiantes y docentes trabajando juntos durante una clase grupal de ruso",
+      "guidedPractice": "Una profesora guía a los estudiantes con ejercicios de ruso alrededor de una mesa",
+      "classSelfie": "Profesora tomando un selfi con estudiantes de ruso trabajando al fondo del aula"
     },
     "photoCaption": {
       "alphabet": "Materiales preparados para el programa de lengua rusa.",
       "class": "Estudiantes, docentes y colaboradores en la apertura del curso.",
-      "introduction": "Presentación inaugural del programa de lengua rusa."
+      "introduction": "Presentación inaugural del programa de lengua rusa.",
+      "groupLesson": "Estudiantes y docentes aprendiendo juntos durante el curso de ruso.",
+      "guidedPractice": "Práctica guiada con ejercicios de lengua rusa.",
+      "classSelfie": "Un momento en el aula del programa de ruso en Gambia."
     },
     "conceptAlt": {
       "language": "Participantes adultos colaborando en un taller de idiomas",

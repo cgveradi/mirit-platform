@@ -15,6 +15,7 @@ type ClassroomItem = {
   summary: string;
   instructions?: PortableTextBlock[];
   dueDate?: string;
+  publishedAt?: string;
   resourceUrl?: string;
   questions?: InteractiveQuestion[];
 };
@@ -75,7 +76,9 @@ export default async function ClassroomPage() {
   } catch {
     // Keep the classroom available with its empty state if the CMS request fails.
   }
-  const homework = items.filter((item) => item.kind === "homework");
+  const homework = items
+    .filter((item) => item.kind === "homework")
+    .sort((first, second) => (first.publishedAt ?? "").localeCompare(second.publishedAt ?? ""));
   const resources = items.filter((item) => item.kind === "resource");
 
   return (

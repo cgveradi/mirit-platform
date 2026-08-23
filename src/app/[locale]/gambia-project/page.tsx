@@ -129,6 +129,21 @@ export default async function GambiaProjectPage() {
       caption: project.heroSubtitle,
     },
     {
+      src: "/images/gambia/russian-language-group-lesson.jpeg",
+      alt: t("photoAlt.groupLesson"),
+      caption: t("photoCaption.groupLesson"),
+    },
+    {
+      src: "/images/gambia/classroom-guided-practice.jpeg",
+      alt: t("photoAlt.guidedPractice"),
+      caption: t("photoCaption.guidedPractice"),
+    },
+    {
+      src: "/images/gambia/russian-language-class-selfie.jpeg",
+      alt: t("photoAlt.classSelfie"),
+      caption: t("photoCaption.classSelfie"),
+    },
+    {
       src: "/images/gambia/mirit-class.jpeg",
       alt: t("heroAlt"),
       caption: t("photoCaption.class"),

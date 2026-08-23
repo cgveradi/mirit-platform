@@ -111,12 +111,18 @@
     "collaborationTitle": "Built together with institutions committed to language, learning and exchange.",
     "photoAlt": {
       "alphabet": "Printed English and Russian alphabet learning sheets arranged on a classroom table",
-      "introduction": "Russian language course introduction with teaching materials and a classroom presentation"
+      "introduction": "Russian language course introduction with teaching materials and a classroom presentation",
+      "groupLesson": "Students and teachers working together during a Russian language group lesson",
+      "guidedPractice": "A teacher guiding students through Russian language worksheets around a classroom table",
+      "classSelfie": "Teacher taking a selfie with Russian language students working in the classroom behind her"
     },
     "photoCaption": {
       "alphabet": "Learning materials prepared for the Russian language programme.",
       "class": "Students, teachers and programme partners at the opening of the course.",
-      "introduction": "The opening classroom presentation for the Russian language programme."
+      "introduction": "The opening classroom presentation for the Russian language programme.",
+      "groupLesson": "Students and teachers learning together during the Russian language course.",
+      "guidedPractice": "Guided practice with Russian language worksheets.",
+      "classSelfie": "A classroom moment from the Russian language programme in The Gambia."
     },
     "conceptAlt": {
       "language": "Concept image of adult participants collaborating during a language workshop",
