@@ -6,7 +6,6 @@ import ClassroomComments from "@/components/ClassroomComments";
 import ClassroomResourceGallery from "@/components/ClassroomResourceGallery";
 import InteractiveHomework, { type InteractiveQuestion } from "@/components/InteractiveHomework";
 import { client } from "@/sanity/lib/client";
-import { sanityFetch } from "@/sanity/lib/live";
 import { classroomItemsQuery } from "@/sanity/lib/queries";
 
 type ClassroomItem = {
@@ -48,6 +47,15 @@ const visualResources = [
     altKey: "practiceAlt",
     layout: "portrait",
   },
+  {
+    src: "/images/classroom/russian-culture-vocabulary.jpeg",
+    width: 1254,
+    height: 1254,
+    titleKey: "cultureVocabularyTitle",
+    summaryKey: "cultureVocabularySummary",
+    altKey: "cultureVocabularyAlt",
+    layout: "wide",
+  },
 ] as const;
 
 export async function generateMetadata(): Promise<Metadata> {
@@ -61,18 +69,11 @@ export default async function ClassroomPage() {
   const contentLocale = locale === "es" || locale === "de" ? "en" : locale;
   let items: ClassroomItem[] = [];
   try {
-    const { data } = await sanityFetch({ query: classroomItemsQuery, params: { locale: contentLocale } });
-    items = (data ?? []) as ClassroomItem[];
+    // Classroom publishing is time-sensitive, so always bypass Sanity's CDN and
+    // Next.js response caches instead of waiting for a previous result to expire.
+    items = (await client.fetch(classroomItemsQuery, { locale: contentLocale }, { cache: "no-store" })) as ClassroomItem[];
   } catch {
-    // Fall through to the direct public query below.
-  }
-  if (items.length === 0) {
-    try {
-      // Bypass a stale empty Live API result after the first classroom item is published.
-      items = (await client.fetch(classroomItemsQuery, { locale: contentLocale }, { cache: "no-store" })) as ClassroomItem[];
-    } catch {
-      // Keep the classroom available with its empty state if both CMS requests fail.
-    }
+    // Keep the classroom available with its empty state if the CMS request fails.
   }
   const homework = items.filter((item) => item.kind === "homework");
   const resources = items.filter((item) => item.kind === "resource");
@@ -114,7 +115,7 @@ export default async function ClassroomPage() {
               </div>
             </details>
           ))}
-          {[2, 3].map((number) => (
+          {Array.from({ length: Math.max(0, 3 - homework.length) }, (_, index) => homework.length + index + 1).map((number) => (
             <article className="classroom-card classroom-homework-placeholder" key={number} aria-label={t("comingSoonTitle", { number })}>
               <p className="classroom-card-meta">{t("comingSoonEyebrow")}</p>
               <div className="classroom-homework-placeholder-mark" aria-hidden="true"><span>{String(number).padStart(2, "0")}</span><i /></div>
