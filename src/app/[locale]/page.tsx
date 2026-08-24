@@ -2,16 +2,7 @@ import { Link } from "@/i18n/navigation";
 import { getLocale, getTranslations } from "next-intl/server";
 import Image from "next/image";
 import ScrollReveal from "@/components/ScrollReveal";
-import { sanityFetch } from "@/sanity/lib/live";
-import { projectBySlugQuery } from "@/sanity/lib/queries";
-import { urlFor } from "@/sanity/lib/image";
 import type { Metadata } from "next";
-
-type HomeProject = {
-  heroImage?: {
-    asset?: { _ref: string };
-  };
-};
 
 export async function generateMetadata(): Promise<Metadata> {
   const locale = await getLocale();
@@ -63,24 +54,10 @@ export async function generateMetadata(): Promise<Metadata> {
 }
 
 export default async function Home() {
-  const locale = await getLocale();
   const t = await getTranslations("home");
-  const slug = locale === "ru" ? "proekt-v-gambii" : "gambia-project";
-  const contentLocale = locale === "es" || locale === "de" ? "en" : locale;
-  let gambiaBanner = "/images/gambia/language-workshop-concept.png";
-
-  try {
-    const { data } = await sanityFetch({ query: projectBySlugQuery, params: { slug, locale: contentLocale } });
-    const project = data as HomeProject | null;
-    if (project?.heroImage?.asset) {
-      gambiaBanner = urlFor(project.heroImage).width(1200).height(720).fit("crop").quality(85).url();
-    }
-  } catch {
-    // Keep the homepage complete if Sanity is temporarily unavailable.
-  }
 
   return (
-    <main>
+    <main className="home-page">
       <section className="hero-shell">
         <svg className="hero-dot-field" viewBox="0 0 1440 900" preserveAspectRatio="none" aria-hidden="true">
           {Array.from({ length: 17 }, (_, row) => (
@@ -112,19 +89,7 @@ export default async function Home() {
         </div>
       </section>
 
-      <section id="perspective" className="perspective-section">
-        <ScrollReveal>
-          <p className="eyebrow">{t("perspectiveEyebrow")}</p>
-          <div className="perspective-grid">
-            <h2>{t("perspectiveTitle")}</h2>
-            <div className="perspective-copy">
-              <p>{t("perspectiveText")}</p>
-            </div>
-          </div>
-        </ScrollReveal>
-      </section>
-
-      <section className="paths-section" aria-label={t("pathsEyebrow")}>
+      <section id="perspective" className="paths-section" aria-label={t("pathsEyebrow")}>
         <ScrollReveal>
           <div className="paths-heading">
             <p className="eyebrow">{t("pathsEyebrow")}</p>
@@ -133,37 +98,40 @@ export default async function Home() {
             <Link href="/gambia-project" className="path-card path-card-warm">
               <div className="path-card-topline"><span>01</span><em>{t("pathOneTag")}</em></div>
               <div className="path-card-visual">
-                <Image src={gambiaBanner} alt="" fill sizes="(max-width: 760px) 100vw, 33vw" />
+                <Image src="/images/cards/gambia-cultural-exchange-editorial.png" alt="" fill sizes="(max-width: 760px) 42vw, 18rem" />
               </div>
               <div className="path-card-content"><h2>{t("pathOneTitle")}</h2><p>{t("pathOneText")}</p></div>
               <b aria-hidden="true">↗</b>
             </Link>
-            <Link href="/what-we-do" className="path-card path-card-cool">
+            <Link href="/articles" className="path-card path-card-cool">
               <div className="path-card-topline"><span>02</span><em>{t("pathTwoTag")}</em></div>
               <div className="path-card-visual">
-                <Image src="/images/cards/culture-made-useful-editorial.png" alt="" fill sizes="(max-width: 760px) 100vw, 33vw" />
+                <Image src="/images/cards/research-articles-editorial.png" alt="" fill sizes="(max-width: 760px) 42vw, 18rem" />
               </div>
               <div className="path-card-content"><h2>{t("pathTwoTitle")}</h2><p>{t("pathTwoText")}</p></div>
               <b aria-hidden="true">↗</b>
             </Link>
-            <a
-              href="https://miritai.com"
-              className="path-card path-card-digital"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
+            <Link href="/what-we-do" className="path-card path-card-digital">
               <div className="path-card-topline"><span>03</span><em>{t("pathThreeTag")}</em></div>
               <div className="path-card-visual">
                 <Image
                   src="/images/miritai/data-ai-software-systems.png"
                   alt=""
                   fill
-                  sizes="(max-width: 760px) 100vw, 33vw"
+                  sizes="(max-width: 760px) 42vw, 18rem"
                 />
               </div>
-              <div className="path-card-content"><span className="path-card-destination">{t("pathThreeDestination")}</span><h2>{t("pathThreeTitle")}</h2><p>{t("pathThreeText")}</p></div>
+              <div className="path-card-content"><h2>{t("pathThreeTitle")}<span>{t("pathThreeTitleLineTwo")}</span></h2><p>{t("pathThreeText")}</p></div>
               <b aria-hidden="true">↗</b>
-            </a>
+            </Link>
+            <Link href="/about" className="path-card path-card-about">
+              <div className="path-card-topline"><span>04</span><em>{t("pathFourTag")}</em></div>
+              <div className="path-card-visual">
+                <Image src="/images/cards/about-mirit-editorial-v2.png" alt="" fill sizes="(max-width: 760px) 42vw, 18rem" />
+              </div>
+              <div className="path-card-content"><h2>{t("pathFourTitle")}<span>{t("pathFourTitleLineTwo")}</span></h2><p>{t("pathFourText")}</p></div>
+              <b aria-hidden="true">↗</b>
+            </Link>
           </div>
         </ScrollReveal>
       </section>
