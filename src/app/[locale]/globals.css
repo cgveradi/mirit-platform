@@ -213,7 +213,13 @@ body > div { position: relative; z-index: 1; }
   .mobile-navigation-tagline { max-width: 15rem; color: var(--color-foreground); font-family: Iowan Old Style, Baskerville, "Times New Roman", serif; font-size: 1.15rem; line-height: 1.15; }
   .mobile-navigation-signature { color: var(--color-muted); font-family: var(--font-mono); font-size: .62rem; letter-spacing: .12em; }
   .hero-main { width: 100%; min-width: 0; }
-  .hero-title { max-width: 100%; overflow-wrap: break-word; }
+  .hero-title {
+    max-width: 100%;
+    background-image: none;
+    color: var(--color-foreground);
+    -webkit-text-fill-color: currentColor;
+    overflow-wrap: break-word;
+  }
   .scroll-cue { max-width: 100%; justify-content: flex-end; text-align: right; }
   .hero-content:lang(ru) { grid-template-rows: auto auto 1fr; gap: clamp(3.5rem, 10svh, 5.5rem); }
   .hero-content:lang(ru) .hero-main { align-self: start; }
