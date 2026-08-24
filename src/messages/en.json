@@ -240,7 +240,14 @@
       "submit": "Send comment",
       "sending": "Sending…",
       "success": "Thank you. Your comment was sent for review.",
-      "error": "The comment could not be sent. Please try again."
+      "error": "The comment could not be sent. Please try again.",
+      "reply": "Reply",
+      "cancelReply": "Cancel reply",
+      "replyingTo": "Replying to {name}",
+      "replyComment": "Your reply",
+      "sendReply": "Send reply",
+      "replySuccess": "Thank you. Your reply was sent for review.",
+      "replyError": "The reply could not be sent. Please try again."
     }
   },
 

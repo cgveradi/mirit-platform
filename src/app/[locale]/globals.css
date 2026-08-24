@@ -500,6 +500,10 @@ body > div { position: relative; z-index: 1; }
 .classroom-comment-list strong { font-size: .82rem; }
 .classroom-comment-list time { color: var(--color-muted); font-family: var(--font-mono); font-size: .6rem; }
 .classroom-comment-list article p { margin-top: .65rem; color: var(--color-muted); line-height: 1.55; white-space: pre-wrap; }
+.classroom-comment-reply-button { margin-top: .85rem; border: 0; color: var(--color-muted); cursor: pointer; font-size: .7rem; }
+.classroom-comment-list article.classroom-comment-reply { margin: 1rem 0 0 1.25rem; border-left: 2px solid var(--line); background: color-mix(in srgb, var(--surface) 60%, transparent); }
+.classroom-comment-reply-form { margin: 1rem 0 0 1.25rem; border-left: 2px solid var(--line); padding-left: 1rem; }
+.classroom-comment-reply-form > p:first-child { margin-top: 0; font-size: .72rem; font-weight: 650; }
 @media (max-width: 760px) {
   .learning-hub-features, .classroom-grid, .classroom-resource-gallery, .classroom-homework-grid, .classroom-homework-grid:has(> :only-child:not([open])), .classroom-hero, .classroom-section-heading { grid-template-columns: 1fr; }
   .classroom-homework-card { min-height: 19rem; }
