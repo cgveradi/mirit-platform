@@ -1,9 +1,11 @@
 import Image from "next/image";
-import { getTranslations } from "next-intl/server";
+import { getLocale, getTranslations } from "next-intl/server";
 import ScrollReveal from "@/components/ScrollReveal";
 
 export default async function AboutPage() {
+  const locale = await getLocale();
   const t = await getTranslations("about");
+  const ritaName = locale === "ru" ? "Рита" : "Rita";
 
   return (
     <main className="about-page about-page-article">
@@ -31,11 +33,11 @@ export default async function AboutPage() {
             <div className="team-profile-card-inner">
               <div className="team-profile-front">
                 <span className="team-profile-avatar classroom-comment-avatar classroom-comment-avatar-1" aria-hidden="true" />
-                <span className="team-profile-front-copy"><small>MIRIT / 01</small><strong>Rita</strong><em>{t("ritaRole")}</em></span>
+                <span className="team-profile-front-copy"><small>MIRIT / 01</small><strong>{ritaName}</strong><em>{t("ritaRole")}</em></span>
                 <span className="team-profile-hint">{t("teamCardHint")} <i aria-hidden="true">↻</i></span>
               </div>
               <div className="team-profile-back">
-                <small>RITA / MIRIT</small>
+                <small>{ritaName.toUpperCase()} / MIRIT</small>
                 <div className="team-profile-bio"><p>{t("ritaBio")}</p><dl><div><dt>{t("profileBirthplace")}</dt><dd>Tver, Russia</dd></div><div><dt>{t("profileLanguages")}</dt><dd>{t("ritaLanguages")}</dd></div><div><dt>{t("profileInterests")}</dt><dd>{t("ritaInterests")}</dd></div></dl></div>
                 <span>{t("teamCardClose")} <i aria-hidden="true">↻</i></span>
               </div>

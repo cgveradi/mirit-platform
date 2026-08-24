@@ -2,6 +2,7 @@ import { Link } from "@/i18n/navigation";
 import { getLocale, getTranslations } from "next-intl/server";
 import Image from "next/image";
 import ScrollReveal from "@/components/ScrollReveal";
+import AnimatedHeroTitle from "@/components/AnimatedHeroTitle";
 import type { Metadata } from "next";
 
 export async function generateMetadata(): Promise<Metadata> {
@@ -77,7 +78,7 @@ export default async function Home() {
         <div className="hero-content">
           <p className="eyebrow hero-reveal">MIRIT / 01—26</p>
           <div className="hero-main hero-reveal">
-            <h1 className="hero-title">{t("title")}</h1>
+            <AnimatedHeroTitle>{t("title")}</AnimatedHeroTitle>
             <p className="hero-intro">{t("subtitle")}</p>
           </div>
           <div className="hero-bottom hero-reveal">
@@ -132,9 +133,6 @@ export default async function Home() {
         </ScrollReveal>
       </section>
 
-      <section className="closing-section">
-        <ScrollReveal><p className="eyebrow">{t("closingEyebrow")}</p><h2>{t("closingTitle")}</h2><Link href="/gambia-project" className="button-link">{t("ctaGambia")} <span aria-hidden="true">→</span></Link></ScrollReveal>
-      </section>
     </main>
   );
 }
