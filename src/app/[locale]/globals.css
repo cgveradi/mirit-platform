@@ -822,3 +822,446 @@ body > div { position: relative; z-index: 1; }
 .perspective-copy { justify-content: flex-end; }
 .perspective-copy > p { border-top: 1px solid var(--line); padding-top: 1.25rem; font-size: clamp(1rem, 1.25vw, 1.15rem); }
 .paths-heading { margin-bottom: 2rem; }
+
+/* Homepage index — a project pulls forward like a book leaving a shelf. */
+@media (hover: hover) and (pointer: fine) {
+  .home-page .paths-grid .path-card {
+    transform-origin: left center;
+    transition: background-color 420ms ease, filter 420ms ease, opacity 420ms ease, transform 520ms cubic-bezier(.2,.8,.2,1);
+  }
+  .home-page .paths-grid:has(.path-card:hover) .path-card:not(:hover),
+  .home-page .paths-grid:has(.path-card:focus-visible) .path-card:not(:focus-visible) {
+    filter: grayscale(.92) brightness(.3);
+    opacity: .48;
+    transform: translateX(-.4rem) scale(.992);
+  }
+  .home-page .path-card:hover,
+  .home-page .path-card:focus-visible {
+    z-index: 2;
+    background: color-mix(in srgb, var(--card-surface) 48%, var(--color-background));
+    transform: translateX(clamp(1.5rem, 4vw, 4rem));
+  }
+}
+
+/* About — restrained editorial sections with a reusable team block. */
+.about-page-simple .about-hero, .about-definition, .about-team { width: min(100% - 4rem, 88rem); margin: 0 auto; }
+.about-hero-simple { min-height: 0; grid-template-rows: auto auto auto; gap: clamp(2rem, 5vw, 5rem); padding: clamp(4rem, 8vw, 8rem) 0 clamp(5rem, 9vw, 9rem); }
+.about-hero-simple h1 { max-width: 72rem; align-self: auto; }
+.about-hero-intro { max-width: 37rem; color: var(--color-muted); font-size: clamp(1.1rem, 1.7vw, 1.4rem); line-height: 1.55; animation-delay: .24s; }
+.about-definition, .about-team { border-top: 1px solid var(--line); padding: clamp(5rem, 9vw, 9rem) 0; }
+.about-definition-grid { display: grid; grid-template-columns: minmax(0, 1.15fr) minmax(18rem, .55fr); gap: clamp(3rem, 10vw, 10rem); margin-top: clamp(3rem, 6vw, 6rem); }
+.about-definition h2, .about-team h2 { font-family: Iowan Old Style, Baskerville, "Times New Roman", serif; font-size: clamp(2.8rem, 5.5vw, 6rem); font-weight: 400; letter-spacing: -.065em; line-height: .92; }
+.about-definition-copy { color: var(--color-muted); line-height: 1.65; }
+.about-definition-copy p + p { margin-top: 1.5rem; }
+.about-principles-simple { padding-top: 0; }
+.about-section-heading { display: flex; justify-content: space-between; gap: 2rem; margin-bottom: 2.5rem; }
+.about-section-heading > p:last-child { max-width: 31rem; color: var(--color-muted); line-height: 1.5; }
+.about-values-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); border-top: 1px solid var(--line); border-left: 1px solid var(--line); }
+.about-values-grid article { min-height: 20rem; padding: 1.75rem; border-right: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+.about-values-grid article > span { color: var(--color-muted); font-family: var(--font-mono); font-size: .68rem; }
+.about-values-grid h3 { margin-top: clamp(3rem, 7vw, 7rem); font-family: Iowan Old Style, Baskerville, "Times New Roman", serif; font-size: clamp(2rem, 3vw, 3rem); font-weight: 400; letter-spacing: -.05em; line-height: .95; }
+.about-values-grid p { margin-top: 1.25rem; color: var(--color-muted); line-height: 1.55; }
+.about-team-block { display: grid; grid-template-columns: minmax(13rem, .45fr) minmax(0, 1fr); gap: clamp(2rem, 7vw, 7rem); align-items: center; border: 1px solid var(--line); padding: clamp(1.5rem, 4vw, 4rem); }
+.about-team-mark { display: grid; aspect-ratio: 1; border-radius: 50%; background: var(--color-foreground); color: var(--color-background); font-family: Iowan Old Style, Baskerville, "Times New Roman", serif; font-size: clamp(5rem, 12vw, 11rem); place-items: center; }
+.about-team-block p { max-width: 39rem; margin-top: 1.5rem; color: var(--color-muted); line-height: 1.6; }
+
+/* MIRITAI — concise overview and a direct handoff to the dedicated site. */
+.miritai-hero, .miritai-summary, .miritai-exit { width: min(100% - 4rem, 88rem); margin: 0 auto; }
+.miritai-hero { display: grid; grid-template-columns: minmax(0, 1fr) minmax(20rem, .85fr); gap: clamp(3rem, 7vw, 7rem); align-items: center; min-height: calc(100svh - 5.5rem); padding: clamp(3rem, 6vw, 6rem) 0; }
+.miritai-hero h1 { margin-top: 2rem; font-size: clamp(4.5rem, 10vw, 10rem); font-weight: 650; letter-spacing: -.075em; line-height: .82; }
+.miritai-lead { max-width: 35rem; margin: 2rem 0; color: var(--color-muted); font-size: clamp(1rem, 1.4vw, 1.25rem); line-height: 1.6; animation-delay: .2s; }
+.miritai-hero .button-link { animation-delay: .3s; }
+.miritai-hero-image { position: relative; min-height: clamp(28rem, 56vw, 43rem); overflow: hidden; border-radius: .75rem 8rem .75rem .75rem; background: #121720; animation-delay: .16s; }
+.miritai-hero-image img { object-fit: cover; filter: saturate(.7) contrast(.96); }
+.miritai-page-minimal .miritai-hero-image { border: .65rem solid color-mix(in srgb, var(--surface) 82%, var(--color-background)); border-radius: 50% 50% 1.25rem 1.25rem / 22% 22% 1.25rem 1.25rem; box-shadow: 0 0 0 1px var(--line), 1rem 1rem 0 color-mix(in srgb, var(--cool) 26%, transparent), 0 2rem 4rem color-mix(in srgb, var(--color-foreground) 12%, transparent); }
+.miritai-page-minimal .miritai-hero-image::after { position: absolute; z-index: 2; inset: .75rem; border: 1px solid rgba(255,255,255,.28); border-radius: inherit; content: ""; pointer-events: none; }
+.miritai-page-minimal .miritai-hero-image img { filter: saturate(.64) contrast(.98); transform: scale(1.02); }
+.miritai-page-minimal .miritai-hero { min-height: 0; grid-template-columns: minmax(0, .88fr) minmax(24rem, .72fr); gap: clamp(3rem, 8vw, 8rem); padding: clamp(3rem, 5vw, 5rem) 0; }
+.miritai-page-minimal .miritai-hero-copy { display: flex; flex-direction: column; justify-content: center; min-height: clamp(26rem, 40vw, 34rem); }
+.miritai-page-minimal .miritai-hero-copy .button-link { align-self: flex-end; margin-top: .75rem; }
+.miritai-page-minimal .miritai-hero-image { min-height: clamp(26rem, 40vw, 34rem); }
+.miritai-page-minimal .miritai-hero-image img { object-fit: contain; padding: clamp(1.5rem, 3vw, 3rem); background: #080b10; transform: scale(.94); animation: miritaiImageDrift 8s ease-in-out infinite alternate; }
+@keyframes miritaiImageDrift { to { transform: scale(.97) translateY(-.35rem); } }
+.miritai-summary, .miritai-exit { border-top: 1px solid var(--line); padding: clamp(5rem, 10vw, 10rem) 0; }
+.miritai-summary-grid { display: grid; grid-template-columns: minmax(0, 1.1fr) minmax(18rem, .6fr); gap: clamp(3rem, 9vw, 9rem); margin-top: clamp(3rem, 6vw, 6rem); }
+.miritai-summary h2, .miritai-exit h2 { font-family: Iowan Old Style, Baskerville, "Times New Roman", serif; font-size: clamp(2.8rem, 5.7vw, 6rem); font-weight: 400; letter-spacing: -.065em; line-height: .92; }
+.miritai-summary-grid > div > p { color: var(--color-muted); line-height: 1.65; }
+.miritai-summary ul { margin-top: 2.5rem; border-top: 1px solid var(--line); }
+.miritai-summary li { border-bottom: 1px solid var(--line); padding: .9rem 0; font-family: var(--font-mono); font-size: .72rem; letter-spacing: .07em; text-transform: uppercase; }
+.miritai-exit h2 { max-width: 65rem; margin: 2.5rem 0 3rem; }
+
+@media (max-width: 760px) {
+  .about-page-simple .about-hero, .about-definition, .about-team, .miritai-hero, .miritai-summary, .miritai-exit { width: min(100% - 2.5rem, 88rem); }
+  .about-hero-simple { min-height: 0; padding: 4rem 0 5rem; }
+  .about-definition-grid, .about-values-grid, .about-team-block, .miritai-hero, .miritai-summary-grid { grid-template-columns: 1fr; }
+  .about-section-heading { flex-direction: column; }
+  .about-values-grid article { min-height: 16rem; }
+  .about-team-mark { width: min(65vw, 16rem); }
+  .miritai-hero { min-height: 0; padding: 4rem 0 5rem; }
+  .miritai-hero-image { min-height: 26rem; grid-row: 1; }
+  .miritai-hero h1 { font-size: clamp(4rem, 19vw, 6rem); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .home-page .paths-grid .path-card { transition-duration: .01ms; }
+}
+
+/* Refinement: keep the shelf compact and inside the page edge. */
+.home-page .paths-section { overflow: clip; }
+.home-page .path-card { min-height: 12.75rem; grid-template-columns: clamp(8rem, 15vw, 13rem) minmax(0, 1fr); }
+.home-page .path-card h2, .home-page .path-card-digital h2 { font-size: clamp(2.25rem, 3.65vw, 4rem); }
+@media (hover: hover) and (pointer: fine) {
+  .home-page .path-card:hover,
+  .home-page .path-card:focus-visible { transform: translateX(clamp(.65rem, 1.35vw, 1.25rem)); }
+  .home-page .paths-grid:has(.path-card:hover) .path-card:not(:hover),
+  .home-page .paths-grid:has(.path-card:focus-visible) .path-card:not(:focus-visible) { transform: translateX(-.15rem) scale(.996); }
+}
+
+/* Minimal About: one explanation, three paths and room for the team. */
+.about-overview, .about-team-minimal { width: min(100% - 4rem, 88rem); margin: 0 auto; }
+.about-overview { display: grid; grid-template-columns: minmax(20rem, .82fr) minmax(0, 1fr); gap: clamp(3rem, 7vw, 7rem); align-items: center; min-height: calc(100svh - 5.5rem); padding: clamp(3rem, 6vw, 6rem) 0; }
+.about-overview-image { position: relative; min-height: clamp(28rem, 54vw, 42rem); overflow: hidden; border-radius: .75rem 7rem .75rem .75rem; background: var(--surface); }
+.about-overview-image img { object-fit: cover; filter: saturate(.72) contrast(.95); }
+.about-overview h1 { max-width: 43rem; margin-top: 2rem; font-family: Iowan Old Style, Baskerville, "Times New Roman", serif; font-size: clamp(3.7rem, 6.8vw, 7rem); font-weight: 400; letter-spacing: -.07em; line-height: .88; animation-delay: .1s; }
+.about-overview-intro { max-width: 38rem; margin-top: 2rem; color: var(--color-muted); font-size: clamp(1rem, 1.3vw, 1.18rem); line-height: 1.65; animation-delay: .2s; }
+.about-paths { margin-top: clamp(2rem, 4vw, 4rem); border-top: 1px solid var(--line); animation-delay: .28s; }
+.about-paths > div { display: grid; grid-template-columns: 3rem 1fr; gap: 1rem; border-bottom: 1px solid var(--line); padding: .85rem 0; }
+.about-paths span { color: var(--color-muted); font-family: var(--font-mono); font-size: .65rem; }
+.about-paths strong { font-family: Iowan Old Style, Baskerville, "Times New Roman", serif; font-size: clamp(1.35rem, 2vw, 1.8rem); font-weight: 400; letter-spacing: -.035em; }
+.about-team-minimal { padding: clamp(5rem, 9vw, 9rem) 0; }
+.about-team-minimal > div > .eyebrow { margin-bottom: 2rem; }
+
+/* About paths: small, descriptive gateways rather than unfinished labels. */
+.about-paths > a { display: grid; grid-template-columns: 3rem minmax(0, 1fr); gap: 1rem; align-items: start; border-bottom: 1px solid var(--line); padding: 1.15rem 0; transition: padding 240ms ease, background-color 240ms ease; }
+.about-paths > a:hover, .about-paths > a:focus-visible { padding-right: .65rem; padding-left: .65rem; background: color-mix(in srgb, var(--surface) 55%, transparent); }
+.about-paths > a > span { padding-top: .25rem; color: var(--color-muted); font-family: var(--font-mono); font-size: .65rem; }
+.about-paths > a strong { display: block; font-family: Iowan Old Style, Baskerville, "Times New Roman", serif; font-size: clamp(1.35rem, 2vw, 1.8rem); font-weight: 400; letter-spacing: -.035em; }
+.about-paths > a p { max-width: 30rem; margin-top: .45rem; color: var(--color-muted); font-size: .86rem; line-height: 1.5; }
+
+/* Three fuller chapters below the concise About index. */
+.about-path-details { width: min(100% - 4rem, 88rem); margin: 0 auto; border-top: 1px solid var(--line); }
+.about-path-detail { position: relative; display: grid; min-height: 31rem; grid-template-columns: 4rem minmax(0, 1fr) minmax(10rem, .45fr); gap: clamp(2rem, 6vw, 6rem); align-items: center; overflow: hidden; border-bottom: 1px solid var(--line); padding: clamp(3rem, 7vw, 7rem) 0; }
+.about-path-detail-number { align-self: start; color: var(--color-muted); font-family: var(--font-mono); font-size: .68rem; }
+.about-path-detail-copy { position: relative; z-index: 1; max-width: 46rem; }
+.about-path-detail h2 { margin-top: 1.5rem; font-family: Iowan Old Style, Baskerville, "Times New Roman", serif; font-size: clamp(3rem, 6vw, 6.3rem); font-weight: 400; letter-spacing: -.068em; line-height: .88; }
+.about-path-detail-copy > p:not(.eyebrow) { max-width: 38rem; margin-top: 1.75rem; color: var(--color-muted); font-size: clamp(1rem, 1.25vw, 1.12rem); line-height: 1.65; }
+.about-path-detail .button-link { margin-top: 2rem; }
+.about-path-detail-mark { justify-self: end; color: color-mix(in srgb, var(--surface) 76%, transparent); font-family: Iowan Old Style, Baskerville, "Times New Roman", serif; font-size: clamp(10rem, 22vw, 20rem); line-height: .7; pointer-events: none; }
+.about-path-detail-culture .about-path-detail-mark { color: color-mix(in srgb, var(--warm) 35%, transparent); }
+.about-path-detail-innovation .about-path-detail-mark { color: color-mix(in srgb, var(--cool) 42%, transparent); }
+
+/* Rita profile: the classroom matryoshka becomes a quiet, reversible identity card. */
+.about-team-intro { display: grid; grid-template-columns: minmax(0, 1fr) minmax(18rem, .5fr); gap: clamp(2rem, 8vw, 8rem); align-items: end; margin-bottom: 3rem; }
+.about-team-intro h2 { font-family: Iowan Old Style, Baskerville, "Times New Roman", serif; font-size: clamp(2.8rem, 5.5vw, 5.8rem); font-weight: 400; letter-spacing: -.065em; line-height: .92; }
+.about-team-intro p { color: var(--color-muted); line-height: 1.55; }
+.team-profile-card { width: min(100%, 35rem); height: clamp(18rem, 28vw, 21rem); outline: 0; perspective: 90rem; }
+.team-profile-card-inner { position: relative; width: 100%; height: 100%; transition: transform 700ms cubic-bezier(.2,.75,.2,1); transform-style: preserve-3d; }
+.team-profile-card:hover .team-profile-card-inner, .team-profile-card:focus .team-profile-card-inner, .team-profile-card:focus-within .team-profile-card-inner { transform: rotateY(180deg); }
+.team-profile-front, .team-profile-back { position: absolute; inset: 0; display: grid; overflow: hidden; border: 1px solid var(--line); border-radius: 1rem 5rem 1rem 1rem; padding: clamp(1.5rem, 3vw, 2.5rem); background: var(--surface); box-shadow: 0 1rem 2.5rem color-mix(in srgb, var(--color-foreground) 8%, transparent); backface-visibility: hidden; }
+.team-profile-front { grid-template-columns: minmax(8rem, .58fr) minmax(0, 1fr); grid-template-rows: 1fr auto; gap: 1.25rem 1.5rem; }
+.team-profile-avatar.classroom-comment-avatar { width: min(100%, 10rem); height: auto; aspect-ratio: 1; align-self: center; grid-row: 1 / 3; border-radius: 50%; background-size: 400% 200%; background-position: 33.333% 0; box-shadow: none; }
+.team-profile-front-copy { display: flex; align-self: end; flex-direction: column; }
+.team-profile-front small, .team-profile-back small { font-family: var(--font-mono); font-size: .62rem; letter-spacing: .11em; }
+.team-profile-front strong { margin-top: 1rem; font-family: Iowan Old Style, Baskerville, "Times New Roman", serif; font-size: clamp(3rem, 5vw, 4.5rem); font-weight: 400; letter-spacing: -.065em; line-height: .85; }
+.team-profile-front em { margin-top: 1rem; color: var(--color-muted); font-size: .72rem; font-style: normal; letter-spacing: .07em; text-transform: uppercase; }
+.team-profile-hint, .team-profile-back > span { display: flex; align-items: center; justify-content: space-between; border-top: 1px solid var(--line); padding-top: .8rem; color: var(--color-muted); font-size: .7rem; letter-spacing: .07em; text-transform: uppercase; }
+.team-profile-hint i, .team-profile-back i { font-size: 1rem; font-style: normal; }
+.team-profile-back { grid-template-rows: auto 1fr auto; background: var(--color-foreground); color: var(--color-background); transform: rotateY(180deg); }
+.team-profile-bio { align-self: center; }
+.team-profile-bio > p { max-width: 29rem; font-family: Iowan Old Style, Baskerville, "Times New Roman", serif; font-size: clamp(1.2rem, 2vw, 1.65rem); letter-spacing: -.025em; line-height: 1.08; }
+.team-profile-bio dl { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: .75rem; margin-top: 1.35rem; border-top: 1px solid color-mix(in srgb, var(--color-background) 25%, transparent); padding-top: .85rem; }
+.team-profile-bio dt { color: color-mix(in srgb, var(--color-background) 58%, transparent); font-family: var(--font-mono); font-size: .5rem; letter-spacing: .07em; text-transform: uppercase; }
+.team-profile-bio dd { margin-top: .3rem; font-size: .66rem; line-height: 1.35; }
+.team-profile-back > span { border-color: color-mix(in srgb, var(--color-background) 30%, transparent); color: color-mix(in srgb, var(--color-background) 72%, transparent); }
+
+/* A calm holding card for Insights. */
+.articles-coming-soon { border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); padding: clamp(2.5rem, 6vw, 5rem) 0; text-align: center; }
+.articles-coming-soon h2 { margin-top: 1.5rem; font-family: Iowan Old Style, Baskerville, "Times New Roman", serif; font-size: clamp(2.75rem, 6vw, 5.5rem); font-weight: 400; letter-spacing: -.06em; line-height: .95; }
+.articles-coming-soon > p:last-child { max-width: 31rem; margin: 1.5rem auto 0; color: var(--color-muted); line-height: 1.6; }
+
+@media (max-width: 760px) {
+  .home-page .path-card { min-height: 11.5rem; grid-template-columns: minmax(6.5rem, 35%) minmax(0, 1fr); }
+  .about-overview, .about-team-minimal { width: min(100% - 2.5rem, 88rem); }
+  .about-overview { min-height: 0; grid-template-columns: 1fr; padding: 3rem 0 5rem; }
+  .about-overview-image { min-height: 24rem; }
+  .about-overview h1 { font-size: clamp(3.4rem, 14.5vw, 5.5rem); }
+  .about-path-details { width: min(100% - 2.5rem, 88rem); }
+  .about-path-detail { min-height: 0; grid-template-columns: 2rem minmax(0, 1fr); gap: 1rem; padding: 4rem 0; }
+  .about-path-detail-mark { position: absolute; right: -.5rem; bottom: 1rem; opacity: .65; }
+  .about-team-intro { grid-template-columns: 1fr; }
+  .team-profile-card { height: 20rem; }
+  .team-profile-front { grid-template-columns: minmax(8rem, .62fr) minmax(0, 1fr); gap: 1rem; }
+  .team-profile-avatar.classroom-comment-avatar { width: min(100%, 11rem); }
+  .miritai-page-minimal .miritai-hero-copy { min-height: 0; }
+  .miritai-page-minimal .miritai-hero-copy .button-link { align-self: flex-end; }
+  .miritai-page-minimal .miritai-hero-image { min-height: 25rem; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .team-profile-card-inner { transition-duration: .01ms; }
+  .miritai-page-minimal .miritai-hero-image img { animation: none; }
+}
+
+/* One continuous dimming veil for the shelf, instead of separate grey blocks. */
+@media (hover: hover) and (pointer: fine) {
+  .home-page .paths-grid { position: relative; isolation: isolate; }
+  .home-page .paths-grid::after { position: absolute; z-index: 2; inset: 0; background: color-mix(in srgb, var(--color-background) 74%, rgba(8,8,7,.82)); content: ""; opacity: 0; pointer-events: none; transition: opacity 380ms ease; }
+  .home-page .paths-grid:has(.path-card:hover)::after,
+  .home-page .paths-grid:has(.path-card:focus-visible)::after { opacity: .72; }
+  .home-page .paths-grid:has(.path-card:hover) .path-card:not(:hover),
+  .home-page .paths-grid:has(.path-card:focus-visible) .path-card:not(:focus-visible) { filter: none; opacity: 1; transform: none; }
+  .home-page .path-card:hover,
+  .home-page .path-card:focus-visible { z-index: 3; }
+}
+
+/* About as an editorial book: cover spread, paper chapters and a visible gutter. */
+.about-page-minimal { padding: clamp(2rem, 4vw, 4rem) 0 0; }
+.about-overview { position: relative; min-height: 0; grid-template-columns: 1fr 1fr; gap: 0; align-items: stretch; overflow: hidden; border: 1px solid var(--line); border-radius: 1.25rem 3.5rem 3.5rem 1.25rem; padding: 0; background: color-mix(in srgb, var(--color-background) 82%, white); box-shadow: 0 1.75rem 4rem color-mix(in srgb, var(--color-foreground) 13%, transparent), .8rem .8rem 0 color-mix(in srgb, var(--surface) 72%, transparent); }
+.about-overview::after { position: absolute; z-index: 3; top: 0; bottom: 0; left: 50%; width: 2.25rem; background: linear-gradient(90deg, transparent, rgba(40,38,31,.12) 44%, rgba(255,255,255,.28) 52%, transparent); content: ""; pointer-events: none; transform: translateX(-50%); }
+.about-overview-image { min-height: clamp(34rem, 52vw, 46rem); border-radius: 0; }
+.about-overview-image::after { position: absolute; inset: 1.25rem; border: 1px solid rgba(255,255,255,.28); border-radius: .5rem 2.75rem .5rem .5rem; content: ""; }
+.about-overview-copy { display: flex; min-width: 0; flex-direction: column; justify-content: center; padding: clamp(2.5rem, 6vw, 6rem); }
+.about-overview h1 { font-size: clamp(3.2rem, 5.5vw, 5.7rem); }
+.about-paths { margin-top: clamp(2rem, 3.5vw, 3.5rem); }
+.about-paths > a:hover, .about-paths > a:focus-visible { background: transparent; padding-right: 0; padding-left: .45rem; }
+
+.about-path-details { display: flex; width: min(100% - 4rem, 80rem); flex-direction: column; gap: clamp(2rem, 5vw, 5rem); border: 0; padding: clamp(7rem, 12vw, 12rem) 0; }
+.about-path-detail { width: 92%; min-height: 26rem; grid-template-columns: 3rem minmax(0, 1fr) minmax(9rem, .32fr); overflow: hidden; border: 1px solid var(--line); border-radius: .8rem 2.75rem 2.75rem .8rem; padding: clamp(2.5rem, 5vw, 5rem); background: color-mix(in srgb, var(--color-background) 88%, white); box-shadow: .65rem .75rem 0 color-mix(in srgb, var(--surface) 74%, transparent), 0 1.5rem 3rem color-mix(in srgb, var(--color-foreground) 8%, transparent); }
+.about-path-detail:nth-child(even) { align-self: flex-end; border-radius: 2.75rem .8rem .8rem 2.75rem; box-shadow: -.65rem .75rem 0 color-mix(in srgb, var(--surface) 74%, transparent), 0 1.5rem 3rem color-mix(in srgb, var(--color-foreground) 8%, transparent); }
+.about-path-detail::after { position: absolute; top: 0; bottom: 0; left: 1.3rem; width: 1px; background: color-mix(in srgb, var(--warm) 35%, var(--line)); content: ""; }
+.about-path-detail:nth-child(even)::after { right: 1.3rem; left: auto; }
+.about-path-detail h2 { font-size: clamp(2.8rem, 5.2vw, 5.5rem); }
+.about-path-detail-mark { color: color-mix(in srgb, var(--surface) 60%, transparent); }
+
+/* Rita's reverse uses a contained biography/facts layout. */
+.team-profile-back { grid-template-rows: auto 1fr auto; }
+.team-profile-bio { display: grid; grid-template-columns: minmax(0, 1.15fr) minmax(9rem, .85fr); gap: 1.5rem; align-items: center; min-height: 0; }
+.team-profile-bio > p { max-width: 21rem; font-size: clamp(1rem, 1.45vw, 1.25rem); line-height: 1.2; }
+.team-profile-bio dl { display: block; min-width: 0; margin: 0; border-top: 0; padding: 0; }
+.team-profile-bio dl > div { min-width: 0; border-bottom: 1px solid color-mix(in srgb, var(--color-background) 22%, transparent); padding: .55rem 0; }
+.team-profile-bio dl > div:first-child { border-top: 1px solid color-mix(in srgb, var(--color-background) 22%, transparent); }
+.team-profile-bio dd { max-width: 100%; overflow-wrap: anywhere; font-size: .62rem; }
+
+@media (max-width: 760px) {
+  .about-page-minimal { padding-top: 1rem; }
+  .about-overview { grid-template-columns: 1fr; border-radius: 1rem 2.5rem 1rem 1rem; }
+  .about-overview::after { display: none; }
+  .about-overview-image { min-height: 25rem; }
+  .about-overview-copy { padding: 2.25rem 1.5rem 3rem; }
+  .about-path-details { width: min(100% - 2.5rem, 80rem); gap: 2rem; padding: 5rem 0; }
+  .about-path-detail, .about-path-detail:nth-child(even) { width: 100%; grid-template-columns: 2rem minmax(0, 1fr); border-radius: .75rem 2rem 2rem .75rem; padding: 2.5rem 1.5rem; box-shadow: .35rem .45rem 0 color-mix(in srgb, var(--surface) 74%, transparent); }
+  .team-profile-bio { grid-template-columns: 1fr; gap: .65rem; }
+  .team-profile-bio > p { font-size: .95rem; }
+}
+
+/* Homepage contents as floating editorial pages — no shelf mask or block dimming. */
+.home-page .paths-section { overflow: visible; }
+.home-page .paths-grid { display: flex; flex-direction: column; gap: clamp(1.75rem, 4vw, 4rem); padding: clamp(2rem, 4vw, 4rem) 0; isolation: auto; }
+.home-page .paths-grid::after { display: none; }
+.home-page .path-card { width: 92%; min-height: 14rem; grid-template-columns: clamp(9rem, 17vw, 15rem) minmax(0, 1fr); overflow: hidden; border: 1px solid var(--line); border-radius: .8rem 3rem 3rem .8rem; padding: clamp(1.25rem, 2.4vw, 2.25rem); background: color-mix(in srgb, var(--card-surface) 42%, var(--color-background)); box-shadow: .65rem .75rem 0 color-mix(in srgb, var(--surface) 72%, transparent), 0 1.5rem 3rem color-mix(in srgb, var(--color-foreground) 8%, transparent); transform: rotate(-.35deg); transition: border-color 300ms ease, box-shadow 450ms ease, transform 500ms cubic-bezier(.2,.8,.2,1); }
+.home-page .path-card:nth-child(even) { align-self: flex-end; border-radius: 3rem .8rem .8rem 3rem; box-shadow: -.65rem .75rem 0 color-mix(in srgb, var(--surface) 72%, transparent), 0 1.5rem 3rem color-mix(in srgb, var(--color-foreground) 8%, transparent); transform: rotate(.35deg); }
+.home-page .path-card::after { position: absolute; top: 0; bottom: 0; left: 1.1rem; width: 1px; background: color-mix(in srgb, var(--warm) 36%, var(--line)); content: ""; pointer-events: none; }
+.home-page .path-card:nth-child(even)::after { right: 1.1rem; left: auto; }
+.home-page .path-card:hover, .home-page .path-card:focus-visible { z-index: 1; border-color: color-mix(in srgb, var(--color-foreground) 28%, var(--line)); background: color-mix(in srgb, var(--card-surface) 52%, var(--color-background)); box-shadow: .8rem 1rem 0 color-mix(in srgb, var(--surface) 78%, transparent), 0 2.2rem 4rem color-mix(in srgb, var(--color-foreground) 14%, transparent); transform: translateY(-.5rem) rotate(0); }
+.home-page .path-card:nth-child(even):hover, .home-page .path-card:nth-child(even):focus-visible { box-shadow: -.8rem 1rem 0 color-mix(in srgb, var(--surface) 78%, transparent), 0 2.2rem 4rem color-mix(in srgb, var(--color-foreground) 14%, transparent); }
+@media (hover: hover) and (pointer: fine) {
+  .home-page .paths-grid:has(.path-card:hover) .path-card:not(:hover),
+  .home-page .paths-grid:has(.path-card:focus-visible) .path-card:not(:focus-visible) { filter: none; opacity: 1; transform: rotate(-.35deg); }
+  .home-page .paths-grid:has(.path-card:hover) .path-card:nth-child(even):not(:hover),
+  .home-page .paths-grid:has(.path-card:focus-visible) .path-card:nth-child(even):not(:focus-visible) { transform: rotate(.35deg); }
+}
+
+/* About reduced to one long-form article and one team section. */
+.about-page-article { padding-top: clamp(3rem, 6vw, 6rem); }
+.about-article { width: min(100% - 4rem, 76rem); margin: 0 auto; }
+.about-article header { display: grid; grid-template-columns: minmax(9rem, .3fr) minmax(0, 1fr); gap: 2rem; align-items: start; }
+.about-article h1 { max-width: 60rem; font-family: Iowan Old Style, Baskerville, "Times New Roman", serif; font-size: clamp(3.7rem, 7.5vw, 8rem); font-weight: 400; letter-spacing: -.072em; line-height: .87; animation-delay: .1s; }
+.about-article-image { position: relative; min-height: clamp(28rem, 56vw, 48rem); overflow: hidden; margin-top: clamp(3rem, 7vw, 7rem); border-radius: .75rem 5rem .75rem .75rem; }
+.about-article-image img { object-fit: cover; filter: saturate(.72) contrast(.96); }
+.about-article-body { display: grid; grid-template-columns: minmax(0, .85fr) minmax(18rem, .55fr); gap: clamp(3rem, 9vw, 9rem); padding: clamp(3rem, 7vw, 7rem) 0 clamp(6rem, 11vw, 11rem); }
+.about-article-body > p { font-family: Iowan Old Style, Baskerville, "Times New Roman", serif; font-size: clamp(2rem, 3.6vw, 3.6rem); letter-spacing: -.045em; line-height: 1.03; }
+.about-article-body > div { color: var(--color-muted); line-height: 1.7; }
+.about-article-body > div p + p { margin-top: 1.5rem; }
+.about-page-article .about-team-minimal { border-top: 1px solid var(--line); }
+
+@media (max-width: 760px) {
+  .home-page .paths-section { overflow: hidden; }
+  .home-page .paths-grid { gap: 1.5rem; padding-top: 1.5rem; }
+  .home-page .path-card, .home-page .path-card:nth-child(even) { width: calc(100% - .4rem); min-height: 12rem; align-self: flex-start; border-radius: .6rem 2rem 2rem .6rem; transform: none; }
+  .home-page .path-card:nth-child(even) { align-self: flex-end; border-radius: 2rem .6rem .6rem 2rem; }
+  .about-page-article { padding-top: 3rem; }
+  .about-article { width: min(100% - 2.5rem, 76rem); }
+  .about-article header, .about-article-body { grid-template-columns: 1fr; }
+  .about-article h1 { font-size: clamp(3.4rem, 15vw, 5.5rem); }
+  .about-article-image { min-height: 25rem; margin-top: 3rem; }
+  .about-article-body { gap: 2rem; padding: 3rem 0 6rem; }
+}
+
+/* A smaller editorial plate keeps the About image from overpowering the story. */
+.about-article-image { width: min(86%, 61rem); min-height: clamp(21rem, 35vw, 31rem); margin-right: auto; margin-left: auto; border: .55rem solid color-mix(in srgb, var(--surface) 72%, var(--color-background)); border-radius: .65rem 4.5rem .65rem .65rem; box-shadow: .75rem .9rem 0 color-mix(in srgb, var(--surface) 66%, transparent), 0 1.5rem 3.5rem color-mix(in srgb, var(--color-foreground) 10%, transparent); }
+.about-article-image::after { position: absolute; inset: .75rem; border: 1px solid rgba(255,255,255,.28); border-radius: .3rem 3.25rem .3rem .3rem; content: ""; pointer-events: none; }
+.about-article-image img { object-position: center 58%; }
+
+/* Rita's card as a small bookplate with a spine and layered page depth. */
+.team-profile-card { position: relative; margin-left: clamp(.25rem, 3vw, 3rem); transform: rotate(-.6deg); transition: transform 450ms cubic-bezier(.2,.8,.2,1); }
+.team-profile-card:hover, .team-profile-card:focus { transform: translateY(-.35rem) rotate(0); }
+.team-profile-card::before, .team-profile-card::after { position: absolute; z-index: -1; border: 1px solid var(--line); border-radius: .8rem 4.5rem .8rem 2.4rem; background: color-mix(in srgb, var(--surface) 72%, var(--color-background)); content: ""; pointer-events: none; }
+.team-profile-card::before { inset: .55rem -.65rem -.7rem .65rem; }
+.team-profile-card::after { inset: 1.05rem -1.05rem -1.15rem 1.15rem; opacity: .48; }
+.team-profile-front, .team-profile-back { border-radius: .8rem 4.5rem .8rem 2.4rem; }
+.team-profile-front { position: absolute; background: radial-gradient(circle at 19% 49%, color-mix(in srgb, var(--warm) 24%, transparent), transparent 29%), linear-gradient(105deg, color-mix(in srgb, var(--surface) 90%, var(--warm)) 0 1.35rem, color-mix(in srgb, var(--surface) 94%, var(--color-background)) 1.35rem); }
+.team-profile-front::before, .team-profile-back::before { position: absolute; top: 1rem; bottom: 1rem; left: 1.2rem; width: 1px; background: color-mix(in srgb, var(--warm) 52%, var(--line)); content: ""; }
+.team-profile-front::after { position: absolute; top: 1.35rem; right: 1.5rem; width: 2.1rem; aspect-ratio: 1; border-top: 1px solid var(--line); border-right: 1px solid var(--line); border-radius: 0 2.25rem 0 0; content: ""; }
+.team-profile-avatar.classroom-comment-avatar { position: relative; border: .4rem solid color-mix(in srgb, white 74%, var(--color-background)); box-shadow: 0 0 0 1px var(--line), .45rem .55rem 0 color-mix(in srgb, var(--warm) 25%, transparent); }
+.team-profile-back { background: radial-gradient(circle at 88% 15%, rgba(255,255,255,.06), transparent 23%), linear-gradient(100deg, color-mix(in srgb, var(--color-foreground) 90%, var(--warm)) 0 1.35rem, var(--color-foreground) 1.35rem); }
+
+@media (max-width: 760px) {
+  .about-article-image { width: 100%; min-height: 20rem; border-radius: .5rem 2.5rem .5rem .5rem; }
+  .team-profile-card { width: calc(100% - .75rem); margin-left: 0; transform: none; }
+}
+
+/* Remove hard card silhouettes: project content floats over soft colour fields. */
+.home-page .path-card { overflow: hidden; border-color: color-mix(in srgb, var(--color-foreground) 13%, transparent); border-radius: 1.1rem 5rem 5rem 1.1rem; background: linear-gradient(112deg, color-mix(in srgb, var(--card-surface) 68%, var(--color-background)) 0%, color-mix(in srgb, var(--card-surface) 42%, var(--color-background)) 72%, color-mix(in srgb, var(--color-background) 90%, transparent) 100%); box-shadow: .4rem .55rem 0 color-mix(in srgb, var(--surface) 52%, transparent), 0 1.4rem 3.5rem color-mix(in srgb, var(--color-foreground) 8%, transparent); }
+.home-page .path-card:nth-child(even) { overflow: hidden; border-color: color-mix(in srgb, var(--color-foreground) 13%, transparent); border-radius: 5rem 1.1rem 1.1rem 5rem; background: linear-gradient(248deg, color-mix(in srgb, var(--card-surface) 68%, var(--color-background)) 0%, color-mix(in srgb, var(--card-surface) 42%, var(--color-background)) 72%, color-mix(in srgb, var(--color-background) 90%, transparent) 100%); box-shadow: -.4rem .55rem 0 color-mix(in srgb, var(--surface) 52%, transparent), 0 1.4rem 3.5rem color-mix(in srgb, var(--color-foreground) 8%, transparent); }
+.home-page .path-card::before { position: absolute; z-index: -1; inset: 10% 4%; border-radius: 50%; background: radial-gradient(ellipse at center, color-mix(in srgb, var(--card-surface) 62%, transparent), transparent 72%); content: ""; filter: blur(2rem); opacity: .5; pointer-events: none; transition: filter 700ms ease, opacity 700ms ease, transform 800ms cubic-bezier(.22,.7,.2,1); }
+.home-page .path-card::after { display: none; }
+.home-page .path-card:hover, .home-page .path-card:focus-visible { border-color: color-mix(in srgb, var(--color-foreground) 22%, transparent); background: linear-gradient(112deg, color-mix(in srgb, var(--card-surface) 76%, var(--color-background)), color-mix(in srgb, var(--card-surface) 48%, var(--color-background)) 78%); box-shadow: .55rem .7rem 0 color-mix(in srgb, var(--surface) 58%, transparent), 0 2rem 4rem color-mix(in srgb, var(--color-foreground) 12%, transparent); transform: translateY(-.35rem) rotate(0); }
+.home-page .path-card:nth-child(even):hover, .home-page .path-card:nth-child(even):focus-visible { border-color: color-mix(in srgb, var(--color-foreground) 22%, transparent); background: linear-gradient(248deg, color-mix(in srgb, var(--card-surface) 76%, var(--color-background)), color-mix(in srgb, var(--card-surface) 48%, var(--color-background)) 78%); box-shadow: -.55rem .7rem 0 color-mix(in srgb, var(--surface) 58%, transparent), 0 2rem 4rem color-mix(in srgb, var(--color-foreground) 12%, transparent); transform: translateY(-.35rem) rotate(0); }
+
+/* Level, luminous glass pages: quieter offset and no downward tilt. */
+.home-page .path-card, .home-page .path-card:nth-child(even) { width: 96%; transform: none; -webkit-backdrop-filter: blur(24px) saturate(1.18); backdrop-filter: blur(24px) saturate(1.18); }
+.home-page .path-card:nth-child(even) { align-self: flex-end; }
+.home-page .path-card-warm { background: linear-gradient(115deg, rgba(225,184,157,.72), rgba(224,196,177,.5) 62%, rgba(231,221,205,.34)); }
+.home-page .path-card-cool { background: linear-gradient(245deg, rgba(190,211,197,.7), rgba(205,216,202,.48) 62%, rgba(231,226,212,.32)); }
+.home-page .path-card-digital { background: linear-gradient(115deg, rgba(188,201,226,.7), rgba(207,212,224,.48) 62%, rgba(231,226,214,.32)); }
+.home-page .path-card-about { background: linear-gradient(245deg, rgba(218,199,165,.68), rgba(222,209,187,.46) 62%, rgba(231,225,212,.32)); }
+.home-page .path-card-warm:hover, .home-page .path-card-warm:focus-visible { background: linear-gradient(115deg, rgba(230,188,160,.8), rgba(226,198,179,.56) 62%, rgba(233,224,209,.38)); }
+.home-page .path-card-cool:hover, .home-page .path-card-cool:focus-visible { background: linear-gradient(245deg, rgba(194,216,201,.78), rgba(207,220,205,.55) 62%, rgba(233,228,215,.36)); }
+.home-page .path-card-digital:hover, .home-page .path-card-digital:focus-visible { background: linear-gradient(115deg, rgba(191,205,232,.78), rgba(209,215,229,.55) 62%, rgba(233,228,216,.36)); }
+.home-page .path-card-about:hover, .home-page .path-card-about:focus-visible { background: linear-gradient(245deg, rgba(222,203,169,.76), rgba(225,212,190,.53) 62%, rgba(233,227,214,.36)); }
+.home-page .path-card::after { position: absolute; z-index: 0; inset: 1px; display: block; border-radius: inherit; background: linear-gradient(145deg, rgba(255,255,255,.36), transparent 28%, transparent 70%, rgba(255,255,255,.1)); content: ""; pointer-events: none; }
+.home-page .path-card:hover, .home-page .path-card:focus-visible, .home-page .path-card:nth-child(even):hover, .home-page .path-card:nth-child(even):focus-visible { transform: translateY(-.28rem); }
+@media (hover: hover) and (pointer: fine) {
+  .home-page .paths-grid:has(.path-card:hover) .path-card:not(:hover),
+  .home-page .paths-grid:has(.path-card:focus-visible) .path-card:not(:focus-visible),
+  .home-page .paths-grid:has(.path-card:hover) .path-card:nth-child(even):not(:hover),
+  .home-page .paths-grid:has(.path-card:focus-visible) .path-card:nth-child(even):not(:focus-visible) { transform: none; }
+}
+:root.dark .home-page .path-card { border-color: rgba(238,236,228,.16); box-shadow: 0 1.5rem 3.8rem rgba(0,0,0,.2), inset 0 1px 0 rgba(255,255,255,.12); }
+:root.dark .home-page .path-card-warm { background: linear-gradient(115deg, rgba(111,77,62,.72), rgba(79,66,58,.58) 68%, rgba(38,38,34,.42)); }
+:root.dark .home-page .path-card-cool { background: linear-gradient(245deg, rgba(65,91,79,.7), rgba(57,70,63,.58) 68%, rgba(36,38,34,.4)); }
+:root.dark .home-page .path-card-digital { background: linear-gradient(115deg, rgba(58,68,91,.76), rgba(50,55,68,.6) 68%, rgba(34,35,34,.42)); }
+:root.dark .home-page .path-card-about { background: linear-gradient(245deg, rgba(92,80,62,.7), rgba(68,62,52,.58) 68%, rgba(36,36,33,.42)); }
+:root.dark .home-page .path-card-warm:hover, :root.dark .home-page .path-card-warm:focus-visible { background: linear-gradient(115deg, rgba(124,84,66,.8), rgba(84,69,60,.65) 68%, rgba(38,38,34,.46)); }
+:root.dark .home-page .path-card-cool:hover, :root.dark .home-page .path-card-cool:focus-visible { background: linear-gradient(245deg, rgba(69,101,85,.8), rgba(59,76,67,.65) 68%, rgba(36,38,34,.44)); }
+:root.dark .home-page .path-card-digital:hover, :root.dark .home-page .path-card-digital:focus-visible { background: linear-gradient(115deg, rgba(64,77,104,.84), rgba(52,59,75,.68) 68%, rgba(34,35,34,.46)); }
+:root.dark .home-page .path-card-about:hover, :root.dark .home-page .path-card-about:focus-visible { background: linear-gradient(245deg, rgba(102,88,66,.8), rgba(73,66,55,.65) 68%, rgba(36,36,33,.46)); }
+:root.dark .home-page .path-card::after { background: linear-gradient(145deg, rgba(255,255,255,.13), transparent 30%, transparent 72%, rgba(255,255,255,.04)); }
+
+@media (max-width: 760px) {
+  .home-page .path-card, .home-page .path-card:nth-child(even) { width: calc(100% - .25rem); transform: none; }
+}
+
+/* Keep every alternating card on its own palette despite the directional base gradient. */
+:root:not(.dark) .home-page .path-card { -webkit-backdrop-filter: blur(24px) saturate(1.18); backdrop-filter: blur(24px) saturate(1.18); }
+:root:not(.dark) .home-page .path-card-warm { background: linear-gradient(115deg, rgba(225,184,157,.72), rgba(224,196,177,.5) 62%, rgba(231,221,205,.34)); }
+:root:not(.dark) .home-page .path-card-cool { background: linear-gradient(245deg, rgba(190,211,197,.7), rgba(205,216,202,.48) 62%, rgba(231,226,212,.32)); }
+:root:not(.dark) .home-page .path-card-digital { background: linear-gradient(115deg, rgba(188,201,226,.7), rgba(207,212,224,.48) 62%, rgba(231,226,214,.32)); }
+:root:not(.dark) .home-page .path-card-about { background: linear-gradient(245deg, rgba(218,199,165,.68), rgba(222,209,187,.46) 62%, rgba(231,225,212,.32)); }
+:root.dark .home-page .path-card { -webkit-backdrop-filter: blur(24px) saturate(1.18); backdrop-filter: blur(24px) saturate(1.18); }
+
+/* Fully coloured glass — no cream/white fade at the trailing edge. */
+:root:not(.dark) .home-page .path-card-warm { background: linear-gradient(115deg, rgba(229,188,160,.82), rgba(218,169,139,.66)); }
+:root:not(.dark) .home-page .path-card-cool { background: linear-gradient(245deg, rgba(194,216,201,.82), rgba(164,196,175,.66)); }
+:root:not(.dark) .home-page .path-card-digital { background: linear-gradient(115deg, rgba(194,207,232,.84), rgba(164,184,222,.68)); }
+:root:not(.dark) .home-page .path-card-about { background: linear-gradient(245deg, rgba(224,205,171,.82), rgba(204,179,137,.66)); }
+:root:not(.dark) .home-page .path-card-warm:hover, :root:not(.dark) .home-page .path-card-warm:focus-visible { background: linear-gradient(115deg, rgba(233,192,163,.9), rgba(221,171,140,.74)); }
+:root:not(.dark) .home-page .path-card-cool:hover, :root:not(.dark) .home-page .path-card-cool:focus-visible { background: linear-gradient(245deg, rgba(198,222,205,.9), rgba(166,201,178,.74)); }
+:root:not(.dark) .home-page .path-card-digital:hover, :root:not(.dark) .home-page .path-card-digital:focus-visible { background: linear-gradient(115deg, rgba(199,213,239,.9), rgba(168,188,228,.76)); }
+:root:not(.dark) .home-page .path-card-about:hover, :root:not(.dark) .home-page .path-card-about:focus-visible { background: linear-gradient(245deg, rgba(229,210,176,.9), rgba(208,182,140,.74)); }
+.home-page .path-card::after, :root.dark .home-page .path-card::after { background: linear-gradient(145deg, rgba(255,255,255,.2), transparent 32%, transparent 76%, rgba(255,255,255,.05)); }
+
+/* MiritAI artwork uses its natural landscape ratio: no mask, movement or visible source edge. */
+.miritai-page-minimal .miritai-hero { align-items: center; }
+.miritai-page-minimal .miritai-hero-image { width: 100%; min-height: 0; aspect-ratio: 1672 / 941; align-self: center; border-width: .5rem; border-radius: 1rem 4.5rem 1rem 1rem; background: #03070b; box-shadow: 0 0 0 1px var(--line), .8rem .9rem 0 color-mix(in srgb, var(--cool) 22%, transparent), 0 1.5rem 3.5rem color-mix(in srgb, var(--color-foreground) 10%, transparent); }
+.miritai-page-minimal .miritai-hero-image::after { inset: .65rem; border-radius: .55rem 3.5rem .55rem .55rem; }
+.miritai-page-minimal .miritai-hero-image img { padding: 0; background: #03070b; object-fit: cover; filter: saturate(.72) contrast(1.02); -webkit-mask-image: none; mask-image: none; animation: none; transform: none; will-change: auto; }
+
+/* About title and image share one editorial composition. */
+.about-article-hero { position: relative; display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); align-items: center; padding-bottom: clamp(3rem, 6vw, 6rem); }
+.about-article-hero header { position: relative; z-index: 2; grid-column: 1 / 9; grid-row: 1; padding: clamp(2rem, 5vw, 5rem) 0; }
+.about-article-hero header::before { position: absolute; z-index: -1; inset: -8% -10% -8% -12%; background: radial-gradient(ellipse at 35% 50%, var(--color-background) 0 48%, color-mix(in srgb, var(--color-background) 84%, transparent) 68%, transparent 82%); content: ""; pointer-events: none; }
+.about-article-hero .about-article-image { width: 100%; min-height: clamp(24rem, 38vw, 34rem); grid-column: 6 / -1; grid-row: 1; margin: 0; border-radius: .65rem 4.5rem .65rem .65rem; }
+.about-article-hero .about-article-image img { object-position: center; }
+.about-article-body { padding-top: 0; }
+
+@media (max-width: 760px) {
+  .miritai-page-minimal .miritai-hero-image { min-height: 0; aspect-ratio: 16 / 10; }
+  .about-article-hero { display: block; padding-bottom: 2rem; }
+  .about-article-hero header { padding: 1rem 0 2.5rem; }
+  .about-article-hero header::before { display: none; }
+  .about-article-hero .about-article-image { min-height: 22rem; }
+}
+.home-page .path-card:hover::before, .home-page .path-card:focus-visible::before { filter: blur(2.8rem); opacity: .9; transform: scale(1.025); }
+.home-page .path-card-visual, .home-page .path-card-visual img { transition-duration: 950ms; transition-timing-function: cubic-bezier(.22,.7,.2,1); }
+.home-page .path-card:hover .path-card-visual, .home-page .path-card:focus-visible .path-card-visual { transform: translateY(-.08rem) scale(1.008); }
+.home-page .path-card:hover .path-card-visual img, .home-page .path-card:focus-visible .path-card-visual img { transform: scale(1.025); }
+
+/* Feather the rectangular source artwork into the MiritAI frame. */
+.miritai-page-minimal .miritai-hero-image { background: #05080d; }
+.miritai-page-minimal .miritai-hero-image img { padding: clamp(1.25rem, 2.5vw, 2.5rem); background: #05080d; -webkit-mask-image: radial-gradient(ellipse 78% 68% at 50% 50%, #000 48%, rgba(0,0,0,.92) 63%, rgba(0,0,0,.42) 78%, transparent 100%); mask-image: radial-gradient(ellipse 78% 68% at 50% 50%, #000 48%, rgba(0,0,0,.92) 63%, rgba(0,0,0,.42) 78%, transparent 100%); animation: miritaiImageDrift 14s cubic-bezier(.45,.05,.55,.95) infinite alternate; transform-origin: center; will-change: transform; }
+@keyframes miritaiImageDrift { from { transform: scale(.92) translateY(.15rem); } to { transform: scale(.955) translateY(-.2rem); } }
+
+/* A single, calmer article rhythm for About. */
+.about-article header { display: block; }
+.about-article h1 { max-width: 61rem; margin-top: 2rem; }
+.about-article-image { width: min(72%, 52rem); margin-top: clamp(3rem, 6vw, 6rem); margin-right: 0; margin-left: auto; }
+.about-article-body { width: min(88%, 65rem); margin: 0 auto; grid-template-columns: minmax(0, .8fr) minmax(18rem, .55fr); }
+
+@media (max-width: 760px) {
+  .home-page .path-card::before { inset: 5%; filter: blur(1.5rem); }
+  .about-article-image, .about-article-body { width: 100%; }
+  .about-article-body { grid-template-columns: 1fr; }
+}
+
+/* Final MiritAI media treatment: the image itself is the frame, with no motion or feathered rectangle. */
+.miritai-page-minimal .miritai-hero-image { width: 100%; min-height: 0; aspect-ratio: 1672 / 941; align-self: center; border-width: .5rem; border-radius: 1rem 4.5rem 1rem 1rem; background: #03070b; }
+.miritai-page-minimal .miritai-hero-image img { padding: 0; background: #03070b; object-fit: cover; filter: saturate(.72) contrast(1.02); -webkit-mask-image: none; mask-image: none; animation: none; transform: none; transform-origin: center; will-change: auto; }
+@media (max-width: 760px) { .miritai-page-minimal .miritai-hero-image { min-height: 0; aspect-ratio: 16 / 10; } }
+
+/* Homepage: restrained editorial panels with local colour, not full pastel slabs. */
+.home-page .path-card, .home-page .path-card:nth-child(even) { --path-tint: 188, 182, 169; overflow: hidden; border: 1px solid color-mix(in srgb, var(--color-foreground) 14%, transparent); border-radius: 1.25rem 3.25rem 1.25rem 1.25rem; background: color-mix(in srgb, var(--surface) 74%, transparent); box-shadow: 0 1.4rem 3.5rem color-mix(in srgb, var(--color-foreground) 8%, transparent), inset 0 1px 0 rgba(255,255,255,.25); -webkit-backdrop-filter: blur(20px) saturate(1.06); backdrop-filter: blur(20px) saturate(1.06); }
+.home-page .path-card:nth-child(even) { border-radius: 3.25rem 1.25rem 1.25rem 1.25rem; }
+.home-page .path-card-warm { --path-tint: 211, 145, 108; }
+.home-page .path-card-cool { --path-tint: 119, 164, 137; }
+.home-page .path-card-digital { --path-tint: 112, 137, 199; }
+.home-page .path-card-about { --path-tint: 183, 153, 101; }
+.home-page .path-card-warm:nth-child(even) { --path-tint: 211, 145, 108; }
+.home-page .path-card-cool:nth-child(even) { --path-tint: 119, 164, 137; }
+.home-page .path-card-digital:nth-child(even) { --path-tint: 112, 137, 199; }
+.home-page .path-card-about:nth-child(even) { --path-tint: 183, 153, 101; }
+:root:not(.dark) .home-page .path-card, :root:not(.dark) .home-page .path-card:hover, :root:not(.dark) .home-page .path-card:focus-visible, :root:not(.dark) .home-page .path-card:nth-child(even), :root:not(.dark) .home-page .path-card:nth-child(even):hover, :root:not(.dark) .home-page .path-card:nth-child(even):focus-visible { background: color-mix(in srgb, var(--surface) 68%, rgba(255,255,255,.42)); }
+:root.dark .home-page .path-card, :root.dark .home-page .path-card:hover, :root.dark .home-page .path-card:focus-visible, :root.dark .home-page .path-card:nth-child(even), :root.dark .home-page .path-card:nth-child(even):hover, :root.dark .home-page .path-card:nth-child(even):focus-visible { background: color-mix(in srgb, var(--surface) 76%, rgba(0,0,0,.2)); }
+.home-page .path-card::before { position: absolute; z-index: 0; inset: 0; border-radius: inherit; background: radial-gradient(ellipse 48% 135% at 7% 50%, rgba(var(--path-tint),.25), rgba(var(--path-tint),.09) 48%, transparent 76%); content: ""; filter: none; opacity: 1; pointer-events: none; transition: opacity 600ms ease, transform 700ms cubic-bezier(.22,.7,.2,1); }
+.home-page .path-card:nth-child(even)::before { background: radial-gradient(ellipse 48% 135% at 93% 50%, rgba(var(--path-tint),.23), rgba(var(--path-tint),.08) 48%, transparent 76%); }
+.home-page .path-card::after { position: absolute; z-index: 0; top: 1.4rem; bottom: 1.4rem; left: 1.05rem; width: 2px; border-radius: 99px; background: rgba(var(--path-tint),.58); content: ""; opacity: .7; pointer-events: none; }
+.home-page .path-card:nth-child(even)::after { right: 1.05rem; left: auto; }
+.home-page .path-card:hover, .home-page .path-card:focus-visible, .home-page .path-card:nth-child(even):hover, .home-page .path-card:nth-child(even):focus-visible { border-color: rgba(var(--path-tint),.38); box-shadow: 0 1.8rem 4rem color-mix(in srgb, var(--color-foreground) 11%, transparent), inset 0 1px 0 rgba(255,255,255,.3); transform: translateY(-.25rem); }
+.home-page .path-card:hover::before, .home-page .path-card:focus-visible::before { filter: none; opacity: 1; transform: scale(1.02); }
+
+/* About: aligned editorial spread, without title/image collision. */
+.about-article-hero { display: grid; grid-template-columns: minmax(0, 1.08fr) minmax(22rem, .72fr); gap: clamp(3rem, 7vw, 7rem); align-items: center; padding: clamp(2rem, 5vw, 5rem) 0 clamp(4rem, 7vw, 7rem); }
+.about-article-hero header { grid-column: 1; grid-row: 1; padding: 0; }
+.about-article-hero header::before { display: none; }
+.about-article-hero .about-article-image { width: 100%; min-height: clamp(25rem, 38vw, 34rem); grid-column: 2; grid-row: 1; margin: 0; border-width: .4rem; border-radius: .75rem 4rem .75rem .75rem; box-shadow: .55rem .7rem 0 color-mix(in srgb, var(--surface) 64%, transparent), 0 1.5rem 3rem color-mix(in srgb, var(--color-foreground) 9%, transparent); }
+.about-article h1 { max-width: 48rem; font-size: clamp(3.6rem, 6.2vw, 6.7rem); }
+.about-article-body { width: 100%; grid-template-columns: minmax(0, .9fr) minmax(18rem, .55fr); border-top: 1px solid var(--line); padding-top: clamp(3rem, 6vw, 6rem); }
+
+@media (max-width: 760px) {
+  .home-page .path-card, .home-page .path-card:nth-child(even) { border-radius: .85rem 2.25rem .85rem .85rem; }
+  .about-article-hero { display: grid; grid-template-columns: 1fr; gap: 2.5rem; padding-top: 1rem; }
+  .about-article-hero header, .about-article-hero .about-article-image { grid-column: 1; grid-row: auto; }
+  .about-article-hero .about-article-image { min-height: 22rem; }
+  .about-article h1 { font-size: clamp(3.4rem, 15vw, 5.5rem); }
+  .about-article-body { grid-template-columns: 1fr; }
+}

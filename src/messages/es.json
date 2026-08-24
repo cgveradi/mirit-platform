@@ -99,7 +99,9 @@
   },
   "articles": {
     "title": "Ideas y perspectivas",
-    "empty": "Todavía no hay artículos. Vuelve pronto."
+    "empty": "Todavía no hay artículos. Vuelve pronto.",
+    "comingSoonTitle": "Se acercan cosas nuevas.",
+    "comingSoonText": "Muy pronto compartiremos nuevas ideas, historias y noticias de MIRIT. Mantente al tanto."
   },
   "gambiaProject": {
     "introEyebrow": "El proyecto",
@@ -281,9 +283,15 @@
     }
   },
   "whatWeDo": {
-    "eyebrow": "Qué hace MIRIT",
-    "title": "Las ideas se vuelven útiles cuando se ponen en movimiento.",
-    "intro": "Conectamos investigación, cultura y tecnología para crear programas, experiencias y herramientas digitales más allá de las fronteras.",
+    "eyebrow": "MIRIT · Práctica digital",
+    "title": "MIRITAI",
+    "intro": "MIRITAI es nuestra práctica tecnológica independiente, dedicada a crear sistemas de IA, productos de datos y herramientas digitales útiles para organizaciones reales.",
+    "visitCta": "Visitar miritai.com",
+    "summaryEyebrow": "En resumen",
+    "summaryTitle": "Tecnología diseñada para el trabajo que debe realizar.",
+    "summaryText": "Desde la primera idea hasta un producto funcional, MIRITAI combina estrategia, diseño e ingeniería para hacer la tecnología compleja clara, práctica y lista para usar.",
+    "focus": { "systems": "Sistemas de IA", "data": "Datos y analítica", "products": "Productos web y MVP", "automation": "Automatización de procesos" },
+    "exitTitle": "Descubre el trabajo, los servicios y los casos de estudio en la web de MIRITAI.",
     "servicesEyebrow": "Nuestro trabajo",
     "servicesTitle": "Tres caminos. Un propósito común.",
     "services": {
@@ -353,16 +361,35 @@
     "principlesIntro": "Tres direcciones que definen cómo piensa, trabaja y crece MIRIT.",
     "knowledge": {
       "title": "Conocimiento compartido",
-      "text": "Hacemos que la investigación sea accesible, intercambiable y relevante para las preguntas actuales."
+      "text": "Artículos, investigación y perspectivas útiles creadas para explorar y compartir."
     },
     "culture": {
       "title": "Cultura en diálogo",
-      "text": "Entendemos el intercambio cultural como una práctica viva, creada con atención, contexto y respeto."
+      "text": "Comunidad, intercambio cultural y programas como The Gambia Project."
     },
     "innovation": {
       "title": "Innovación con propósito",
-      "text": "Usamos la tecnología cuando ayuda a las personas a conectar, aprender o actuar, nunca solo por novedad."
+      "text": "Nuevas herramientas y tecnología práctica, incluida nuestra práctica independiente MiritAI."
     },
+    "pathDetails": {
+      "knowledge": { "eyebrow": "Artículos e investigación", "text": "Reunimos investigaciones, observaciones e ideas que ayudan a comprender temas complejos. Aquí MIRIT comparte lo que aprende y abre preguntas útiles a una conversación más amplia.", "cta": "Explorar ideas" },
+      "culture": { "eyebrow": "Comunidad e intercambio", "text": "La cultura cobra sentido mediante la participación. Nuestros programas conectan personas, idiomas y lugares a través del aprendizaje, la comunidad y proyectos como The Gambia Project.", "cta": "Ver The Gambia Project" },
+      "innovation": { "eyebrow": "Herramientas y tecnología", "text": "Exploramos nuevas herramientas cuando resuelven un problema real o crean una posibilidad práctica. MiritAI desarrolla este trabajo con IA, datos y productos digitales útiles.", "cta": "Descubrir MiritAI" }
+    },
+    "teamEyebrow": "El equipo",
+    "teamIntro": "Un pequeño equipo internacional que trabaja entre disciplinas y fronteras.",
+    "teamTitle": "Perspectivas diferentes, una dirección compartida.",
+    "teamText": "MIRIT reúne personas de la investigación, la programación cultural, el diseño y la tecnología. Este espacio está preparado para crecer con el equipo y presentar a cada persona detrás del trabajo.",
+    "ritaRole": "Fundadora y profesora",
+    "ritaBio": "Rita fundó MIRIT como un lugar donde la educación, la cultura y el intercambio internacional pueden convertirse en programas prácticos y conexiones duraderas.",
+    "profileBirthplace": "Lugar de nacimiento",
+    "profileLanguages": "Idiomas",
+    "profileInterests": "Intereses",
+    "ritaLanguages": "Ruso, inglés, alemán y español",
+    "ritaInterests": "Más información próximamente",
+    "ritaCardLabel": "Rita — dirección, cultura y programas de MIRIT. Pasa el cursor o enfoca para saber más.",
+    "teamCardHint": "Conoce a Rita",
+    "teamCardClose": "Perfil",
     "closingEyebrow": "Trabaja con MIRIT",
     "closingTitle": "Las cosas buenas comienzan cuando se encuentran distintas perspectivas.",
     "closingCta": "Inicia una conversación"

@@ -23,13 +23,22 @@ export default async function ArticlesPage({
 
   const contentLocale = locale === "es" || locale === "de" ? "en" : locale;
   const articles = await client.fetch<Article[]>(articlesListQuery, { locale: contentLocale });
+  const visibleArticles = articles.filter((article) => article.slug.current !== 'welcome-to-mirit');
 
   return (
     <main className="max-w-3xl mx-auto px-8 py-24">
       <ScrollReveal><h1 className="text-4xl font-bold mb-12 text-center">{t('title')}</h1></ScrollReveal>
 
       <div className="flex flex-col gap-10">
-        {articles.map((article, index) => (
+        <ScrollReveal>
+          <div className="articles-coming-soon">
+            <p className="eyebrow">MIRIT / 2026</p>
+            <h2>{t('comingSoonTitle')}</h2>
+            <p>{t('comingSoonText')}</p>
+          </div>
+        </ScrollReveal>
+
+        {visibleArticles.map((article, index) => (
           <ScrollReveal key={article._id} delay={Math.min(index * 60, 180)}>
             <Link href={`/articles/${article.slug.current}`} className="block border-b border-muted/20 pb-8">
               <p className="text-sm text-muted uppercase tracking-wide mb-2">{article.category}</p>
@@ -39,9 +48,6 @@ export default async function ArticlesPage({
           </ScrollReveal>
         ))}
 
-        {articles.length === 0 && (
-          <p className="text-muted text-center">{t('empty')}</p>
-        )}
       </div>
     </main>
   );

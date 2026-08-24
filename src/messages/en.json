@@ -87,7 +87,9 @@
 
   "articles": {
     "title": "Insights",
-    "empty": "No articles yet — check back soon."
+    "empty": "No articles yet — check back soon.",
+    "comingSoonTitle": "New things are coming.",
+    "comingSoonText": "Fresh ideas, stories and updates from MIRIT will be here soon. Stay tuned."
   },
 
   "gambiaProject": {
@@ -258,9 +260,15 @@
   },
 
   "whatWeDo": {
-    "eyebrow": "What MIRIT does",
-    "title": "Ideas become useful when they move.",
-    "intro": "We connect research, culture and technology to shape thoughtful programmes, experiences and digital tools across borders.",
+    "eyebrow": "MIRIT · Digital practice",
+    "title": "MIRITAI",
+    "intro": "MIRITAI is our independent technology practice, creating useful AI systems, data products and digital tools for real organisations.",
+    "visitCta": "Visit miritai.com",
+    "summaryEyebrow": "In brief",
+    "summaryTitle": "Technology shaped around the work it needs to do.",
+    "summaryText": "From a first idea to a working product, MIRITAI combines strategy, design and engineering to make complex technology clear, practical and ready to use.",
+    "focus": { "systems": "AI systems", "data": "Data & analytics", "products": "Web products & MVPs", "automation": "Workflow automation" },
+    "exitTitle": "Explore the work, services and case studies on the dedicated MIRITAI website.",
     "servicesEyebrow": "Our work",
     "servicesTitle": "Three paths. One shared purpose.",
     "services": {
@@ -295,16 +303,35 @@
     "principlesIntro": "Three directions that shape how MIRIT thinks, works and grows.",
     "knowledge": {
       "title": "Knowledge, shared",
-      "text": "We make research approachable, exchangeable and connected to the questions people are asking now."
+      "text": "Articles, research and useful perspectives made to be explored and shared."
     },
     "culture": {
       "title": "Culture, in dialogue",
-      "text": "We see cultural exchange as a living practice: built with care, context and respect for every voice involved."
+      "text": "Community, cultural exchange and programmes such as The Gambia Project."
     },
     "innovation": {
       "title": "Innovation, with purpose",
-      "text": "We use technology when it helps people connect, learn or act — never simply for the sake of novelty."
+      "text": "New tools and practical technology, including our independent MiritAI practice."
     },
+    "pathDetails": {
+      "knowledge": { "eyebrow": "Articles & research", "text": "We gather research, observations and ideas that help make complex subjects clearer. This is where MIRIT shares what it is learning and opens useful questions to a wider conversation.", "cta": "Explore insights" },
+      "culture": { "eyebrow": "Community & exchange", "text": "Culture becomes meaningful through participation. Our programmes connect people, languages and places through shared learning, community activity and projects such as The Gambia Project.", "cta": "See The Gambia Project" },
+      "innovation": { "eyebrow": "Tools & technology", "text": "We explore new tools when they can solve a real problem or create a practical possibility. MiritAI carries this work forward through useful AI, data and digital products.", "cta": "Discover MiritAI" }
+    },
+    "teamEyebrow": "The team",
+    "teamIntro": "A small, international team working across disciplines and borders.",
+    "teamTitle": "Different perspectives, shared direction.",
+    "teamText": "MIRIT brings together people from research, cultural programming, design and technology. This space is designed to grow with the team and introduce each person behind the work.",
+    "ritaRole": "Founder & Teacher",
+    "ritaBio": "Rita founded MIRIT as a place where education, culture and international exchange can grow into practical programmes and lasting connections.",
+    "profileBirthplace": "Place of birth",
+    "profileLanguages": "Languages",
+    "profileInterests": "Interests",
+    "ritaLanguages": "Russian, English, German & Spanish",
+    "ritaInterests": "More to come",
+    "ritaCardLabel": "Rita — MIRIT direction, culture and programmes. Hover or focus to read more.",
+    "teamCardHint": "Meet Rita",
+    "teamCardClose": "Profile",
     "closingEyebrow": "Work with MIRIT",
     "closingTitle": "Good things begin when perspectives come together.",
     "closingCta": "Start a conversation"

@@ -101,7 +101,6 @@ export default async function Home() {
                 <Image src="/images/cards/gambia-cultural-exchange-editorial.png" alt="" fill sizes="(max-width: 760px) 42vw, 18rem" />
               </div>
               <div className="path-card-content"><h2>{t("pathOneTitle")}</h2><p>{t("pathOneText")}</p></div>
-              <b aria-hidden="true">↗</b>
             </Link>
             <Link href="/articles" className="path-card path-card-cool">
               <div className="path-card-topline"><span>02</span><em>{t("pathTwoTag")}</em></div>
@@ -109,7 +108,6 @@ export default async function Home() {
                 <Image src="/images/cards/research-articles-editorial.png" alt="" fill sizes="(max-width: 760px) 42vw, 18rem" />
               </div>
               <div className="path-card-content"><h2>{t("pathTwoTitle")}</h2><p>{t("pathTwoText")}</p></div>
-              <b aria-hidden="true">↗</b>
             </Link>
             <Link href="/what-we-do" className="path-card path-card-digital">
               <div className="path-card-topline"><span>03</span><em>{t("pathThreeTag")}</em></div>
@@ -122,7 +120,6 @@ export default async function Home() {
                 />
               </div>
               <div className="path-card-content"><h2>{t("pathThreeTitle")}<span>{t("pathThreeTitleLineTwo")}</span></h2><p>{t("pathThreeText")}</p></div>
-              <b aria-hidden="true">↗</b>
             </Link>
             <Link href="/about" className="path-card path-card-about">
               <div className="path-card-topline"><span>04</span><em>{t("pathFourTag")}</em></div>
@@ -130,7 +127,6 @@ export default async function Home() {
                 <Image src="/images/cards/about-mirit-editorial-v2.png" alt="" fill sizes="(max-width: 760px) 42vw, 18rem" />
               </div>
               <div className="path-card-content"><h2>{t("pathFourTitle")}<span>{t("pathFourTitleLineTwo")}</span></h2><p>{t("pathFourText")}</p></div>
-              <b aria-hidden="true">↗</b>
             </Link>
           </div>
         </ScrollReveal>
