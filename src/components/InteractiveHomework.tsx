@@ -70,7 +70,8 @@ export default function InteractiveHomework({ itemId, questions }: InteractiveHo
       const answer = normalizeAnswer(answers[question._key] ?? "");
       if (question.questionType === "multipleChoice") {
         const correctOption = question.options?.find((option) => option.isCorrect);
-        results[question._key] = Boolean(answer && answer === correctOption?._key);
+        const correctOptionKey = normalizeAnswer(correctOption?._key ?? "");
+        results[question._key] = Boolean(answer && answer === correctOptionKey);
       } else {
         results[question._key] = Boolean(answer && question.acceptedAnswers?.some((acceptedAnswer) => normalizeAnswer(acceptedAnswer) === answer));
       }

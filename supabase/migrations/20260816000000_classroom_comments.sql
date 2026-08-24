@@ -9,9 +9,15 @@ create table if not exists public.classroom_comments (
 
 alter table public.classroom_comments enable row level security;
 
+drop policy if exists "Anyone can submit a classroom comment"
+on public.classroom_comments;
+
 create policy "Anyone can submit a classroom comment"
 on public.classroom_comments for insert to anon, authenticated
 with check (approved = false);
+
+drop policy if exists "Only approved classroom comments are public"
+on public.classroom_comments;
 
 create policy "Only approved classroom comments are public"
 on public.classroom_comments for select to anon, authenticated

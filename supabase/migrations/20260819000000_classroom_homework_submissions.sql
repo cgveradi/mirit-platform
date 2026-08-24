@@ -10,6 +10,9 @@ create table if not exists public.classroom_homework_submissions (
 
 alter table public.classroom_homework_submissions enable row level security;
 
+drop policy if exists "Anyone can submit classroom homework"
+on public.classroom_homework_submissions;
+
 create policy "Anyone can submit classroom homework"
 on public.classroom_homework_submissions for insert to anon, authenticated
 with check (
