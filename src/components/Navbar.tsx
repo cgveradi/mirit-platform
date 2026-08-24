@@ -141,7 +141,6 @@ export default function Navbar() {
                 {String(index + 1).padStart(2, "0")}
               </span>
               <span className="mobile-navigation-label">{item.label}</span>
-              <span className="mobile-navigation-arrow" aria-hidden="true">↗</span>
             </Link>
           ))}
         </div>

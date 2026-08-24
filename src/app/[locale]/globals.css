@@ -193,7 +193,7 @@ body > div { position: relative; z-index: 1; }
   .mobile-navigation-links a {
     display: grid;
     min-height: 4rem;
-    grid-template-columns: 2.25rem minmax(0, 1fr) 1.5rem;
+    grid-template-columns: 2.25rem minmax(0, 1fr);
     align-items: center;
     gap: .65rem;
     padding: .6rem .4rem;
@@ -207,11 +207,10 @@ body > div { position: relative; z-index: 1; }
   .mobile-navigation-links a:active { background: color-mix(in srgb, var(--surface) 72%, var(--color-foreground)); }
   .mobile-navigation-index { align-self: start; padding-top: .32rem; color: var(--color-muted); font-family: var(--font-mono); font-size: .58rem; letter-spacing: .08em; }
   .mobile-navigation-label { min-width: 0; }
-  .mobile-navigation-arrow { justify-self: end; color: var(--color-muted); font-family: var(--font-sans); font-size: .9rem; transition: color 180ms ease, transform 180ms ease; }
-  .mobile-navigation-links a:hover .mobile-navigation-arrow, .mobile-navigation-links a:focus-visible .mobile-navigation-arrow { color: var(--color-foreground); transform: translate(.15rem, -.15rem); }
   .mobile-navigation-footer { display: flex; flex-direction: column; gap: 1rem; }
   .mobile-navigation-tagline { max-width: 15rem; color: var(--color-foreground); font-family: Iowan Old Style, Baskerville, "Times New Roman", serif; font-size: 1.15rem; line-height: 1.15; }
   .mobile-navigation-signature { color: var(--color-muted); font-family: var(--font-mono); font-size: .62rem; letter-spacing: .12em; }
+  .hero-dot-field { display: none; }
   .hero-main { width: 100%; min-width: 0; }
   .hero-title {
     max-width: 100%;
