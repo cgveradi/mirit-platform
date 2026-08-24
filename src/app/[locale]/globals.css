@@ -220,11 +220,7 @@ body > div { position: relative; z-index: 1; }
     overflow-wrap: break-word;
   }
   .scroll-cue { max-width: 100%; justify-content: flex-end; text-align: right; }
-  .hero-content:lang(ru) { grid-template-rows: auto auto 1fr; gap: clamp(3.5rem, 10svh, 5.5rem); }
-  .hero-content:lang(ru) .hero-main { align-self: start; }
   .hero-content:lang(ru) .hero-title { font-size: clamp(2.8rem, 12vw, 4.5rem); letter-spacing: -.055em; line-height: .9; }
-  .hero-content:lang(ru) .hero-intro { max-width: 23rem; font-size: .95rem; }
-  .hero-content:lang(ru) .scroll-cue { font-size: .68rem; letter-spacing: .05em; }
 }
 @media (prefers-reduced-motion: reduce) { *, *::before, *::after { scroll-behavior: auto !important; animation-duration: .01ms !important; transition-duration: .01ms !important; }.scroll-reveal { opacity: 1; transform: none; }.hero-dot-field g { animation: none !important; transform: none; } }
 
