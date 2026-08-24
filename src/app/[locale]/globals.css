@@ -509,6 +509,7 @@ body > div { position: relative; z-index: 1; }
 .classroom-comment-avatar-5 { background-position: 34% 94.2%; }
 .classroom-comment-avatar-6 { background-position: 66% 94.2%; }
 .classroom-comment-avatar-7 { background-position: 97.9% 94.2%; }
+.classroom-comment-list article.is-alternate-comment { background: color-mix(in srgb, var(--color-foreground) 4%, var(--surface)); }
 .classroom-comment-list article.is-teacher-comment { border-color: color-mix(in srgb, var(--warm) 48%, var(--line)); background: color-mix(in srgb, var(--warm) 8%, var(--surface)); box-shadow: inset .2rem 0 0 var(--warm); }
 .classroom-teacher-badge { display: inline-flex; margin-left: .55rem; border-radius: 999px; padding: .18rem .42rem; background: var(--warm); color: var(--color-background); font-family: var(--font-mono); font-size: .5rem; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; vertical-align: middle; }
 .classroom-comment-reply-button { margin-top: .85rem; border: 0; color: var(--color-muted); cursor: pointer; font-size: .7rem; }
