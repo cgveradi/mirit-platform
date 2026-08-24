@@ -271,7 +271,8 @@
       "replyComment": "Ihre Antwort",
       "sendReply": "Antwort senden",
       "replySuccess": "Ihre Antwort ist jetzt sichtbar.",
-      "replyError": "Die Antwort konnte nicht gesendet werden. Bitte versuchen Sie es erneut."
+      "replyError": "Die Antwort konnte nicht gesendet werden. Bitte versuchen Sie es erneut.",
+      "teacher": "Lehrerin"
     }
   },
   "whatWeDo": {

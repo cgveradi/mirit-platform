@@ -14,7 +14,13 @@ type ClassroomComment = {
 
 const avatarCount = 8;
 
+function isTeacherName(name: string) {
+  const normalizedName = name.trim().toLocaleLowerCase();
+  return normalizedName === "рита" || normalizedName === "rita";
+}
+
 function avatarClassName(name: string) {
+  if (isTeacherName(name)) return "classroom-comment-avatar classroom-comment-avatar-1";
   const avatarIndex = Array.from(name).reduce((hash, character) => ((hash * 31) + (character.codePointAt(0) ?? 0)) >>> 0, 0) % avatarCount;
   return `classroom-comment-avatar classroom-comment-avatar-${avatarIndex}`;
 }
@@ -97,10 +103,10 @@ export default function ClassroomComments({ itemId }: { itemId: string }) {
         <div className="classroom-comment-list" aria-label={t("approvedTitle")}>
           <h4>{t("approvedTitle")}</h4>
           {rootComments.map((approvedComment) => (
-            <article key={approvedComment.id}>
+            <article className={isTeacherName(approvedComment.name) ? "is-teacher-comment" : undefined} key={approvedComment.id}>
               <div>
                 <span className={avatarClassName(approvedComment.name)} aria-hidden="true" />
-                <strong>{approvedComment.name}</strong>
+                <strong>{approvedComment.name}{isTeacherName(approvedComment.name) && <span className="classroom-teacher-badge">{t("teacher")}</span>}</strong>
                 <time dateTime={approvedComment.created_at}>
                   {new Intl.DateTimeFormat(undefined, { dateStyle: "medium" }).format(new Date(approvedComment.created_at))}
                 </time>
@@ -117,10 +123,10 @@ export default function ClassroomComments({ itemId }: { itemId: string }) {
                 {replyingTo === approvedComment.id ? t("cancelReply") : t("reply")}
               </button>
               {approvedComments.filter((reply) => reply.parent_comment_id === approvedComment.id).map((reply) => (
-                <article className="classroom-comment-reply" key={reply.id}>
+                <article className={`classroom-comment-reply${isTeacherName(reply.name) ? " is-teacher-comment" : ""}`} key={reply.id}>
                   <div>
                     <span className={avatarClassName(reply.name)} aria-hidden="true" />
-                    <strong>{reply.name}</strong>
+                    <strong>{reply.name}{isTeacherName(reply.name) && <span className="classroom-teacher-badge">{t("teacher")}</span>}</strong>
                     <time dateTime={reply.created_at}>{new Intl.DateTimeFormat(undefined, { dateStyle: "medium" }).format(new Date(reply.created_at))}</time>
                   </div>
                   <p>{reply.comment}</p>

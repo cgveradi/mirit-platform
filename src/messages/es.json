@@ -271,7 +271,8 @@
       "replyComment": "Tu respuesta",
       "sendReply": "Enviar respuesta",
       "replySuccess": "Tu respuesta ya está visible.",
-      "replyError": "No se pudo enviar la respuesta. Inténtalo de nuevo."
+      "replyError": "No se pudo enviar la respuesta. Inténtalo de nuevo.",
+      "teacher": "Profesora"
     }
   },
   "whatWeDo": {

@@ -247,7 +247,8 @@
       "replyComment": "Your reply",
       "sendReply": "Send reply",
       "replySuccess": "Your reply is now visible.",
-      "replyError": "The reply could not be sent. Please try again."
+      "replyError": "The reply could not be sent. Please try again.",
+      "teacher": "Teacher"
     }
   },
 
