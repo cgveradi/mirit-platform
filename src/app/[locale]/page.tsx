@@ -60,20 +60,19 @@ export default async function Home() {
   return (
     <main className="home-page">
       <section className="hero-shell">
-        <svg className="hero-dot-field" viewBox="0 0 1440 900" preserveAspectRatio="none" aria-hidden="true">
-          {Array.from({ length: 17 }, (_, row) => (
-            <g key={row} className={`hero-dot-row hero-dot-row-${row % 4}`}>
-              {Array.from({ length: 29 }, (_, column) => {
-                const x = 20 + column * 50;
-                const y = 105 + row * 43 + Math.sin(column * 0.42 + row * 0.62) * (15 + Math.abs(row - 8) * 1.35);
-                const distanceFromCenter = Math.abs(column - 14) / 14;
-                const distanceFromMiddle = Math.abs(row - 8) / 8;
-                const radius = Math.max(.45, 1.25 - distanceFromCenter * .32 - distanceFromMiddle * .22);
+        <svg className="hero-wave-field" viewBox="0 0 1440 900" preserveAspectRatio="none" aria-hidden="true">
+          {Array.from({ length: 11 }, (_, row) => {
+            const path = Array.from({ length: 29 }, (_, point) => {
+              const x = -120 + point * 60;
+              const y = 130 + row * 64
+                + Math.sin(point * .38 + row * .72) * (22 + Math.abs(row - 5) * 2.2)
+                + Math.sin(point * .17 - row * .46) * 12;
 
-                return <circle key={`${row}-${column}`} cx={x} cy={y} r={radius} />;
-              })}
-            </g>
-          ))}
+              return `${point === 0 ? "M" : "L"} ${x} ${y.toFixed(2)}`;
+            }).join(" ");
+
+            return <path key={row} className={`hero-wave hero-wave-${row % 3}`} d={path} />;
+          })}
         </svg>
         <div className="hero-content">
           <p className="eyebrow hero-reveal">MIRIT / 01—26</p>
