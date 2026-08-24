@@ -496,10 +496,19 @@ body > div { position: relative; z-index: 1; }
 .classroom-comment-list { display: grid; gap: 1rem; margin-bottom: 2rem; }
 .classroom-comment-list h4 { font-family: Iowan Old Style, Baskerville, "Times New Roman", serif; font-size: 1.5rem; font-weight: 400; }
 .classroom-comment-list article { border: 1px solid var(--line); border-radius: 1rem; padding: 1rem; }
-.classroom-comment-list article > div { display: flex; align-items: baseline; justify-content: space-between; gap: 1rem; }
+.classroom-comment-list article > div { display: grid; grid-template-columns: 2.25rem 1fr auto; align-items: center; gap: .75rem; }
 .classroom-comment-list strong { font-size: .82rem; }
 .classroom-comment-list time { color: var(--color-muted); font-family: var(--font-mono); font-size: .6rem; }
 .classroom-comment-list article p { margin-top: .65rem; color: var(--color-muted); line-height: 1.55; white-space: pre-wrap; }
+.classroom-comment-avatar { width: 2.25rem; height: 2.25rem; flex: none; border: 1px solid var(--line); border-radius: 50%; background-image: url("/images/classroom/comment-avatars.png"); background-repeat: no-repeat; background-size: 400% 200%; box-shadow: 0 .2rem .65rem color-mix(in srgb, var(--color-foreground) 9%, transparent); }
+.classroom-comment-avatar-0 { background-position: 0 0; }
+.classroom-comment-avatar-1 { background-position: 33.333% 0; }
+.classroom-comment-avatar-2 { background-position: 66.666% 0; }
+.classroom-comment-avatar-3 { background-position: 100% 0; }
+.classroom-comment-avatar-4 { background-position: 0 100%; }
+.classroom-comment-avatar-5 { background-position: 33.333% 100%; }
+.classroom-comment-avatar-6 { background-position: 66.666% 100%; }
+.classroom-comment-avatar-7 { background-position: 100% 100%; }
 .classroom-comment-reply-button { margin-top: .85rem; border: 0; color: var(--color-muted); cursor: pointer; font-size: .7rem; }
 .classroom-comment-list article.classroom-comment-reply { margin: 1rem 0 0 1.25rem; border-left: 2px solid var(--line); background: color-mix(in srgb, var(--surface) 60%, transparent); }
 .classroom-comment-reply-form { margin: 1rem 0 0 1.25rem; border-left: 2px solid var(--line); padding-left: 1rem; }
@@ -515,6 +524,8 @@ body > div { position: relative; z-index: 1; }
   .interactive-question-list > li { grid-template-columns: 1fr; }
   .interactive-homework-submit { grid-template-columns: 1fr; }
   .interactive-homework-submit > p, .interactive-homework-submit > div { grid-column: auto; }
+  .classroom-comment-list article > div { grid-template-columns: 2.25rem 1fr; }
+  .classroom-comment-list time { grid-column: 2; }
 }
 
 /* Shared primary action */

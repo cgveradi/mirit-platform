@@ -12,6 +12,13 @@ type ClassroomComment = {
   parent_comment_id: number | null;
 };
 
+const avatarCount = 8;
+
+function avatarClassName(name: string) {
+  const avatarIndex = Array.from(name).reduce((hash, character) => ((hash * 31) + (character.codePointAt(0) ?? 0)) >>> 0, 0) % avatarCount;
+  return `classroom-comment-avatar classroom-comment-avatar-${avatarIndex}`;
+}
+
 export default function ClassroomComments({ itemId }: { itemId: string }) {
   const t = useTranslations("classroom.comments");
   const [name, setName] = useState("");
@@ -55,12 +62,13 @@ export default function ClassroomComments({ itemId }: { itemId: string }) {
     if (!cleanName || !cleanComment) return;
 
     setStatus("sending");
-    const { error } = await supabase.from("classroom_comments").insert({
-      classroom_item_id: itemId,
-      name: cleanName,
-      comment: cleanComment,
-    });
+    const { data, error } = await supabase
+      .from("classroom_comments")
+      .insert({ classroom_item_id: itemId, name: cleanName, comment: cleanComment })
+      .select("id, name, comment, created_at, parent_comment_id")
+      .single();
     if (error) { setStatus("error"); return; }
+    setApprovedComments((current) => [...current, data as ClassroomComment]);
     setName(""); setComment(""); setStatus("success");
   }
 
@@ -71,13 +79,13 @@ export default function ClassroomComments({ itemId }: { itemId: string }) {
     if (!cleanName || !cleanComment) return;
 
     setReplyStatus("sending");
-    const { error } = await supabase.from("classroom_comments").insert({
-      classroom_item_id: itemId,
-      parent_comment_id: parentCommentId,
-      name: cleanName,
-      comment: cleanComment,
-    });
+    const { data, error } = await supabase
+      .from("classroom_comments")
+      .insert({ classroom_item_id: itemId, parent_comment_id: parentCommentId, name: cleanName, comment: cleanComment })
+      .select("id, name, comment, created_at, parent_comment_id")
+      .single();
     if (error) { setReplyStatus("error"); return; }
+    setApprovedComments((current) => [...current, data as ClassroomComment]);
     setReplyName(""); setReplyComment(""); setReplyStatus("success");
   }
 
@@ -91,6 +99,7 @@ export default function ClassroomComments({ itemId }: { itemId: string }) {
           {rootComments.map((approvedComment) => (
             <article key={approvedComment.id}>
               <div>
+                <span className={avatarClassName(approvedComment.name)} aria-hidden="true" />
                 <strong>{approvedComment.name}</strong>
                 <time dateTime={approvedComment.created_at}>
                   {new Intl.DateTimeFormat(undefined, { dateStyle: "medium" }).format(new Date(approvedComment.created_at))}
@@ -110,6 +119,7 @@ export default function ClassroomComments({ itemId }: { itemId: string }) {
               {approvedComments.filter((reply) => reply.parent_comment_id === approvedComment.id).map((reply) => (
                 <article className="classroom-comment-reply" key={reply.id}>
                   <div>
+                    <span className={avatarClassName(reply.name)} aria-hidden="true" />
                     <strong>{reply.name}</strong>
                     <time dateTime={reply.created_at}>{new Intl.DateTimeFormat(undefined, { dateStyle: "medium" }).format(new Date(reply.created_at))}</time>
                   </div>
