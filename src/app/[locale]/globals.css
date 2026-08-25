@@ -17,19 +17,18 @@
 .project-partners-strip { display: grid; width: 100%; grid-template-columns: repeat(3, minmax(0, 1fr)); align-items: center; gap: clamp(1.25rem, 3vw, 3rem); padding: .65rem 0; white-space: nowrap; }
 .project-partner-name { display: inline-flex; min-width: 0; align-items: center; justify-content: center; gap: .9rem; color: var(--color-muted); font-family: var(--font-mono); font-size: clamp(.62rem, .8vw, .76rem); font-weight: 600; letter-spacing: .09em; text-transform: uppercase; }
 .project-partner-name img { width: auto; max-width: 7rem; height: auto; max-height: 2.8rem; opacity: .52; filter: grayscale(1) contrast(.86); object-fit: contain; }
+.project-partner-name:first-child img { max-width: 8.5rem; max-height: 3.2rem; opacity: .68; filter: grayscale(1) contrast(.96); }
 .dark .project-partner-name img { opacity: .46; filter: grayscale(1) brightness(1.9) contrast(.75); }
+.dark .project-partner-name:first-child img { opacity: .7; filter: grayscale(1) brightness(2.45) contrast(.86); }
 .project-partner-name b { font: inherit; }
-.project-partner-name i { color: color-mix(in srgb, var(--color-foreground) 52%, transparent); font-size: .55rem; font-style: normal; }
-.project-partner-name i { margin-left: clamp(.6rem, 2vw, 2rem); }
-.project-partner-name:last-child i { display: none; }
 
 @media (max-width: 760px) {
   .project-partners { margin-top: 3rem; }
   .project-partners-strip { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: .75rem; white-space: normal; }
   .project-partner-name { min-width: 0; flex-direction: column; justify-content: flex-start; gap: .55rem; text-align: center; }
   .project-partner-name img { max-width: min(100%, 5rem); max-height: 2.5rem; }
+  .project-partner-name:first-child img { max-width: min(100%, 6rem); max-height: 2.8rem; }
   .project-partner-name b { max-width: 100%; font-size: .52rem; line-height: 1.25; overflow-wrap: anywhere; }
-  .project-partner-name i { display: none; }
 }
 
 :root {
@@ -58,20 +57,6 @@ body {
   background-color: var(--color-background);
   color: var(--color-foreground);
   transition: background-color 250ms ease, color 250ms ease;
-}
-
-body::before {
-  position: fixed;
-  z-index: 0;
-  inset: 0;
-  background-image: radial-gradient(circle, color-mix(in srgb, var(--color-foreground) 22%, transparent) 0 .75px, transparent .95px);
-  background-position: center top;
-  background-size: 32px 32px;
-  content: "";
-  opacity: .34;
-  pointer-events: none;
-  -webkit-mask-image: radial-gradient(ellipse 88% 78% at 50% 42%, #000 8%, rgba(0,0,0,.62) 62%, transparent 100%);
-  mask-image: radial-gradient(ellipse 88% 78% at 50% 42%, #000 8%, rgba(0,0,0,.62) 62%, transparent 100%);
 }
 
 body > div { position: relative; z-index: 1; }

@@ -53,9 +53,9 @@ const conceptGallery = [
 ] as const;
 
 const partners = [
-  { name: "Russkiy Mir Foundation", logo: "/images/gambia/partners/russkiy-mir-transparent.png", width: 1942, height: 809 },
-  { name: "Volga Institute", logo: "/images/gambia/partners/volga-institute-transparent.png", width: 1435, height: 1096 },
-  { name: "University of The Gambia", logo: "/images/gambia/partners/university-of-the-gambia-transparent.png", width: 1222, height: 1287 },
+  { name: "Russkiy Mir Foundation", logo: "/images/gambia/partners/russkiy-mir-transparent.png", width: 1942, height: 809, showLabel: false },
+  { name: "Volga Institute", logo: "/images/gambia/partners/volga-institute-transparent.png", width: 1435, height: 1096, showLabel: true },
+  { name: "University of The Gambia", logo: "/images/gambia/partners/university-of-the-gambia-transparent.png", width: 1222, height: 1287, showLabel: true },
 ] as const;
 
 const programImages = [
@@ -221,8 +221,7 @@ export default async function GambiaProjectPage() {
                     height={partner.height}
                     aria-hidden="true"
                   />
-                  <b>{partner.name}</b>
-                  <i aria-hidden="true">✦</i>
+                  <b className={partner.showLabel ? undefined : "sr-only"}>{partner.name}</b>
                 </span>
               ))}
             </div>
