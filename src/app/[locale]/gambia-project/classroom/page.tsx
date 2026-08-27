@@ -57,6 +57,15 @@ const visualResources = [
     altKey: "cultureVocabularyAlt",
     layout: "wide",
   },
+  {
+    src: "/images/classroom/russian-daily-routine-verbs.jpeg",
+    width: 853,
+    height: 1280,
+    titleKey: "dailyRoutineTitle",
+    summaryKey: "dailyRoutineSummary",
+    altKey: "dailyRoutineAlt",
+    layout: "portrait",
+  },
 ] as const;
 
 export async function generateMetadata(): Promise<Metadata> {
